@@ -1,0 +1,11 @@
+/Packages
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300
+/Packages.gz
+  Content-Type: application/gzip
+  Cache-Control: public, max-age=300
+/Release
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300
+/pool/*
+  Cache-Control: public, max-age=31536000, immutable

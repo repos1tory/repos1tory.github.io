@@ -1,0 +1,16 @@
+Origin: Alsinas Labs
+Label: Alsinas Labs iPad Tweaks
+Suite: ./
+Codename: alsinas-labs-ipad-tweaks
+Date: Wed, 14 Oct 2026 18:50:25 +0000
+Architectures: iphoneos-arm64
+Description: iPadOS tweaks by Alsinas Labs
+MD5Sum:
+ c8d5171012203f0a3f1faec2d833c731 1873 Packages
+ adf08ee1366eb5e7f25cfe9b7f4043a3 897 Packages.gz
+SHA1:
+ 7ecc7877d115fc324fff76adaee9834ea8e92e27 1873 Packages
+ ffa034a6c920e575779c9da1d21b57e055c02ee0 897 Packages.gz
+SHA256:
+ 3fa0d9975efa4e62171d6019d1b2f247c4b05fc8d9716fd8d6b01e8c0bbeade6 1873 Packages
+ 36852084a034e7c97db0d0a0cb02cf3ae563e165764c9636e425c0186104717c 897 Packages.gz

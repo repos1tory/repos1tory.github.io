@@ -1,0 +1,50 @@
+Package: com.alsinas.mdcontrol
+Version: 0.3.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 60
+Depends: ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/m/mdcontrol/com.alsinas.mdcontrol_0.3.0_iphoneos-arm64.deb
+Size: 10848
+MD5sum: 51500f9d2f66c202d635ce1cd2988a30
+SHA1: 2f51f2ae17c35c253aedf442d1ddd9715273a8ea
+SHA256: ea592144aafc1b5775bfd805bc613d0c9a6ade616d029d37b97c88a475ce3f52
+Section: Tweaks
+Priority: optional
+Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)
+Author: alsinas
+Name: MDControl
+
+Package: com.alsinas.multidelete
+Version: 0.1.12-1+debug
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 160
+Depends: ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/m/multidelete/com.alsinas.multidelete_0.1.12-1+debug_iphoneos-arm64.deb
+Size: 32124
+MD5sum: 5b4ee26d8c42d3bc5fc0c2c4d5c93d96
+SHA1: 8485c5aa554d62acf36b9c5861370193571638df
+SHA256: d1e5ea896ed41476167c09a5806cca0d8a5090b7b220c5aa8e39742007f424e4
+Section: Tweaks
+Description: Select and remove multiple removable Home Screen apps and web apps
+Author: alsinas
+Name: MultiDelete
+
+Package: com.alsinas.opencode-server
+Version: 2.0.28-0ios12
+Architecture: iphoneos-arm64
+Maintainer: Local OpenCode iOS build
+Installed-Size: 119580
+Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6)
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios12_iphoneos-arm64.deb
+Size: 44527140
+MD5sum: 75d05d734ee999cef6e4fc1efa57797e
+SHA1: bacae15ad3ad1bfd7115a41bbd4e1b74937fbf3b
+SHA256: c3bce458350da98317f4e1031d1042a9bdb2b7e6959c5d6a470faa36496fba05
+Section: Networking
+Priority: optional
+Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
+Name: OpenCode Server (iOS)
+
