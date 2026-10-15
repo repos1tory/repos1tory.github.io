@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>repos1tory</title>
-<meta name="description" content="repos1tory — a minimal repository for jailbroken iOS.">
+<meta name="description" content="repos1tory — a repository for jailbroken iOS.">
 <style>
   html { background: #f7f7f7; }
   body {
@@ -22,17 +22,17 @@
   }
   a { color: inherit; text-decoration: underline; }
   h1 { margin: 0; font-size: 30px; font-weight: 700; }
-  .tagline { font-style: italic; margin: 6px 0 56px; }
-  h2 { font-size: 19px; font-weight: 700; margin: 48px 0 14px; }
-  p { margin: 0 0 18px; }
-  ul { margin: 0 0 18px; padding: 0; list-style: none; }
-  li { margin: 0 0 16px; }
+  .tagline { font-style: italic; margin: 6px 0 48px; }
+  h2 { font-size: 19px; font-weight: 700; margin: 40px 0 12px; }
+  p { margin: 0 0 16px; }
+  ul { margin: 0 0 16px; padding: 0; list-style: none; }
+  li { margin: 0 0 14px; }
   .ver { font-style: italic; }
   .note { font-style: italic; }
   #mark {
     display: block;
-    width: 96px;
-    height: 96px;
+    width: 120px;
+    height: 120px;
     margin: 0 0 30px;
     image-rendering: pixelated;
   }
@@ -40,150 +40,125 @@
 </head>
 <body>
 
-<canvas id="mark" width="96" height="96" aria-hidden="true"></canvas>
+<canvas id="mark" width="120" height="120" aria-hidden="true"></canvas>
 
 <h1>repos1tory</h1>
-<p class="tagline">a minimal repository for jailbroken iOS</p>
+<p class="tagline">a repository for jailbroken iOS by <a href="https://github.com/al5ina5">Sebastian Alsina</a></p>
 
-<p>add this url to Sileo or Zebra:</p>
-<p><a href="https://repos1tory.github.io/">https://repos1tory.github.io/</a></p>
+<p><a href="sileo://source/https://repos1tory.github.io/">add to Sileo</a> · <a href="zbra://sources/add/https://repos1tory.github.io/">add to Zebra</a></p>
+<p class="note">or add this url manually: <a href="https://repos1tory.github.io/">https://repos1tory.github.io/</a></p>
 
-<h2>packages</h2>
+<h2>tweaks</h2>
+<ul>
+  <li><b>Psychosis</b> <span class="ver">0.4.28-1</span> — system-wide touch and key injection plus accessibility automation for agent control (localhost:6001). <a href="pool/main/p/psychosis/com.alsinas.psychosis_0.4.28-1_iphoneos-arm64.deb">download .deb</a></li>
+  <li><b>HomeManager</b> <span class="ver">0.2.0-13+debug</span> — select multiple removable Home Screen apps and web apps in edit mode, then remove them all in one confirmed action. <a href="pool/main/h/homemanager/com.alsinas.homemanager_0.2.0-13+debug_iphoneos-arm64.deb">download .deb</a></li>
+</ul>
+
+<h2>ports</h2>
 <ul>
   <li><b>Node.js</b> <span class="ver">22.19.0-1</span> — upstream Node.js 22 with full JIT and WebAssembly, bundled npm and npx. <a href="pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb">download .deb</a></li>
   <li><b>Wrangler</b> <span class="ver">4.151.0-1</span> — the Cloudflare Workers CLI (esbuild-wasm). deploy Workers straight from the device. <a href="pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb">download .deb</a></li>
   <li><b>OpenCode Server</b> <span class="ver">2.0.28-0ios12</span> — OpenCode agent server with a bundled web app and native home-screen app. <a href="pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios12_iphoneos-arm64.deb">download .deb</a></li>
-  <li><b>MDControl</b> <span class="ver">0.3.0</span> — local SpringBoard automation commands for taps, swipes, app launches, and accessibility snapshots. <a href="pool/main/m/mdcontrol/com.alsinas.mdcontrol_0.3.0_iphoneos-arm64.deb">download .deb</a></li>
-  <li><b>MultiDelete</b> <span class="ver">0.1.12-1+debug</span> — select and remove multiple removable Home Screen apps and web apps in one confirmed action. <a href="pool/main/m/multidelete/com.alsinas.multidelete_0.1.12-1+debug_iphoneos-arm64.deb">download .deb</a></li>
 </ul>
 
-<p class="note">all packages target iphoneos-arm64 and require a rootless jailbreak. dependencies are listed per package — install Node.js before Wrangler.</p>
-
-<p class="note">packages are served directly from this repository; updates appear after the package index is refreshed.</p>
-
 <script>
-// halftone tetrahedron — 32×32 ordered-dither paint, 30 fps, black on transparent.
+// "r1" — spinning extruded logotype, rainbow, comic-sans stack, pixelated.
 (() => {
-  const canvas = document.getElementById("mark");
-  if (!canvas) return;
-  const SIZE = 32;
+  const cv = document.getElementById("mark");
+  if (!cv) return;
+  const CSS = 120;
+  const RS = 60;
   const dpr = Math.min(2, window.devicePixelRatio || 1);
-  canvas.width = Math.round(96 * dpr);
-  canvas.height = canvas.width;
+  cv.width = Math.round(CSS * dpr);
+  cv.height = cv.width;
 
-  const ctx = canvas.getContext("2d");
+  const ctx = cv.getContext("2d");
   ctx.imageSmoothingEnabled = false;
 
   const low = document.createElement("canvas");
-  low.width = low.height = SIZE;
-  const lctx = low.getContext("2d");
-  const img = lctx.createImageData(SIZE, SIZE);
-  const px = img.data;
+  low.width = low.height = RS;
+  const l = low.getContext("2d");
+  l.textAlign = "left";
+  l.textBaseline = "middle";
 
-  const verts = [[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]]
-    .map(v => v.map(x => x / Math.sqrt(3)));
-  const faces = [[0,1,2],[0,3,1],[0,2,3],[1,3,2]];
-  const bayer = [0,8,2,10, 12,4,14,6, 3,11,1,9, 15,7,13,5].map(v => (v + 0.5) / 16);
+  const FONT = '"Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", "Marker Felt", cursive';
+  const RAINBOW = ["#ff2d2d", "#ff8c1a", "#ffd400", "#3ecf3e", "#2f7bff", "#8a4bff"];
+  const DEPTH = 12;  // extrusion layers (thick block)
+  const STEP = 1.5;  // px per layer (render scale)
 
-  const cov = new Uint8Array(SIZE * SIZE);
-  const shade = new Float32Array(SIZE * SIZE);
-  const rot = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]];
-  const proj = [[0,0],[0,0],[0,0],[0,0]];
+  l.font = `900 40px ${FONT}`;
+  const natW = l.measureText("r").width + l.measureText("1").width;
+  const fit = Math.max(10, Math.floor(40 * (42 / natW)));
+  l.font = `900 ${fit}px ${FONT}`;
+  const GAP = -3;                     // tightened letter spacing (render px)
+  const wr = l.measureText("r").width;
+  const pairW = wr + l.measureText("1").width + GAP;
+  const pairX = -pairW / 2;
+  const drawPair = (draw) => {
+    draw("r", pairX, 0);
+    draw("1", pairX + wr + GAP, 0);
+  };
 
-  const L1 = [-0.50, 0.70, 0.50], L2 = [0.60, -0.40, 0.50];
-  const L1n = Math.hypot(L1[0], L1[1], L1[2]);
-  const L2n = Math.hypot(L2[0], L2[1], L2[2]);
+  function rainbowGrad() {
+    const g = l.createLinearGradient(-20, 0, 20, 0);
+    RAINBOW.forEach((c, i) => g.addColorStop(i / (RAINBOW.length - 1), c));
+    return g;
+  }
+  const grad = rainbowGrad();
 
   function frame(t) {
-    cov.fill(0);
+    const yaw = t * 1.8;   // original straight spin
+    const phi = 0;         // no wobble
+    const cs = Math.cos(yaw), sn = Math.sin(yaw);
+    let sx = cs;
+    if (Math.abs(sx) < 0.06) sx = cs < 0 ? -0.06 : 0.06;
 
-    const a = t * 0.9;
-    const tilt = 0.32 + Math.sin(t * 0.23) * 0.07;
-    const ca = Math.cos(a), sa = Math.sin(a);
-    const ct = Math.cos(tilt), st = Math.sin(tilt);
-    const scale = SIZE * 0.30, P = 4.2;
+    l.clearRect(0, 0, RS, RS);
 
-    for (let i = 0; i < 4; i++) {
-      const v = verts[i];
-      const x = v[0]*ca + v[2]*sa;
-      const z = -v[0]*sa + v[2]*ca;
-      const y = v[1]*ct - z*st;
-      const zz = v[1]*st + z*ct;
-      rot[i] = [x, y, zz];
-      const f = P / (P - zz);
-      proj[i] = [SIZE/2 + x*f*scale, SIZE/2 - y*f*scale];
-    }
+    l.save();
+    l.translate(RS / 2, RS / 2);
+    l.rotate(phi);
 
-    // painter's algorithm: back faces first
-    const order = [0,1,2,3].sort((A,B) =>
-      (rot[faces[A][0]][2]+rot[faces[A][1]][2]+rot[faces[A][2]][2]) -
-      (rot[faces[B][0]][2]+rot[faces[B][1]][2]+rot[faces[B][2]][2]));
+    const order = [];
+    for (let i = DEPTH; i >= 0; i--) order.push(i);
+    if (cs < 0) order.reverse();
 
-    for (const fi of order) {
-      const [i0,i1,i2] = faces[fi];
-      const ux = rot[i1][0]-rot[i0][0], uy = rot[i1][1]-rot[i0][1], uz = rot[i1][2]-rot[i0][2];
-      const wx = rot[i2][0]-rot[i0][0], wy = rot[i2][1]-rot[i0][1], wz = rot[i2][2]-rot[i0][2];
-      let nx = uy*wz-uz*wy, ny = uz*wx-ux*wz, nz = ux*wy-uy*wx;
-      const nl = Math.hypot(nx, ny, nz) || 1;
-      nx /= nl; ny /= nl; nz /= nl;
-      if (nz < 0) { nx = -nx; ny = -ny; nz = -nz; }
-      if (nz < 0.001) continue;
-
-      const d1 = Math.max(0, (nx*L1[0] + ny*L1[1] + nz*L1[2]) / L1n);
-      const d2 = Math.max(0, (nx*L2[0] + ny*L2[1] + nz*L2[2]) / L2n);
-      const s = Math.min(0.86, 0.10 + 0.58*(1 - d1) + 0.14*(1 - d2));
-
-      const ax = proj[i0][0], ay = proj[i0][1];
-      const bx = proj[i1][0], by = proj[i1][1];
-      const cx = proj[i2][0], cy = proj[i2][1];
-      const den = (by-cy)*(ax-cx) + (cx-bx)*(ay-cy);
-      if (Math.abs(den) < 1e-6) continue;
-
-      const minx = Math.max(0, Math.floor(Math.min(ax,bx,cx)));
-      const maxx = Math.min(SIZE-1, Math.ceil(Math.max(ax,bx,cx)));
-      const miny = Math.max(0, Math.floor(Math.min(ay,by,cy)));
-      const maxy = Math.min(SIZE-1, Math.ceil(Math.max(ay,by,cy)));
-      for (let y = miny; y <= maxy; y++) {
-        for (let x = minx; x <= maxx; x++) {
-          const w0 = ((by-cy)*(x+0.5-cx) + (cx-bx)*(y+0.5-cy)) / den;
-          const w1 = ((cy-ay)*(x+0.5-cx) + (ax-cx)*(y+0.5-cy)) / den;
-          const w2 = 1 - w0 - w1;
-          if (w0 < -0.001 || w1 < -0.001 || w2 < -0.001) continue;
-          const idx = y*SIZE + x;
-          cov[idx] = 1;
-          shade[idx] = s;
-        }
+    for (const i of order) {
+      const xo = -i * STEP * sn;                          // depth offset follows the spin
+      const dist = cs >= 0 ? i : DEPTH - i;               // layers from the camera-facing face
+      const dark = dist === 0 ? 0 : 0.20 + 0.50 * ((dist - 1) / (DEPTH - 1));
+      l.save();
+      l.translate(xo, 0);
+      l.scale(sx, 1);
+      l.fillStyle = grad;
+      drawPair(l.fillText.bind(l));
+      if (dark > 0) {
+        l.fillStyle = "rgba(17,17,17," + Math.min(0.72, dark) + ")";
+        drawPair(l.fillText.bind(l));
       }
-    }
-
-    for (let y = 0; y < SIZE; y++) {
-      for (let x = 0; x < SIZE; x++) {
-        const idx = y*SIZE + x, o = idx*4;
-        let ink = false;
-        if (cov[idx]) {
-          const edge = x === 0 || y === 0 || x === SIZE-1 || y === SIZE-1 ||
-                       !cov[idx-1] || !cov[idx+1] || !cov[idx-SIZE] || !cov[idx+SIZE];
-          ink = edge || shade[idx] > bayer[(y & 3)*4 + (x & 3)];
-        }
-        px[o] = 17; px[o+1] = 17; px[o+2] = 17;
-        px[o+3] = ink ? 255 : 0;
+      if ((cs >= 0 && i === 0) || (cs < 0 && i === DEPTH)) { // camera-facing face gets the ink outline
+        l.lineWidth = 1.4;
+        l.strokeStyle = "#111";
+        drawPair(l.strokeText.bind(l));
       }
+      l.restore();
     }
 
-    lctx.putImageData(img, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(low, 0, 0, SIZE, SIZE, 0, 0, canvas.width, canvas.height);
+    l.restore();
+
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.drawImage(low, 0, 0, RS, RS, 0, 0, cv.width, cv.height);
   }
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    frame(2.7); // one clean pose, no motion
+    frame(0.45);
     return;
   }
 
-  const STEP = 1000 / 30; // 30 fps
+  const STEP_MS = 1000 / 30; // 30 fps
   let last = -Infinity;
   const tick = (now) => {
-    if (now - last >= STEP) {
+    if (now - last >= STEP_MS) {
       last = now;
       frame(now / 1000);
     }

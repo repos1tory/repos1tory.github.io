@@ -1,3 +1,21 @@
+Package: com.alsinas.homemanager
+Version: 0.2.0-13+debug
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 164
+Depends: ellekit (>= 1.2), firmware (>= 15.0)
+Conflicts: com.alsinas.multidelete
+Replaces: com.alsinas.multidelete
+Filename: pool/main/h/homemanager/com.alsinas.homemanager_0.2.0-13+debug_iphoneos-arm64.deb
+Size: 34610
+MD5sum: e8d273018645fbb58487244fe4accd5b
+SHA1: c5c0ff3c8fe2e7169b8f77175741832d58eeb335
+SHA256: 729982419e37b9a5f7939fb62638abe5d01cceb3738e9dac88c365360394fe5e
+Section: Tweaks
+Description: Select and remove multiple removable Home Screen apps and web apps
+Author: alsinas
+Name: HomeManager
+
 Package: com.alsinas.mdcontrol
 Version: 0.3.0
 Architecture: iphoneos-arm64
@@ -47,6 +65,25 @@ Priority: optional
 Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
  The server starts through launchd and has an OpenCode Server settings pane.
 Name: OpenCode Server (iOS)
+
+Package: com.alsinas.psychosis
+Version: 0.4.28-1
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 60
+Depends: ellekit (>= 1.2), firmware (>= 15.0)
+Conflicts: com.alsinas.mdcontrol
+Replaces: com.alsinas.mdcontrol
+Filename: pool/main/p/psychosis/com.alsinas.psychosis_0.4.28-1_iphoneos-arm64.deb
+Size: 25060
+MD5sum: 96d35a9694293e4db328caa7da5fd3b8
+SHA1: 1e7091192474e91b70e20626dad64e0e4fd1034c
+SHA256: acefb6a210cc430bc5379cdc5dbd8b9f914f99b439124f848ed3b07ce22da51d
+Section: Tweaks
+Priority: optional
+Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)
+Author: alsinas
+Name: Psychosis
 
 Package: nodejs
 Version: 22.19.0-1
