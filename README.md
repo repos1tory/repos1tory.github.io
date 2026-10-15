@@ -1,4 +1,4 @@
-# arch1ve
+# repos1tory
 
 a minimal repository for jailbroken iOS. Add this URL to Sileo or Zebra:
 

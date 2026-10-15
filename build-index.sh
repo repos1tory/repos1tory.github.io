@@ -9,10 +9,10 @@ dpkg-scanpackages --multiversion pool /dev/null > Packages
 gzip -n -9 < Packages > Packages.gz
 
 {
-  printf 'Origin: arch1ve\n'
-  printf 'Label: arch1ve\n'
+  printf 'Origin: repos1tory\n'
+  printf 'Label: repos1tory\n'
   printf 'Suite: ./\n'
-  printf 'Codename: arch1ve\n'
+  printf 'Codename: repos1tory\n'
   printf 'Date: %s\n' "$(date -Ru)"
   printf 'Architectures: iphoneos-arm64\n'
   printf 'Description: a minimal repository for jailbroken iOS\n'

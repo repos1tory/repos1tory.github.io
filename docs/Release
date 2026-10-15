@@ -1,8 +1,8 @@
-Origin: arch1ve
-Label: arch1ve
+Origin: repos1tory
+Label: repos1tory
 Suite: ./
-Codename: arch1ve
-Date: Thu, 15 Oct 2026 20:54:30 +0000
+Codename: repos1tory
+Date: Thu, 15 Oct 2026 21:07:25 +0000
 Architectures: iphoneos-arm64
 Description: a minimal repository for jailbroken iOS
 MD5Sum:
