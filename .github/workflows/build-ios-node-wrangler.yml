@@ -98,6 +98,14 @@ jobs:
         run: |
           set -euxo pipefail
           export CCACHE_DIR="$HOME/.ccache"
+          # V8 13 (Node 24) uses C++20 paren-init aggregates in headers included
+          # by HOST TUs (e.g. deps/v8/src/wasm/value-type.h), but gyp-make only
+          # sets -std=gnu++20 for the Linux/Android flavors and Apple clang
+          # defaults to gnu++17 -- so host objects failed with
+          # "no matching conversion ... to 'TypeIndex'". Force the standard on
+          # both host and target compile lines (last -std wins).
+          export CXXFLAGS="-std=gnu++20"
+          export CXXFLAGS_host="-std=gnu++20"
           set +e
           make -j2 2>&1 | tee build.log
           rc=${PIPESTATUS[0]}
@@ -128,16 +136,16 @@ jobs:
           cp node-src/LICENSE "$root/usr/share/doc/nodejs/copyright"
           cp ports/nodejs-ios/README.md "$root/usr/share/doc/nodejs/README.port"
           cat > "$root/usr/bin/node" <<'EOF'
-          #!/bin/sh
-          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded "$@"
+          #!/var/jb/bin/sh
+          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler "$@"
           EOF
           cat > "$root/usr/bin/npm" <<'EOF'
-          #!/bin/sh
-          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded /var/jb/usr/lib/node_modules/npm/bin/npm-cli.js "$@"
+          #!/var/jb/bin/sh
+          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler /var/jb/usr/lib/node_modules/npm/bin/npm-cli.js "$@"
           EOF
           cat > "$root/usr/bin/npx" <<'EOF'
-          #!/bin/sh
-          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded /var/jb/usr/lib/node_modules/npm/bin/npx-cli.js "$@"
+          #!/var/jb/bin/sh
+          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler /var/jb/usr/lib/node_modules/npm/bin/npx-cli.js "$@"
           EOF
           chmod 755 "$root/usr/bin/node" "$root/usr/bin/npm" "$root/usr/bin/npx" "$root/usr/lib/nodejs/node"
           cat > "$root/DEBIAN/control" <<EOF
@@ -156,6 +164,7 @@ jobs:
       - name: Assemble Wrangler for iOS
         run: |
           set -euxo pipefail
+          node_version="${NODE_REF#v}"
           install_root="$RUNNER_TEMP/wrangler-install"
           root="$RUNNER_TEMP/wrangler-pkg"
           mkdir -p "$install_root" "$root/DEBIAN" "$root/usr/bin" "$root/usr/lib"
@@ -165,8 +174,8 @@ jobs:
           cp -R "$install_root/node_modules" "$root/usr/lib/node_modules"
           cp ports/wrangler/workerd-ios-unavailable "$root/usr/bin/workerd-ios-unavailable"
           cat > "$root/usr/bin/wrangler" <<'EOF'
-          #!/bin/sh
-          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded /var/jb/usr/lib/node_modules/wrangler/bin/wrangler.js "$@"
+          #!/var/jb/bin/sh
+          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler /var/jb/usr/lib/node_modules/wrangler/bin/wrangler.js "$@"
           EOF
           chmod 755 "$root/usr/bin/wrangler" "$root/usr/bin/workerd-ios-unavailable"
           cat > "$root/DEBIAN/control" <<EOF
@@ -176,7 +185,7 @@ jobs:
           Maintainer: Alsinas Labs
           Section: Development
           Priority: optional
-          Depends: firmware (>= 15.0), nodejs (>= 24.22.0)
+          Depends: firmware (>= 15.0), nodejs (>= ${node_version})
           Description: Cloudflare Wrangler CLI for jailbroken iOS arm64
            API, authentication, and deployment CLI. Local wrangler dev is unavailable
            because Cloudflare workerd has no iOS runtime build.

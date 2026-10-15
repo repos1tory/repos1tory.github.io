@@ -113,8 +113,20 @@
             <p>OpenCode agent server with a bundled web app and native home-screen app for jailbroken iPadOS.</p>
             <div class="version">2.0.28-0ios12 <a href="pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios12_iphoneos-arm64.deb">Download .deb</a></div>
           </article>
+          <article>
+            <div class="package-id">nodejs</div>
+            <h3>Node.js 22</h3>
+            <p>Upstream Node.js with full JIT and WebAssembly for arm64 jailbroken iOS. Bundles npm and npx.</p>
+            <div class="version">22.19.0-1 <a href="pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb">Download .deb</a></div>
+          </article>
+          <article>
+            <div class="package-id">wrangler-ios</div>
+            <h3>Wrangler</h3>
+            <p>Cloudflare Workers CLI (esbuild-wasm). Deploy Workers straight from the device; local <code>wrangler dev</code> is unavailable.</p>
+            <div class="version">4.151.0-1 <a href="pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb">Download .deb</a></div>
+          </article>
         </div>
-        <p class="install-note">Add the repository once in Sileo or Zebra, then search for a package. These packages require an arm64 jailbreak environment; dependencies are listed in each package.</p>
+        <p class="install-note">Add the repository once in Sileo or Zebra, then search for a package. These packages require an arm64 jailbreak environment; dependencies are listed in each package. After installing nodejs + wrangler-ios you can authenticate with <code>wrangler login --device</code> and deploy with <code>wrangler deploy</code>.</p>
       </section>
 
       <footer>Packages are served directly from this repository. Updates appear after the package index is refreshed.</footer>

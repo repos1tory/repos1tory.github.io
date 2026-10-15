@@ -48,3 +48,43 @@ Description: OpenCode agent server and home-screen app for rootless jailbroken i
  The server starts through launchd and has an OpenCode Server settings pane.
 Name: OpenCode Server (iOS)
 
+Package: nodejs
+Version: 22.19.0-1
+Architecture: iphoneos-arm64
+Maintainer: Alsinas Labs
+Depends: firmware (>= 15.0)
+Filename: pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb
+Size: 16238440
+MD5sum: 520f32d9c168e877ce2e6b8b75c70061
+SHA1: 3ac3aed2eb87306e5ce696804f08042f6c2b74c5
+SHA256: b1502e99c5065c6c13f5afac00e99cf25e0009009a22b4736dcbbd763f0f4b06
+Section: Development
+Priority: optional
+Homepage: https://github.com/al5ina5/node-ios
+Description: Node.js 22.19.0 runtime for jailbroken iOS arm64
+ Experimental upstream Node.js port with W^X JIT support for iOS.
+ Ships full JIT (TurboFan) + WebAssembly. The node/npm/npx wrappers pass
+ --predictable --single-threaded (safe process-wide mprotect W^X flips) and
+ --disable-wasm-trap-handler (avoids V8's 10GB guarded wasm-memory reservation,
+ which iOS's per-process VA cap rejects).
+
+Package: wrangler-ios
+Version: 4.151.0-1
+Architecture: iphoneos-arm64
+Maintainer: Alsinas Labs
+Depends: firmware (>= 15.0), nodejs (>= 22.19.0)
+Filename: pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb
+Size: 8276712
+MD5sum: 149acbef479eb98d142f1c5ecfb5d60c
+SHA1: 0a927274ad463b2020d5501bf19eb9c8102e7b03
+SHA256: bd36c0ce092eccb6a23ee982766d19bbcb25853801841a041d43ba2c005b8ac2
+Section: Development
+Priority: optional
+Homepage: https://github.com/al5ina5/wrangler-ios
+Description: Cloudflare Wrangler CLI for jailbroken iOS arm64
+ API, authentication, and deployment CLI. Bundles esbuild-wasm (no native
+ esbuild binary needed) and defers workerd's unsupported-platform error so
+ deploy commands run on iOS. Authenticate with "wrangler login --device";
+ local "wrangler dev" is unavailable because Cloudflare workerd has no iOS
+ runtime build.
+

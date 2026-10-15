@@ -2,15 +2,15 @@ Origin: Alsinas Labs
 Label: Alsinas Labs iPad Tweaks
 Suite: ./
 Codename: alsinas-labs-ipad-tweaks
-Date: Wed, 14 Oct 2026 18:50:25 +0000
+Date: Thu, 15 Oct 2026 20:46:29 +0000
 Architectures: iphoneos-arm64
 Description: iPadOS tweaks by Alsinas Labs
 MD5Sum:
- c8d5171012203f0a3f1faec2d833c731 1873 Packages
- adf08ee1366eb5e7f25cfe9b7f4043a3 897 Packages.gz
+ 5b17de231f6db273f052313adb797794 3580 Packages
+ 5b3603b674b47f19a29420a5e5c34a4c 1654 Packages.gz
 SHA1:
- 7ecc7877d115fc324fff76adaee9834ea8e92e27 1873 Packages
- ffa034a6c920e575779c9da1d21b57e055c02ee0 897 Packages.gz
+ 5c81026c4848f50c497d54386a4ec30c951cef54 3580 Packages
+ 6595c0db3eca21b772af1ba50024907f45a38d70 1654 Packages.gz
 SHA256:
- 3fa0d9975efa4e62171d6019d1b2f247c4b05fc8d9716fd8d6b01e8c0bbeade6 1873 Packages
- 36852084a034e7c97db0d0a0cb02cf3ae563e165764c9636e425c0186104717c 897 Packages.gz
+ 076973d25232bb948745f68cc4f50dce3aa3fa0781811ced64f465cc44a48259 3580 Packages
+ cc70110d681f08ae22eff27bb2b3097d592c76165a0c3b48e1b4f79c6257dca0 1654 Packages.gz
