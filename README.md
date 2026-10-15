@@ -2,7 +2,7 @@
 
 a minimal repository for jailbroken iOS. Add this URL to Sileo or Zebra:
 
-`https://al5ina5.github.io/arch1ve/`
+`https://repos1tory.github.io/`
 
 ## Packages
 
