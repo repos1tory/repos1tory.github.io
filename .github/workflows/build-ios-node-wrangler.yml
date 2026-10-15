@@ -1,0 +1,202 @@
+name: Build iOS Node.js and Wrangler packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      node_ref:
+        description: "Upstream Node.js tag"
+        required: true
+        default: "v24.22.0"
+      wrangler_version:
+        description: "Cloudflare Wrangler npm version"
+        required: true
+        default: "4.151.0"
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NODE_REF: ${{ inputs.node_ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check source patch anchors against upstream Node.js
+        run: |
+          git clone --depth 1 --branch "$NODE_REF" https://github.com/nodejs/node.git node-src
+          bash ports/nodejs-ios/ios-source-fixups.sh node-src
+          git -C node-src diff --check
+
+  build:
+    needs: preflight
+    runs-on: macos-14
+    timeout-minutes: 180
+    env:
+      NODE_REF: ${{ inputs.node_ref }}
+      WRANGLER_VERSION: ${{ inputs.wrangler_version }}
+      IOS_MIN: "15.0"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.22.0"
+
+      - name: Install build tools
+        run: |
+          set -euxo pipefail
+          xcrun --sdk iphoneos --show-sdk-path
+          brew list ldid >/dev/null 2>&1 || brew install ldid
+          brew list ccache >/dev/null 2>&1 || brew install ccache
+          brew list dpkg >/dev/null 2>&1 || brew install dpkg
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.ccache
+          key: node-ios-${{ inputs.node_ref }}-${{ github.run_id }}
+          restore-keys: |
+            node-ios-${{ inputs.node_ref }}-
+            node-ios-
+
+      - name: Fetch upstream Node.js
+        run: git clone --depth 1 --branch "$NODE_REF" https://github.com/nodejs/node.git node-src
+
+      - name: Apply iOS port patches
+        run: bash ports/nodejs-ios/ios-source-fixups.sh node-src
+
+      - name: Configure iOS arm64 cross-build
+        working-directory: node-src
+        run: |
+          set -euxo pipefail
+          export IPHONEOS_DEPLOYMENT_TARGET="$IOS_MIN"
+          SDK="$(xcrun --sdk iphoneos --show-sdk-path)"
+          export CCACHE_DIR="$HOME/.ccache" CCACHE_MAXSIZE=4G
+          export CC="ccache clang -arch arm64 -isysroot $SDK -miphoneos-version-min=$IOS_MIN"
+          export CXX="ccache clang++ -std=gnu++20 -arch arm64 -isysroot $SDK -miphoneos-version-min=$IOS_MIN"
+          export CC_host="ccache clang"
+          export CXX_host="ccache clang++ -std=gnu++20"
+          export LDFLAGS="-arch arm64 -isysroot $SDK -miphoneos-version-min=$IOS_MIN"
+          export GYP_DEFINES="target_arch=arm64 host_arch=arm64 host_os=mac target_os=ios"
+          python3 configure \
+            --dest-os=ios --dest-cpu=arm64 --cross-compiling \
+            --with-intl=small-icu \
+            --without-node-snapshot --without-node-code-cache --without-inspector \
+            --openssl-no-asm
+
+      - name: Build Node.js
+        working-directory: node-src
+        run: |
+          set -euxo pipefail
+          export CCACHE_DIR="$HOME/.ccache"
+          set +e
+          make -j2 2>&1 | tee build.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          if [ "$rc" -ne 0 ]; then
+            grep -nE "error:|fatal error|Error [0-9]|ld: |Undefined symbols|clang: error" build.log \
+              | grep -viE "no newline|Wnewline-eof|#warning|_GLIBCXX" | tail -60 || true
+            exit "$rc"
+          fi
+          test -s out/Release/node
+
+      - name: Sign and inspect Node.js
+        working-directory: node-src
+        run: |
+          set -euxo pipefail
+          ldid -S../ports/nodejs-ios/entitlements.plist out/Release/node
+          otool -l out/Release/node | grep -A4 -E "LC_BUILD_VERSION|LC_VERSION_MIN_IPHONEOS"
+          shasum -a 256 out/Release/node
+
+      - name: Package Node.js and bundled npm
+        run: |
+          set -euxo pipefail
+          version="${NODE_REF#v}"
+          root="$RUNNER_TEMP/nodejs-pkg"
+          mkdir -p "$root/DEBIAN" "$root/usr/bin" "$root/usr/lib/nodejs" "$root/usr/lib/node_modules" "$root/usr/share/doc/nodejs"
+          cp node-src/out/Release/node "$root/usr/lib/nodejs/node"
+          cp -R node-src/deps/npm "$root/usr/lib/node_modules/npm"
+          cp node-src/LICENSE "$root/usr/share/doc/nodejs/copyright"
+          cp ports/nodejs-ios/README.md "$root/usr/share/doc/nodejs/README.port"
+          cat > "$root/usr/bin/node" <<'EOF'
+          #!/bin/sh
+          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded "$@"
+          EOF
+          cat > "$root/usr/bin/npm" <<'EOF'
+          #!/bin/sh
+          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded /var/jb/usr/lib/node_modules/npm/bin/npm-cli.js "$@"
+          EOF
+          cat > "$root/usr/bin/npx" <<'EOF'
+          #!/bin/sh
+          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded /var/jb/usr/lib/node_modules/npm/bin/npx-cli.js "$@"
+          EOF
+          chmod 755 "$root/usr/bin/node" "$root/usr/bin/npm" "$root/usr/bin/npx" "$root/usr/lib/nodejs/node"
+          cat > "$root/DEBIAN/control" <<EOF
+          Package: nodejs
+          Version: ${version}-1
+          Architecture: iphoneos-arm64
+          Maintainer: Alsinas Labs
+          Section: Development
+          Priority: optional
+          Depends: firmware (>= 15.0)
+          Description: Node.js ${version} runtime for jailbroken iOS arm64
+           Experimental upstream Node.js port with W^X JIT support for iOS.
+          EOF
+          dpkg-deb --build --root-owner-group "$root" "$RUNNER_TEMP/nodejs_${version}-1_iphoneos-arm64.deb"
+
+      - name: Assemble Wrangler for iOS
+        run: |
+          set -euxo pipefail
+          install_root="$RUNNER_TEMP/wrangler-install"
+          root="$RUNNER_TEMP/wrangler-pkg"
+          mkdir -p "$install_root" "$root/DEBIAN" "$root/usr/bin" "$root/usr/lib"
+          cp ports/wrangler/package.json ports/wrangler/package-lock.json "$install_root/"
+          (cd "$install_root" && npm ci --omit=optional --ignore-scripts --no-audit --no-fund)
+          node ports/wrangler/patch-ios-workerd.mjs "$install_root/node_modules"
+          cp -R "$install_root/node_modules" "$root/usr/lib/node_modules"
+          cp ports/wrangler/workerd-ios-unavailable "$root/usr/bin/workerd-ios-unavailable"
+          cat > "$root/usr/bin/wrangler" <<'EOF'
+          #!/bin/sh
+          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded /var/jb/usr/lib/node_modules/wrangler/bin/wrangler.js "$@"
+          EOF
+          chmod 755 "$root/usr/bin/wrangler" "$root/usr/bin/workerd-ios-unavailable"
+          cat > "$root/DEBIAN/control" <<EOF
+          Package: wrangler-ios
+          Version: ${WRANGLER_VERSION}-1
+          Architecture: iphoneos-arm64
+          Maintainer: Alsinas Labs
+          Section: Development
+          Priority: optional
+          Depends: firmware (>= 15.0), nodejs (>= 24.22.0)
+          Description: Cloudflare Wrangler CLI for jailbroken iOS arm64
+           API, authentication, and deployment CLI. Local wrangler dev is unavailable
+           because Cloudflare workerd has no iOS runtime build.
+          EOF
+          dpkg-deb --build --root-owner-group "$root" "$RUNNER_TEMP/wrangler-ios_${WRANGLER_VERSION}-1_iphoneos-arm64.deb"
+
+      - name: Smoke-test Wrangler package on build host
+        run: |
+          set -euxo pipefail
+          modules="$RUNNER_TEMP/wrangler-pkg/usr/lib/node_modules"
+          node --check "$modules/wrangler/bin/wrangler.js"
+          node -e 'const p=require("./ports/wrangler/package.json"); console.log("wrangler",p.dependencies.wrangler,"esbuild wasm",p.dependencies.esbuild)'
+          node -e 'const e=require(process.argv[1]); e.transform("const x: number = 42", {loader:"ts"}).then(r=>{if(!r.code.includes("42"))process.exit(1); console.log("ESBUILD_WASM_OK")})' "$modules/esbuild/lib/main.js"
+          node -e 'const entry=process.argv[1]; Object.defineProperty(process,"platform",{value:"ios"}); process.argv=[process.execPath,entry,"--version"]; require(entry)' "$modules/wrangler/bin/wrangler.js"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-node-wrangler-packages
+          path: |
+            ${{ runner.temp }}/nodejs_*-iphoneos-arm64.deb
+            ${{ runner.temp }}/wrangler-ios_*-iphoneos-arm64.deb
+          if-no-files-found: error
+          retention-days: 14

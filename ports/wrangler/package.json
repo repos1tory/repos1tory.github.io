@@ -1,0 +1,9 @@
+{
+  "name": "wrangler-ios-runtime",
+  "private": true,
+  "description": "Wrangler CLI dependencies packaged for jailbroken iOS",
+  "dependencies": {
+    "esbuild": "npm:esbuild-wasm@0.28.2",
+    "wrangler": "4.151.0"
+  }
+}
