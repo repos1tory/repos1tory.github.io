@@ -191,6 +191,21 @@ jobs:
           node -e 'const p=require("./ports/wrangler/package.json"); console.log("wrangler",p.dependencies.wrangler,"esbuild wasm",p.dependencies.esbuild)'
           node -e 'const e=require(process.argv[1]); e.transform("const x: number = 42", {loader:"ts"}).then(r=>{if(!r.code.includes("42"))process.exit(1); console.log("ESBUILD_WASM_OK")})' "$modules/esbuild/lib/main.js"
           node -e 'const entry=process.argv[1]; Object.defineProperty(process,"platform",{value:"ios"}); process.argv=[process.execPath,entry,"--version"]; require(entry)' "$modules/wrangler/bin/wrangler.js"
+          fixture="$RUNNER_TEMP/wrangler-smoke"
+          outdir="$RUNNER_TEMP/wrangler-smoke-output"
+          mkdir -p "$fixture"
+          cat > "$fixture/wrangler.toml" <<'EOF'
+          name = "ios-port-smoke"
+          main = "index.js"
+          compatibility_date = "2026-10-12"
+          EOF
+          cat > "$fixture/index.js" <<'EOF'
+          export default { fetch() { return new Response("ok"); } };
+          EOF
+          (cd "$fixture" && WRANGLER_HOME="$RUNNER_TEMP/wrangler-home" \
+            node -e 'const entry=process.argv[1]; const args=process.argv.slice(2); Object.defineProperty(process,"platform",{value:"ios"}); process.argv=[process.execPath,entry,...args]; require(entry)' \
+            "$modules/wrangler/bin/wrangler.js" deploy --dry-run --outdir "$outdir")
+          test -n "$(find "$outdir" -type f -print -quit)"
 
       - uses: actions/upload-artifact@v4
         with:
