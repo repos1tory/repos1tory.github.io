@@ -9,13 +9,13 @@ dpkg-scanpackages --multiversion pool /dev/null > Packages
 gzip -n -9 < Packages > Packages.gz
 
 {
-  printf 'Origin: Alsinas Labs\n'
-  printf 'Label: Alsinas Labs iPad Tweaks\n'
+  printf 'Origin: arch1ve\n'
+  printf 'Label: arch1ve\n'
   printf 'Suite: ./\n'
-  printf 'Codename: alsinas-labs-ipad-tweaks\n'
+  printf 'Codename: arch1ve\n'
   printf 'Date: %s\n' "$(date -Ru)"
   printf 'Architectures: iphoneos-arm64\n'
-  printf 'Description: iPadOS tweaks by Alsinas Labs\n'
+  printf 'Description: a minimal repository for jailbroken iOS\n'
   for section in MD5Sum SHA1 SHA256; do
     printf '%s:\n' "$section"
     for file in Packages Packages.gz; do

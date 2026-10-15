@@ -1,10 +1,10 @@
-Origin: Alsinas Labs
-Label: Alsinas Labs iPad Tweaks
+Origin: arch1ve
+Label: arch1ve
 Suite: ./
-Codename: alsinas-labs-ipad-tweaks
-Date: Thu, 15 Oct 2026 20:46:29 +0000
+Codename: arch1ve
+Date: Thu, 15 Oct 2026 20:54:30 +0000
 Architectures: iphoneos-arm64
-Description: iPadOS tweaks by Alsinas Labs
+Description: a minimal repository for jailbroken iOS
 MD5Sum:
  5b17de231f6db273f052313adb797794 3580 Packages
  5b3603b674b47f19a29420a5e5c34a4c 1654 Packages.gz

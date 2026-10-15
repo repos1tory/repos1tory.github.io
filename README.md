@@ -1,8 +1,8 @@
-# Alsinas Labs iPad Tweaks
+# arch1ve
 
-Public APT repository for Alsinas Labs iPadOS packages. Add this URL to Sileo or Zebra:
+a minimal repository for jailbroken iOS. Add this URL to Sileo or Zebra:
 
-`https://al5ina5.github.io/alsinas-labs-ipad-tweaks/`
+`https://al5ina5.github.io/arch1ve/`
 
 ## Packages
 

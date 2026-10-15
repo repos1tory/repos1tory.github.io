@@ -1,151 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#10151c">
-    <meta name="description" content="Install Alsinas Labs iPadOS tweaks from Sileo or Zebra.">
-    <title>Alsinas Labs — iPad Tweaks</title>
-    <style>
-      :root {
-        color-scheme: dark;
-        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #10151c;
-        color: #edf2f7;
-        font-synthesis: none;
-        text-rendering: optimizeLegibility;
-      }
-      * { box-sizing: border-box; }
-      body {
-        min-width: 320px;
-        min-height: 100vh;
-        margin: 0;
-        background:
-          radial-gradient(ellipse at 12% 5%, rgba(53, 123, 172, .22), transparent 34rem),
-          radial-gradient(ellipse at 90% 42%, rgba(50, 137, 118, .12), transparent 30rem),
-          #10151c;
-      }
-      main { width: min(900px, calc(100% - 36px)); margin: 0 auto; padding: 76px 0 54px; }
-      .eyebrow { color: #88c5d6; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-      h1 { margin: 14px 0 12px; font-size: clamp(2.3rem, 7vw, 4.1rem); letter-spacing: -.055em; line-height: 1.03; }
-      .intro { max-width: 580px; color: #abb7c5; font-size: 1.08rem; line-height: 1.65; }
-      .source-panel {
-        display: flex; align-items: center; justify-content: space-between; gap: 16px;
-        margin: 34px 0 46px; padding: 18px 20px; border: 1px solid #2b3948; border-radius: 14px;
-        background: rgba(22, 31, 41, .82); box-shadow: 0 18px 50px rgba(0, 0, 0, .18);
-      }
-      .source-label { display: block; margin-bottom: 7px; color: #8493a3; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; }
-      code { color: #d4e5ec; font-size: .95rem; overflow-wrap: anywhere; }
-      .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 19px; }
-      a.button, button.button {
-        display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px;
-        border: 1px solid #405367; border-radius: 9px; background: #1c2a38; color: #edf6fa;
-        font: inherit; font-size: .9rem; font-weight: 650; text-decoration: none; cursor: pointer;
-        transition: background .15s ease, border-color .15s ease, transform .15s ease;
-      }
-      a.button:hover, button.button:hover { transform: translateY(-1px); border-color: #77bfd0; background: #24394a; }
-      a.primary { border-color: #76c0d0; background: #9bd9df; color: #0f2029; }
-      a.primary:hover { border-color: #b5edf0; background: #b5edf0; }
-      .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
-      h2 { margin: 0; font-size: 1.32rem; letter-spacing: -.025em; }
-      .arch { color: #8291a0; font-size: .78rem; }
-      .packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
-      article {
-        display: flex; flex-direction: column; min-height: 205px; padding: 20px;
-        border: 1px solid #2b3948; border-radius: 13px; background: rgba(22, 31, 41, .8);
-      }
-      .package-id { color: #88c5d6; font: .78rem ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
-      h3 { margin: 13px 0 6px; font-size: 1.2rem; }
-      article p { margin: 0 0 15px; color: #aab6c3; line-height: 1.5; }
-      .version { margin-top: auto; color: #8291a0; font-size: .84rem; }
-      .version a { margin-left: 8px; color: #a9d9e1; text-decoration: none; }
-      .install-note { margin: 20px 0 0; color: #8795a3; font-size: .9rem; line-height: 1.6; }
-      footer { margin-top: 54px; padding-top: 19px; border-top: 1px solid #27333e; color: #6f7e8d; font-size: .82rem; }
-      @media (max-width: 620px) {
-        main { padding-top: 48px; }
-        .source-panel { align-items: flex-start; flex-direction: column; }
-        .packages { grid-template-columns: 1fr; }
-        .arch { max-width: 120px; text-align: right; }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <header>
-        <div class="eyebrow">Alsinas Labs · Package source</div>
-        <h1>Alsinas Labs</h1>
-        <p class="intro">A small collection of iPadOS utilities, ready to add to your package manager.</p>
-      </header>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arch1ve</title>
+<meta name="description" content="arch1ve — a minimal repository for jailbroken iOS.">
+<style>
+  html { background: #faf9f4; }
+  body {
+    margin: 0;
+    padding: 104px 72px 136px;
+    max-width: 44rem;
+    background: #faf9f4;
+    color: #1c1b19;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+  @media (max-width: 700px) {
+    body { padding: 64px 28px 96px; font-size: 18px; }
+  }
+  a { color: inherit; text-decoration: underline; }
+  h1 { margin: 0; font-size: 30px; font-weight: 700; }
+  .tagline { font-style: italic; margin: 6px 0 56px; }
+  h2 { font-size: 19px; font-weight: 700; margin: 48px 0 14px; }
+  p { margin: 0 0 18px; }
+  ul { margin: 0 0 18px; padding: 0; list-style: none; }
+  li { margin: 0 0 16px; }
+  .ver { font-style: italic; }
+  .note { font-style: italic; }
+</style>
+</head>
+<body>
 
-      <section class="source-panel" aria-labelledby="source-label">
-        <div>
-          <span class="source-label" id="source-label">Repository URL</span>
-          <code id="repo-url">https://al5ina5.github.io/alsinas-labs-ipad-tweaks/</code>
-          <div class="actions">
-            <a class="button primary" id="sileo-link" href="sileo://source/https://al5ina5.github.io/alsinas-labs-ipad-tweaks/">Add to Sileo</a>
-            <a class="button" id="zebra-link" href="zbra://sources/add/https://al5ina5.github.io/alsinas-labs-ipad-tweaks/">Add to Zebra</a>
-            <button class="button" id="copy-link" type="button">Copy URL</button>
-          </div>
-        </div>
-      </section>
+<h1>arch1ve</h1>
+<p class="tagline">a minimal repository for jailbroken iOS</p>
 
-      <section aria-labelledby="packages-heading">
-        <div class="section-heading">
-          <h2 id="packages-heading">Available tweaks</h2>
-          <span class="arch">Architecture: iphoneos-arm64</span>
-        </div>
-        <div class="packages">
-          <article>
-            <div class="package-id">com.alsinas.multidelete</div>
-            <h3>MultiDelete</h3>
-            <p>Select and remove multiple removable Home Screen apps and web apps in one confirmed action.</p>
-            <div class="version">0.1.12-1+debug <a href="pool/main/m/multidelete/com.alsinas.multidelete_0.1.12-1+debug_iphoneos-arm64.deb">Download .deb</a></div>
-          </article>
-          <article>
-            <div class="package-id">com.alsinas.mdcontrol</div>
-            <h3>MDControl</h3>
-            <p>Local SpringBoard automation commands for taps, swipes, app launches, and accessibility snapshots.</p>
-            <div class="version">0.3.0 <a href="pool/main/m/mdcontrol/com.alsinas.mdcontrol_0.3.0_iphoneos-arm64.deb">Download .deb</a></div>
-          </article>
-          <article>
-            <div class="package-id">com.alsinas.opencode-server</div>
-            <h3>OpenCode Server</h3>
-            <p>OpenCode agent server with a bundled web app and native home-screen app for jailbroken iPadOS.</p>
-            <div class="version">2.0.28-0ios12 <a href="pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios12_iphoneos-arm64.deb">Download .deb</a></div>
-          </article>
-          <article>
-            <div class="package-id">nodejs</div>
-            <h3>Node.js 22</h3>
-            <p>Upstream Node.js with full JIT and WebAssembly for arm64 jailbroken iOS. Bundles npm and npx.</p>
-            <div class="version">22.19.0-1 <a href="pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb">Download .deb</a></div>
-          </article>
-          <article>
-            <div class="package-id">wrangler-ios</div>
-            <h3>Wrangler</h3>
-            <p>Cloudflare Workers CLI (esbuild-wasm). Deploy Workers straight from the device; local <code>wrangler dev</code> is unavailable.</p>
-            <div class="version">4.151.0-1 <a href="pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb">Download .deb</a></div>
-          </article>
-        </div>
-        <p class="install-note">Add the repository once in Sileo or Zebra, then search for a package. These packages require an arm64 jailbreak environment; dependencies are listed in each package. After installing nodejs + wrangler-ios you can authenticate with <code>wrangler login --device</code> and deploy with <code>wrangler deploy</code>.</p>
-      </section>
+<p>add this url to Sileo or Zebra:</p>
+<p><a href="https://al5ina5.github.io/arch1ve/">https://al5ina5.github.io/arch1ve/</a></p>
 
-      <footer>Packages are served directly from this repository. Updates appear after the package index is refreshed.</footer>
-    </main>
-    <script>
-      const repository = new URL('./', window.location.href).toString();
-      document.querySelector('#repo-url').textContent = repository;
-      document.querySelector('#sileo-link').href = `sileo://source/${repository}`;
-      document.querySelector('#zebra-link').href = `zbra://sources/add/${repository}`;
-      document.querySelector('#copy-link').addEventListener('click', async (event) => {
-        const button = event.currentTarget;
-        try {
-          await navigator.clipboard.writeText(repository);
-          button.textContent = 'Copied';
-          window.setTimeout(() => { button.textContent = 'Copy URL'; }, 1600);
-        } catch {
-          window.prompt('Copy this repository URL', repository);
-        }
-      });
-    </script>
-  </body>
+<h2>packages</h2>
+<ul>
+  <li><b>Node.js</b> <span class="ver">22.19.0-1</span> — upstream Node.js 22 with full JIT and WebAssembly, bundled npm and npx. <a href="pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb">download .deb</a></li>
+  <li><b>Wrangler</b> <span class="ver">4.151.0-1</span> — the Cloudflare Workers CLI (esbuild-wasm). deploy Workers straight from the device. <a href="pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb">download .deb</a></li>
+  <li><b>OpenCode Server</b> <span class="ver">2.0.28-0ios12</span> — OpenCode agent server with a bundled web app and native home-screen app. <a href="pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios12_iphoneos-arm64.deb">download .deb</a></li>
+  <li><b>MDControl</b> <span class="ver">0.3.0</span> — local SpringBoard automation commands for taps, swipes, app launches, and accessibility snapshots. <a href="pool/main/m/mdcontrol/com.alsinas.mdcontrol_0.3.0_iphoneos-arm64.deb">download .deb</a></li>
+  <li><b>MultiDelete</b> <span class="ver">0.1.12-1+debug</span> — select and remove multiple removable Home Screen apps and web apps in one confirmed action. <a href="pool/main/m/multidelete/com.alsinas.multidelete_0.1.12-1+debug_iphoneos-arm64.deb">download .deb</a></li>
+</ul>
+
+<p class="note">all packages target iphoneos-arm64 and require a rootless jailbreak. dependencies are listed per package — install Node.js before Wrangler.</p>
+
+<p class="note">packages are served directly from this repository; updates appear after the package index is refreshed.</p>
+
+</body>
 </html>
