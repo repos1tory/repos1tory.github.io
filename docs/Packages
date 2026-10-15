@@ -85,6 +85,20 @@ Description: System-wide touch/key injection and accessibility automation server
 Author: alsinas
 Name: Psychosis
 
+Package: com.itop.monitor
+Version: 1.1.0
+Architecture: iphoneos-arm64
+Maintainer: itop
+Filename: pool/main/i/itop/itop_1.1.0_iphoneos-arm64.deb
+Size: 53920
+MD5sum: 36222e249929ff3af986708bf6fbd38d
+SHA1: b9d1bff90eedb321bda88e7d0cd62cde8737de17
+SHA256: f88815f6a360929b77bbdc19bdd32dd8722a6836f917cc1a49864e76a8cb4def
+Section: Utilities
+Priority: optional
+Description: Lightweight high-refresh native iOS system monitor
+Name: itop
+
 Package: nodejs
 Version: 22.19.0-1
 Architecture: iphoneos-arm64
