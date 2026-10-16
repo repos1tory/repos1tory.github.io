@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLM — Command Line Message</title>
+<meta name="description" content="Send iMessage or SMS from the command line on jailbroken iOS.">
+<style>
+  html { background: #f7f7f7; }
+  body {
+    margin: 0;
+    padding: 104px 72px 136px;
+    max-width: 44rem;
+    background: #f7f7f7;
+    color: #181818;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+  @media (max-width: 700px) { body { padding: 64px 28px 96px; font-size: 18px; } }
+  a { color: inherit; }
+  h1 { margin: 0; font-size: 30px; font-weight: 700; }
+  .tagline { font-style: italic; margin: 6px 0 48px; }
+  h2 { font-size: 19px; font-weight: 700; margin: 40px 0 12px; }
+  p { margin: 0 0 16px; }
+  ul { margin: 0 0 16px; padding-left: 18px; }
+  li { margin: 0 0 8px; }
+  table { border-collapse: collapse; width: 100%; }
+  td { padding: 8px 0; border-bottom: 1px solid #e2e2e2; vertical-align: top; }
+  td:first-child { width: 38%; font-style: italic; }
+  pre { background: #efefef; padding: 14px 16px; overflow-x: auto; font-size: 15px;
+        font-family: ui-monospace, Menlo, monospace; }
+  code { background: #efefef; padding: 1px 5px; font-family: ui-monospace, Menlo, monospace; font-size: 15px; }
+</style>
+</head>
+<body>
+  <h1>CLM</h1>
+  <p class="tagline">command line message</p>
+
+  <p>Send <b>iMessage</b> (preferred) or <b>SMS</b> from the command line on a jailbroken device.
+     Built for <b>Wi-Fi-only iPads</b>: the message is handed to the Messages app, which relays it
+     over Wi-Fi (iMessage) or through iPhone Text Message Forwarding (SMS).</p>
+
+  <h2>usage</h2>
+  <pre>clm "On my way" +15555555555
+clm -s "Landline test" +15555555555</pre>
+  <ul>
+    <li><code>-s</code> / <code>--sms</code> — force SMS instead of iMessage</li>
+    <li>recipient can be a phone number (with country code), an Apple ID, or an email</li>
+  </ul>
+
+  <h2>details</h2>
+  <table>
+    <tr><td>packages</td><td>com.repos1tory.clm &middot; com.repos1tory.clm-cmd</td></tr>
+    <tr><td>version</td><td>1.0.0</td></tr>
+    <tr><td>section</td><td>Tweaks</td></tr>
+    <tr><td>depends</td><td>ellekit (&gt;= 1.2), firmware (&gt;= 15.0)</td></tr>
+    <tr><td>author</td><td>repos1tory</td></tr>
+  </table>
+</body>
+</html>

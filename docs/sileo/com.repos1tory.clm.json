@@ -1,0 +1,18 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.3",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "views": [
+        { "class": "DepictionHeaderView", "title": "CLM", "subtitle": "Command Line Message" },
+        { "class": "DepictionMarkdownView", "markdown": "Send **iMessage** (preferred) or **SMS** from the command line on a jailbroken device.\n\nDesigned for **Wi-Fi-only iPads**: the message is handed to the Messages app, which relays it (iMessage over Wi-Fi, or SMS via iPhone Text Message Forwarding).\n\n### Usage\n```\nclm \"On my way\" +15555555555\nclm -s \"Landline test\" +15555555555\n```\n\n- `-s`, `--sms` &mdash; force SMS instead of iMessage\n- Recipient may be a phone number (with country code), Apple ID, or email." },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionTableTextView", "title": "Package", "text": "com.repos1tory.clm" },
+        { "class": "DepictionTableTextView", "title": "Version", "text": "1.0.0" },
+        { "class": "DepictionTableTextView", "title": "Section", "text": "Tweaks" },
+        { "class": "DepictionTableTextView", "title": "Author", "text": "repos1tory" }
+      ]
+    }
+  ]
+}
