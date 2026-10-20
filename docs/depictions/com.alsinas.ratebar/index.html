@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RateBar — net battery flow</title>
-<meta name="description" content="Signed net battery charge/drain rate beside the iPad status bar battery percentage.">
+<title>RateBar — battery flow and time remaining</title>
+<meta name="description" content="Signed net battery charge/drain rate and estimated time beside the iPad status bar battery percentage.">
 <style>
   html { background: #f7f7f7; }
   body {
@@ -35,19 +35,21 @@
 </head>
 <body>
   <h1>RateBar</h1>
-  <p class="tagline">battery flow, at a glance</p>
+  <p class="tagline">battery flow and time remaining, at a glance</p>
 
-  <p>Adds one signed number beside the iPad status bar battery percentage. It is the
-     <b>net power going into or out of the battery</b>, in watts.</p>
+  <p>Adds one signed number and an estimated time beside the iPad status bar battery
+     percentage. The number is the <b>net power going into or out of the battery</b>,
+     in watts. The time is until full while charging, or until empty while draining.</p>
 
-  <pre>+6.2W   26%   [battery]
--2.1W   84%   [battery]
- 0W    100%   [battery]</pre>
+  <pre>+6.2W 3h30m   26%   [battery]
+-3.1W 1h07m   12%   [battery]
+ 0W           100%   [battery]</pre>
 
   <ul>
     <li><b>+</b> — energy is going into the battery</li>
     <li><b>-</b> — the battery is powering the iPad</li>
     <li><b>0W</b> — full on power, or negligible flow</li>
+    <li><b>time</b> — <b>until full</b> when positive, <b>until empty</b> when negative</li>
   </ul>
 
   <h2>what the number means</h2>
@@ -55,13 +57,24 @@
      advertised wattage: the charger first runs the screen, CPU, Wi-Fi and everything else,
      and the number is what is left over for the battery. A 15&nbsp;W charger can therefore
      show <code>+4W</code> while the iPad is busy.</p>
-  <p>The sign is the useful part: positive while charging, negative while draining, even when
-     the iPad is plugged in but using more power than the adapter supplies.</p>
+  <p>The sign follows the actual battery current. If the iPad is plugged in but the load is
+     higher than the charger can supply, the number goes negative and the time shown is
+     <b>time to empty</b>, because the battery really is draining.</p>
+
+  <h2>time estimates</h2>
+  <ul>
+    <li><b>Draining:</b> uses iOS's own time-remaining estimate when available, otherwise
+        remaining mAh &divide; current.</li>
+    <li><b>Charging:</b> remaining mAh &divide; current charge current. It updates as the
+        charge rate tapers, so the estimate can get longer as the battery fills.</li>
+    <li>These are estimates. A heavy app, brightness change, or thermal throttle can move
+        the drain estimate quickly.</li>
+  </ul>
 
   <h2>details</h2>
   <table>
     <tr><td>package</td><td>com.alsinas.ratebar</td></tr>
-    <tr><td>version</td><td>0.1.0</td></tr>
+    <tr><td>version</td><td>0.2.0</td></tr>
     <tr><td>section</td><td>Tweaks</td></tr>
     <tr><td>depends</td><td>ellekit (&gt;= 1.2), firmware (&gt;= 15.0)</td></tr>
     <tr><td>author</td><td>alsinas</td></tr>
@@ -70,7 +83,8 @@
 
   <h2>notes</h2>
   <p>To make room, the status icons immediately left of the battery percentage (Wi-Fi,
-     rotation lock, Focus) are shifted left by the width of the number. They are restored
-     if the label hides. The tweak only reads battery state; it does not control charging.</p>
+     rotation lock, Focus) are shifted left by the width of the rate and time. They are
+     restored if the label hides. The tweak only reads battery state; it does not control
+     charging.</p>
 </body>
 </html>

@@ -5,11 +5,11 @@
     {
       "tabname": "Details",
       "views": [
-        { "class": "DepictionHeaderView", "title": "RateBar", "subtitle": "Net battery charge/drain rate" },
-        { "class": "DepictionMarkdownView", "markdown": "Shows one signed number beside the iPad status bar battery percentage.\n\n**+** means energy is going into the battery. **-** means the battery is powering the iPad.\n\nThe value is **net battery power in watts**, calculated from battery current and voltage. It is not the charger's advertised wattage: the charger first runs the iPad, and the number is what is left over for the battery.\n\n`+6.2W  26%  [battery]`\n\n- `+6.2W` &mdash; charging at about 6.2 W into the battery\n- `-2.1W` &mdash; draining at about 2.1 W\n- `0W` &mdash; full on power, or negligible flow\n\n**iPad only.** iPadOS 15 or later, rootless jailbreak. To make room, the status icons immediately left of the battery percentage are shifted left by the width of the number." },
+        { "class": "DepictionHeaderView", "title": "RateBar", "subtitle": "Battery flow and time remaining" },
+        { "class": "DepictionMarkdownView", "markdown": "Shows one signed number and an estimated time beside the iPad status bar battery percentage.\n\n**+** means energy is going into the battery. **-** means the battery is powering the iPad.\n\nThe value is **net battery power in watts**, calculated from battery current and voltage. It is not the charger's advertised wattage: the charger first runs the iPad, and the number is what is left over for the battery.\n\n`+6.2W 3h30m  26%  [battery]`\n`-3.1W 1h07m  12%  [battery]`\n\n- `+6.2W` &mdash; charging at about 6.2 W into the battery\n- `3h30m` &mdash; estimated time until full\n- `-3.1W` &mdash; draining at about 3.1 W\n- `1h07m` &mdash; estimated time until empty\n- `0W` &mdash; full on power, or negligible flow\n\nWhen draining, the estimate prefers iOS's own time-remaining value and falls back to remaining mAh &divide; current. When charging, it projects the remaining capacity at the current net charge rate, so it changes as charging tapers. These are estimates, not promises.\n\n**iPad only.** iPadOS 15 or later, rootless jailbreak. To make room, the status icons immediately left of the battery percentage are shifted left by the width of the rate and time." },
         { "class": "DepictionSeparatorView" },
         { "class": "DepictionTableTextView", "title": "Package", "text": "com.alsinas.ratebar" },
-        { "class": "DepictionTableTextView", "title": "Version", "text": "0.1.0" },
+        { "class": "DepictionTableTextView", "title": "Version", "text": "0.2.0" },
         { "class": "DepictionTableTextView", "title": "Section", "text": "Tweaks" },
         { "class": "DepictionTableTextView", "title": "Author", "text": "alsinas" },
         { "class": "DepictionTableTextView", "title": "Compatibility", "text": "iPadOS 15+, rootless, iPad only" }

@@ -188,6 +188,24 @@ Depiction: https://repos1tory.github.io/depictions/com.alsinas.ratebar/
 Name: RateBar
 Sileodepiction: https://repos1tory.github.io/sileo/com.alsinas.ratebar.json
 
+Package: com.alsinas.ratebar
+Version: 0.2.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/r/ratebar/com.alsinas.ratebar_0.2.0_iphoneos-arm64.deb
+Size: 10656
+MD5sum: ed169f1977f0f33d146209a5314ec698
+SHA1: ccd34f4c26e84e6f1709664e84dea9a2315e74ef
+SHA256: 8b7fe79ffad11ee239469334f3b8a7f6d9340863b725ddbbaadbb4bb0fa8930b
+Section: Tweaks
+Description: Signed battery charge/drain rate and estimated time beside the status bar battery percentage.
+Author: alsinas
+Depiction: https://repos1tory.github.io/depictions/com.alsinas.ratebar/
+Name: RateBar
+Sileodepiction: https://repos1tory.github.io/sileo/com.alsinas.ratebar.json
+
 Package: com.itop.monitor
 Version: 1.1.0
 Architecture: iphoneos-arm64
