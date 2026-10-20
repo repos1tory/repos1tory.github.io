@@ -74,7 +74,7 @@
   <h2>details</h2>
   <table>
     <tr><td>package</td><td>com.alsinas.ratebar</td></tr>
-    <tr><td>version</td><td>0.2.0</td></tr>
+    <tr><td>version</td><td>0.2.1</td></tr>
     <tr><td>section</td><td>Tweaks</td></tr>
     <tr><td>depends</td><td>ellekit (&gt;= 1.2), firmware (&gt;= 15.0)</td></tr>
     <tr><td>author</td><td>alsinas</td></tr>
@@ -82,9 +82,10 @@
   </table>
 
   <h2>notes</h2>
-  <p>To make room, the status icons immediately left of the battery percentage (Wi-Fi,
-     rotation lock, Focus) are shifted left by the width of the rate and time. They are
-     restored if the label hides. The tweak only reads battery state; it does not control
-     charging.</p>
+  <p>The label uses the stock status bar font, size and colour. To make room, the status
+     icons immediately left of the battery percentage (Wi-Fi, rotation lock, Focus) are
+     shifted left by the exact width of the rate and time; the shift is recalculated when
+     the text changes or an icon appears. They are restored if the label hides. The tweak
+     only reads battery state; it does not control charging.</p>
 </body>
 </html>
