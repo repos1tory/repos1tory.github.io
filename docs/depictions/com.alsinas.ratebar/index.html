@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RateBar — net battery flow</title>
+<meta name="description" content="Signed net battery charge/drain rate beside the iPad status bar battery percentage.">
+<style>
+  html { background: #f7f7f7; }
+  body {
+    margin: 0;
+    padding: 104px 72px 136px;
+    max-width: 44rem;
+    background: #f7f7f7;
+    color: #181818;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+  @media (max-width: 700px) { body { padding: 64px 28px 96px; font-size: 18px; } }
+  a { color: inherit; }
+  h1 { margin: 0; font-size: 30px; font-weight: 700; }
+  .tagline { font-style: italic; margin: 6px 0 48px; }
+  h2 { font-size: 19px; font-weight: 700; margin: 40px 0 12px; }
+  p { margin: 0 0 16px; }
+  ul { margin: 0 0 16px; padding-left: 18px; }
+  li { margin: 0 0 8px; }
+  table { border-collapse: collapse; width: 100%; }
+  td { padding: 8px 0; border-bottom: 1px solid #e2e2e2; vertical-align: top; }
+  td:first-child { width: 38%; font-style: italic; }
+  pre { background: #efefef; padding: 14px 16px; overflow-x: auto; font-size: 15px;
+        font-family: ui-monospace, Menlo, monospace; }
+  code { background: #efefef; padding: 1px 5px; font-family: ui-monospace, Menlo, monospace; font-size: 15px; }
+</style>
+</head>
+<body>
+  <h1>RateBar</h1>
+  <p class="tagline">battery flow, at a glance</p>
+
+  <p>Adds one signed number beside the iPad status bar battery percentage. It is the
+     <b>net power going into or out of the battery</b>, in watts.</p>
+
+  <pre>+6.2W   26%   [battery]
+-2.1W   84%   [battery]
+ 0W    100%   [battery]</pre>
+
+  <ul>
+    <li><b>+</b> — energy is going into the battery</li>
+    <li><b>-</b> — the battery is powering the iPad</li>
+    <li><b>0W</b> — full on power, or negligible flow</li>
+  </ul>
+
+  <h2>what the number means</h2>
+  <p>The value is calculated from battery current and voltage. It is <b>not</b> the charger's
+     advertised wattage: the charger first runs the screen, CPU, Wi-Fi and everything else,
+     and the number is what is left over for the battery. A 15&nbsp;W charger can therefore
+     show <code>+4W</code> while the iPad is busy.</p>
+  <p>The sign is the useful part: positive while charging, negative while draining, even when
+     the iPad is plugged in but using more power than the adapter supplies.</p>
+
+  <h2>details</h2>
+  <table>
+    <tr><td>package</td><td>com.alsinas.ratebar</td></tr>
+    <tr><td>version</td><td>0.1.0</td></tr>
+    <tr><td>section</td><td>Tweaks</td></tr>
+    <tr><td>depends</td><td>ellekit (&gt;= 1.2), firmware (&gt;= 15.0)</td></tr>
+    <tr><td>author</td><td>alsinas</td></tr>
+    <tr><td>compatibility</td><td>iPadOS 15 or later, rootless, iPad only</td></tr>
+  </table>
+
+  <h2>notes</h2>
+  <p>To make room, the status icons immediately left of the battery percentage (Wi-Fi,
+     rotation lock, Focus) are shifted left by the width of the number. They are restored
+     if the label hides. The tweak only reads battery state; it does not control charging.</p>
+</body>
+</html>

@@ -136,6 +136,24 @@ Description: System-wide touch/key injection and accessibility automation server
 Author: alsinas
 Name: Psychosis
 
+Package: com.alsinas.ratebar
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/r/ratebar/com.alsinas.ratebar_0.1.0_iphoneos-arm64.deb
+Size: 9566
+MD5sum: 49452155bccb3dd8eec9c31a2f958bfd
+SHA1: 26b776c8c01fb21ae91d8022e1914b653c6dea03
+SHA256: bbe1a3c91e70700ab0c08eb719fa7cb6b18e2f9124de25f2e5013e0084364482
+Section: Tweaks
+Description: Signed battery charge/drain rate beside the status bar battery percentage.
+Author: alsinas
+Depiction: https://repos1tory.github.io/depictions/com.alsinas.ratebar/
+Name: RateBar
+Sileodepiction: https://repos1tory.github.io/sileo/com.alsinas.ratebar.json
+
 Package: com.itop.monitor
 Version: 1.1.0
 Architecture: iphoneos-arm64
