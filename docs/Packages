@@ -90,10 +90,10 @@ Maintainer: Local OpenCode iOS build
 Installed-Size: 119548
 Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6)
 Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios36_iphoneos-arm64.deb
-Size: 42435008
-MD5sum: 17e3965dbce3d00930ac6ff860d50e97
-SHA1: b04fab34182b343a065bf158872f4c5625998de5
-SHA256: 3c7d46498eba526a812a820b4adb0d805bc871c54e419da8fc4769a7df14efee
+Size: 42433960
+MD5sum: 6bd49c1b358988b337e730c8c5ede4db
+SHA1: 385dbc7438222919702c7263c8a62bfdf87b855b
+SHA256: b84974549d045ef0aab230ba5a890f9528d15c06aaeb40f09b08cb10a6ddb336
 Section: Networking
 Priority: optional
 Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
