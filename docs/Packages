@@ -117,6 +117,23 @@ Description: OpenCode agent server and home-screen app for rootless jailbroken i
  The server starts through launchd and has an OpenCode Server settings pane.
 Name: OpenCode Server (iOS)
 
+Package: com.alsinas.opencode-server
+Version: 2.0.28-0ios38
+Architecture: iphoneos-arm64
+Maintainer: Local OpenCode iOS build
+Installed-Size: 128732
+Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios38_iphoneos-arm64.deb
+Size: 42435384
+MD5sum: fae0c6d7c02333ee77790637f7190f54
+SHA1: 5afa6acd6c7f17d00f75be30fbb1c01e49f4ced0
+SHA256: 6a28344e0fcb81311593408da045672c04a74cd9ce46a96d9be9cd7fcb5ca414
+Section: Networking
+Priority: optional
+Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
+Name: OpenCode Server (iOS)
+
 Package: com.alsinas.psychosis
 Version: 0.4.28-1
 Architecture: iphoneos-arm64
