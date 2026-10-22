@@ -239,6 +239,21 @@ Description: Automatic native per-app audio mixer with multi-framework gain and 
 Author: Sebastian Alsina
 Name: SoundDeck
 
+Package: com.alsinas.sounddeck
+Version: 0.2.2
+Architecture: iphoneos-arm64
+Maintainer: Sebastian Alsina <alsinas@me.com>
+Depends: firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport
+Filename: pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb
+Size: 971504
+MD5sum: 0e56e97846e4ee0618290fbe483c1a95
+SHA1: 8100e584257a2e74bda7703e141c434a79895b81
+SHA256: 4708259efd217f97b41c1d1a693974ebb47c20f9b307dcf8721aeafea0ce9cba
+Section: Multimedia
+Description: Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer.
+Author: Sebastian Alsina
+Name: SoundDeck
+
 Package: com.itop.monitor
 Version: 1.1.0
 Architecture: iphoneos-arm64
