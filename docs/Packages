@@ -272,6 +272,28 @@ Description: Command line front-end for CLM (clm). Sends iMessage or SMS.
 Author: repos1tory
 Name: CLM (command line)
 
+Package: com.repos1tory.cloudflared
+Version: 2026.10.3-1
+Architecture: iphoneos-arm64
+Maintainer: repos1tory
+Installed-Size: 38624
+Depends: firmware (>= 15.0), nodejs (>= 22.19.0)
+Filename: pool/main/c/cloudflared-ios/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb
+Size: 16931368
+MD5sum: 9216f85f678c5a91a5271f163dcac458
+SHA1: bee7449161e0041dc341bb2260891aa551617075
+SHA256: 43be65a40a4766904cc837de13977f04973722fa7a305ea439c90d7c017c1b42
+Section: Networking
+Priority: optional
+Homepage: https://github.com/repos1tory/cloudflared-ios
+Description: Cloudflare Tunnel client for jailbroken iOS (arm64)
+ cloudflared as a native command-line tool for rootless jailbroken iOS.
+ Quick tunnels and named tunnels run directly on the device; no Mac or
+ companion server is required. The quick-tunnel wrapper adds a loopback
+ compatibility shim for the upstream provisioning request.
+Author: Cloudflare, Inc.; iOS port by repos1tory
+Name: cloudflared
+
 Package: nodejs
 Version: 22.19.0-1
 Architecture: iphoneos-arm64
