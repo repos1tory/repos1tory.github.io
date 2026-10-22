@@ -224,6 +224,21 @@ Depiction: https://repos1tory.github.io/depictions/com.alsinas.ratebar/
 Name: RateBar
 Sileodepiction: https://repos1tory.github.io/sileo/com.alsinas.ratebar.json
 
+Package: com.alsinas.sounddeck
+Version: 0.2.1
+Architecture: iphoneos-arm64
+Maintainer: Sebastian Alsina <alsinas@me.com>
+Depends: firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport
+Filename: pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.1_iphoneos-arm64.deb
+Size: 967030
+MD5sum: a62945df5e8109b737700fb9c080ddab
+SHA1: 88e02decf5b3a0bd5f3a29397a487fc3f0b4cbb9
+SHA256: e05d5da247f616972601c725a5fab0c271b185f2aef5158429c96032db145ff9
+Section: Multimedia
+Description: Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer.
+Author: Sebastian Alsina
+Name: SoundDeck
+
 Package: com.itop.monitor
 Version: 1.1.0
 Architecture: iphoneos-arm64

@@ -1,0 +1,19 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.3",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "views": [
+        { "class": "DepictionHeaderView", "title": "SoundDeck", "subtitle": "Automatic per-app audio mixer" },
+        { "class": "DepictionMarkdownView", "markdown": "A minimal per-app mixer for rootless iPadOS. Playing apps appear automatically as one app icon and one slider; set a slider to zero to mute. System media volume has its own icon/slider row.\n\nThe package also adds an expandable SoundDeck module to Control Center. No enrollment is required. Recording, calls and VoiceProcessingIO are excluded.\n\n**Experimental:** verified on iPad7,5 / iPadOS 17.7.8 with native fixtures and live Safari/Music gain checks. Starting Safari while Music was playing stopped Music; simultaneous playback is not guaranteed. See the project compatibility notes." },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionTableTextView", "title": "Package", "text": "com.alsinas.sounddeck" },
+        { "class": "DepictionTableTextView", "title": "Version", "text": "0.2.1" },
+        { "class": "DepictionTableTextView", "title": "Section", "text": "Multimedia" },
+        { "class": "DepictionTableTextView", "title": "Author", "text": "Sebastian Alsina" },
+        { "class": "DepictionTableTextView", "title": "Compatibility", "text": "iPadOS 15+, rootless, arm64" }
+      ]
+    }
+  ]
+}
