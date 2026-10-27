@@ -136,9 +136,12 @@ jobs:
           if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             gh release upload "$TAG" dist/*.deb --repo "$GITHUB_REPOSITORY" --clobber
           else
+            # Tag pushes already have the tag; only create one for manual runs.
+            target=()
+            gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" >/dev/null 2>&1 || target=(--target "$GITHUB_SHA")
             gh release create "$TAG" dist/*.deb \
               --repo "$GITHUB_REPOSITORY" \
-              --target "$GITHUB_SHA" \
+              "${target[@]}" \
               --title "$TAG" \
               --generate-notes
           fi
