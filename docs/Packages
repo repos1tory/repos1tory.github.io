@@ -519,7 +519,7 @@ Section: Networking
 Homepage: https://github.com/repos1tory/cloudflared-ios
 Author: Cloudflare, Inc.; iOS port by repos1tory
 Name: cloudflared
-Description:   Cloudflare Tunnel client for jailbroken iOS (arm64)
+Description:  Cloudflare Tunnel client for jailbroken iOS (arm64)
  cloudflared as a native command-line tool for rootless jailbroken iOS.
  Quick tunnels and named tunnels run directly on the device; no Mac or
  companion server is required. The quick-tunnel wrapper adds a loopback
@@ -528,7 +528,7 @@ Size: 16931368
 MD5sum: 9216f85f678c5a91a5271f163dcac458
 SHA1: bee7449161e0041dc341bb2260891aa551617075
 SHA256: 43be65a40a4766904cc837de13977f04973722fa7a305ea439c90d7c017c1b42
-Filename: pool/main/c/cloudflared-ios/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb
+Filename: https://github.com/repos1tory/cloudflared-ios/releases/download/v2026.10.3/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb
 
 Package: nodejs
 Version: 22.19.0-1
