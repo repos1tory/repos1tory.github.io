@@ -42,6 +42,10 @@ on:
         description: "Do not list on the web page"
         type: boolean
         default: false
+      publish:
+        description: "Create the release and update the site (false = build only)"
+        type: boolean
+        default: true
       site_repo:
         description: "Repo that hosts the APT repo"
         type: string
@@ -103,6 +107,7 @@ jobs:
 
   release:
     needs: build
+    if: inputs.publish
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
