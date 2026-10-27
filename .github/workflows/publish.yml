@@ -75,24 +75,35 @@ jobs:
           [ "${NO_SITE}" = "true" ] && flags+=(--no-site)
           debs=(incoming/*.deb)
           [ ${#debs[@]} -gt 0 ] || { echo "::error::release has no .deb assets"; exit 1; }
-          for deb in "${debs[@]}"; do
-            url="https://github.com/$REPO/releases/download/$TAG/$(basename "$deb")"
-            node scripts/repo.mjs add --deb "$deb" "${flags[@]}" --url "$url"
-          done
-          node scripts/repo.mjs check
 
-      - name: Commit
-        run: |
-          set -euo pipefail
           git config user.name "repos1tory bot"
           git config user.email "bot@repos1tory.github.io"
-          git add packages.json docs
-          if git diff --cached --quiet; then
-            echo "nothing changed"
-            exit 0
-          fi
-          git commit -m "publish $REPO $TAG"
-          git push origin HEAD:main
+
+          # Two releases can land at once. Re-apply the manifest entries on top
+          # of whatever landed first, instead of fighting over Packages.
+          for attempt in 1 2 3 4 5; do
+            git fetch --quiet origin main
+            git reset --hard --quiet origin/main
+            for deb in "${debs[@]}"; do
+              url="https://github.com/$REPO/releases/download/$TAG/$(basename "$deb")"
+              node scripts/repo.mjs add --deb "$deb" "${flags[@]}" --url "$url"
+            done
+            node scripts/repo.mjs check
+            git add packages.json docs
+            if git diff --cached --quiet; then
+              echo "nothing changed"
+              exit 0
+            fi
+            git commit --quiet -m "publish $REPO $TAG"
+            if git push --quiet origin HEAD:main; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "push rejected, retrying on fresh main ($attempt)"
+            sleep $((attempt * 3))
+          done
+          echo "::error::could not push after 5 attempts"
+          exit 1
 
       - name: Summary
         run: |

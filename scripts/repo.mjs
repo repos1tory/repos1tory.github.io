@@ -181,15 +181,13 @@ function renderIndex(manifest) {
     out[g] = items
       .map(({ pkg, v }) => {
         const blurb = pkg.blurb || v.control.Description || "";
-        const links =
-          pkg.links?.length > 0
-            ? pkg.links
-            : [
-                { href: effectiveUrl(v), label: "download .deb" },
-                ...(pkg.source ? [{ href: pkg.source, label: "source" }] : []),
-              ];
-        const anchors = links.map((l) => `<a href="${l.href}">${l.label}</a>`).join(" · ");
-        return `  <li><b>${pkg.name}</b> <span class="ver">${v.version}</span> — ${blurb} ${anchors}</li>`;
+        const repo = pkg.source || (pkg.repo ? `https://github.com/${pkg.repo}` : null);
+        // The name is the link to the source. The only trailing link is the
+        // download, so every entry reads the same way.
+        const name = repo ? `<a href="${repo}">${pkg.name}</a>` : pkg.name;
+        const dl = pkg.links?.[0] ?? { href: effectiveUrl(v), label: "download .deb" };
+        const anchors = `<a href="${dl.href}">${dl.label}</a>`;
+        return `  <li><b>${name}</b> <span class="ver">${v.version}</span> — ${blurb} ${anchors}</li>`;
       })
       .join("\n");
   }
