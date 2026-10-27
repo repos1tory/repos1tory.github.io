@@ -168,6 +168,22 @@ SHA1: c94201c8e5f98009e0ec013db4eabaf9d53a6c69
 SHA256: 6febe1ebe429145bdd850896622397eeaeb5234f86f372a5ccc404158eccd277
 Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios40_iphoneos-arm64.deb
 
+Package: com.alsinas.opencode-server
+Version: 2.0.28-0ios41
+Architecture: iphoneos-arm64
+Maintainer: Local OpenCode iOS build
+Installed-Size: 128732
+Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof
+Priority: optional
+Section: Networking
+Name: OpenCode Server (iOS)
+Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
+Size: 42466436
+MD5sum: 8e115390112691ad7dc556f5f8d60ded
+SHA1: e7189299c4273778220be217c26495997cf7ee5a
+SHA256: f098256b3927dcb7701d6b307e67f7676bc45441e6e0e3047f7250091a2f9ab7
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios41_iphoneos-arm64.deb
+
 Package: com.alsinas.psychosis
 Version: 0.4.28-1
 Architecture: iphoneos-arm64

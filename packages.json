@@ -262,12 +262,33 @@
             "Description": " OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
           },
           "published": null
+        },
+        {
+          "version": "2.0.28-0ios41",
+          "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios41_iphoneos-arm64.deb",
+          "size": 42466436,
+          "md5": "8e115390112691ad7dc556f5f8d60ded",
+          "sha1": "e7189299c4273778220be217c26495997cf7ee5a",
+          "sha256": "f098256b3927dcb7701d6b307e67f7676bc45441e6e0e3047f7250091a2f9ab7",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Name": "OpenCode Server (iOS)",
+            "Version": "2.0.28-0ios41",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "128732",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof",
+            "Section": "Networking",
+            "Priority": "optional",
+            "Description": "OpenCode agent server and home-screen app for rootless jailbroken iOS"
+          },
+          "published": null
         }
       ],
       "order": 3,
       "links": [
         {
-          "href": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios40_iphoneos-arm64.deb",
+          "href": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios41_iphoneos-arm64.deb",
           "label": "download .deb"
         },
         {
