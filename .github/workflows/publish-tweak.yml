@@ -84,8 +84,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          shopt -s nullglob globstar
-          debs=(${{ inputs.deb_glob }})
+          shopt -s nullglob
+          pattern="${{ inputs.deb_glob }}"
+          debs=( $pattern )
+          if [ ${#debs[@]} -eq 0 ]; then
+            # macOS runners still ship bash 3.2, which has no globstar.
+            name="$(basename "$pattern")"
+            while IFS= read -r f; do
+              debs+=("$f")
+            done < <(find . -type f -name "$name" -not -path './dist/*' -not -path './.git/*')
+          fi
           if [ ${#debs[@]} -eq 0 ]; then
             echo "::error::no .deb matched '${{ inputs.deb_glob }}' — check build_command/deb_glob"
             exit 1
