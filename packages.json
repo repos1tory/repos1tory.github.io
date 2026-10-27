@@ -959,8 +959,8 @@
       "group": "apps",
       "site": true,
       "blurb": "a high-refresh native system monitor drawn entirely in terminal glyphs: per-core CPU with history graphs, memory and jetsam pressure, disk, battery, and a live sortable process table with an htop-style key bar. iPhone and iPad layouts.",
-      "source": null,
-      "repo": null,
+      "source": "https://github.com/repos1tory/itop-ios",
+      "repo": "repos1tory/itop-ios",
       "versions": [
         {
           "version": "1.1.0",

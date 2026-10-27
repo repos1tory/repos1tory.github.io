@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-27T00:22:07.667Z",
+  "generated": "2026-10-27T00:33:55.931Z",
   "packages": {
     "com.alsinas.homemanager": {
       "name": "HomeManager",
@@ -156,7 +156,8 @@
       "version": "1.1.0",
       "url": "pool/main/i/itop/itop_1.1.0_iphoneos-arm64.deb",
       "size": 53920,
-      "sha256": "f88815f6a360929b77bbdc19bdd32dd8722a6836f917cc1a49864e76a8cb4def"
+      "sha256": "f88815f6a360929b77bbdc19bdd32dd8722a6836f917cc1a49864e76a8cb4def",
+      "source": "https://github.com/repos1tory/itop-ios"
     },
     "com.repos1tory.clm": {
       "name": "CLM (Command Line Message)",
