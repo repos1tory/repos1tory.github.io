@@ -187,59 +187,24 @@ Description: System-wide touch/key injection and accessibility automation server
 Author: alsinas
 Name: Psychosis
 
-Package: com.alsinas.ratebar
-Version: 0.1.0
+Package: com.alsinas.psychosis
+Version: 0.7.1
 Architecture: iphoneos-arm64
 Maintainer: alsinas
-Installed-Size: 76
+Installed-Size: 60
 Depends: ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/r/ratebar/com.alsinas.ratebar_0.1.0_iphoneos-arm64.deb
-Size: 9566
-MD5sum: 49452155bccb3dd8eec9c31a2f958bfd
-SHA1: 26b776c8c01fb21ae91d8022e1914b653c6dea03
-SHA256: bbe1a3c91e70700ab0c08eb719fa7cb6b18e2f9124de25f2e5013e0084364482
+Conflicts: com.alsinas.mdcontrol
+Replaces: com.alsinas.mdcontrol
+Filename: pool/main/p/psychosis/com.alsinas.psychosis_0.7.1_iphoneos-arm64.deb
+Size: 49892
+MD5sum: f8f5eec5b33384fc1094e066d294d574
+SHA1: ac96749242d74606f830720485060a28a1d7b1ef
+SHA256: b52d8931cd2f40bf88cf142197045f0c3832297ebef7871750391a743292da5d
 Section: Tweaks
-Description: Signed battery charge/drain rate beside the status bar battery percentage.
+Priority: optional
+Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001), on device and remote
 Author: alsinas
-Depiction: https://repos1tory.github.io/depictions/com.alsinas.ratebar/
-Name: RateBar
-Sileodepiction: https://repos1tory.github.io/sileo/com.alsinas.ratebar.json
-
-Package: com.alsinas.ratebar
-Version: 0.2.0
-Architecture: iphoneos-arm64
-Maintainer: alsinas
-Installed-Size: 76
-Depends: ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/r/ratebar/com.alsinas.ratebar_0.2.0_iphoneos-arm64.deb
-Size: 10656
-MD5sum: ed169f1977f0f33d146209a5314ec698
-SHA1: ccd34f4c26e84e6f1709664e84dea9a2315e74ef
-SHA256: 8b7fe79ffad11ee239469334f3b8a7f6d9340863b725ddbbaadbb4bb0fa8930b
-Section: Tweaks
-Description: Signed battery charge/drain rate and estimated time beside the status bar battery percentage.
-Author: alsinas
-Depiction: https://repos1tory.github.io/depictions/com.alsinas.ratebar/
-Name: RateBar
-Sileodepiction: https://repos1tory.github.io/sileo/com.alsinas.ratebar.json
-
-Package: com.alsinas.ratebar
-Version: 0.2.1
-Architecture: iphoneos-arm64
-Maintainer: alsinas
-Installed-Size: 76
-Depends: ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/r/ratebar/com.alsinas.ratebar_0.2.1_iphoneos-arm64.deb
-Size: 10728
-MD5sum: b454dc822db52818063bb6411c6b3516
-SHA1: 00c7e584a988d289702f42010e0aac23f90feb8a
-SHA256: 899fae9703cc39bea26e3e32ffbe6fb9a088977d044fd1720d7070da617a93a6
-Section: Tweaks
-Description: Signed battery charge/drain rate and estimated time beside the status bar battery percentage.
-Author: alsinas
-Depiction: https://repos1tory.github.io/depictions/com.alsinas.ratebar/
-Name: RateBar
-Sileodepiction: https://repos1tory.github.io/sileo/com.alsinas.ratebar.json
+Name: Psychosis
 
 Package: com.alsinas.sounddeck
 Version: 0.2.1
