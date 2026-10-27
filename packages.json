@@ -393,7 +393,7 @@
             "Section": "Multimedia",
             "Depends": "firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport"
           },
-          "published": "2026-10-27T00:11:00.898Z"
+          "published": "2026-10-27T00:14:43.497Z"
         }
       ],
       "order": 0,
@@ -1077,7 +1077,7 @@
             "Section": "Development",
             "Depends": "com.alsinas.sounddeck (>= 0.2.2), uikittools"
           },
-          "published": "2026-10-27T00:11:00.839Z"
+          "published": "2026-10-27T00:14:43.437Z"
         }
       ],
       "autoLinks": true,
