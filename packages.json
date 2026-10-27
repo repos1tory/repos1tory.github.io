@@ -444,12 +444,8 @@
       "order": 1,
       "links": [
         {
-          "href": "pool/main/t/topbar/",
-          "label": "packages"
-        },
-        {
-          "href": "https://github.com/repos1tory/topbar-ios",
-          "label": "TopBar (topbar-ios)"
+          "href": "https://github.com/repos1tory/topbar-ios/releases/tag/v0.1.0",
+          "label": "downloads"
         }
       ],
       "autoLinks": false
