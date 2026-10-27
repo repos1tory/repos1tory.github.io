@@ -271,6 +271,216 @@ Description: Automatic native per-app audio mixer with multi-framework gain and 
 Author: Sebastian Alsina
 Name: SoundDeck
 
+Package: com.alsinas.topbar
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 228
+Depends: ellekit (>= 1.2), firmware (>= 15.0), preferenceloader
+Conflicts: com.alsinas.ratebar
+Replaces: com.alsinas.ratebar
+Filename: pool/main/t/topbar/com.alsinas.topbar_0.1.0_iphoneos-arm64.deb
+Size: 37674
+MD5sum: ba4f6008db5351ac354c240c2997eb79
+SHA1: 4aa765935a3d6c0d7485a843bb1f1d5f23f301d7
+SHA256: 942fe7dea5386249a4f68089dac5dd80a7d2d6a885da4c33c22848ea3d6cab8c
+Section: Tweaks
+Description: A plugin-based status bar customizer. Reorder and hide stock status bar items and install additional items as plugins.
+Author: alsinas
+Name: TopBar
+
+Package: com.alsinas.topbar.battery
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.battery_0.1.0_iphoneos-arm64.deb
+Size: 5818
+MD5sum: e7e8130dcb68bf792cef6b05e01a4792
+SHA1: af7e057e263780989e0a5c7857961bd2763bcdb1
+SHA256: 82a2a882e73e760949b00a82338fe8f6e2f0cabffa1ed8e0940ac15b63f5a529
+Section: Tweaks
+Description: Battery watts and time-remaining item for TopBar.
+Author: alsinas
+Name: TopBar Battery Rate
+
+Package: com.alsinas.topbar.batteryhealth
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.batteryhealth_0.1.0_iphoneos-arm64.deb
+Size: 5346
+MD5sum: 2807c7556ae16c4356171f6ac706a7b1
+SHA1: 0cd8a2012f9432f66dd6df03054d4230fed397a0
+SHA256: a7642b63019ffbc75be63599365e804cea5c2bfb88c8e04c14c0bc05dc740c40
+Section: Tweaks
+Description: Battery health, cycle count, and adapter wattage item for TopBar.
+Author: alsinas
+Name: TopBar Battery Health
+
+Package: com.alsinas.topbar.cpu
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.cpu_0.1.0_iphoneos-arm64.deb
+Size: 4334
+MD5sum: ed288f3d5042e2c4524f10ab719b7924
+SHA1: bf7c35737d8b8e6de5758bed59226dc3153cbe76
+SHA256: 73ea2527b3e26925a54e97202415ff96044342b28bc179e55dd6cd610e7d4e6d
+Section: Tweaks
+Description: System CPU load item for TopBar.
+Author: alsinas
+Name: TopBar CPU
+
+Package: com.alsinas.topbar.disk
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.disk_0.1.0_iphoneos-arm64.deb
+Size: 4352
+MD5sum: 22316feb47a4cfbaa2a332f9120e5927
+SHA1: 958f53a4f75d0f0cce44c45f258853244cd373f5
+SHA256: 466515401f7798df02e6fed58d7b0281895e4d4a3d64e710b060e2186921428a
+Section: Tweaks
+Description: Free and total storage item for TopBar.
+Author: alsinas
+Name: TopBar Disk Space
+
+Package: com.alsinas.topbar.ip
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.ip_0.1.0_iphoneos-arm64.deb
+Size: 6984
+MD5sum: 991f3e88dbe9e1605f4278f46617d5fe
+SHA1: 94a0856f185b3355009eca01dfb93101e1831bcb
+SHA256: 7de742f32e921c99c024050afbb387d6b2705db1c000b1e0bb90a52a5cdfa246
+Section: Tweaks
+Description: Local/public IP address item for TopBar. Tap to switch.
+Author: alsinas
+Name: TopBar IP Address
+
+Package: com.alsinas.topbar.network
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.network_0.1.0_iphoneos-arm64.deb
+Size: 4730
+MD5sum: 8741e1ee72a68626d96fcce6c791cedf
+SHA1: 11fbcbadf001cb944ecfc7d64ba5188339aeb4e0
+SHA256: 43d6ea5c6816fd6c913938bd539387da577e82a6f6f4f2b47c844144888aec03
+Section: Tweaks
+Description: Live download/upload throughput item for TopBar.
+Author: alsinas
+Name: TopBar Network Speed
+
+Package: com.alsinas.topbar.ram
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.ram_0.1.0_iphoneos-arm64.deb
+Size: 4176
+MD5sum: a26ccdb2693204cee8cb720d99963923
+SHA1: db0f26f24b4f7d9e8c1f6678dcee5f7382551605
+SHA256: 29d5679ce50f8939fb09201a1db86e25980d9797cee9da5578342c60d1d651bd
+Section: Tweaks
+Description: System memory usage item for TopBar.
+Author: alsinas
+Name: TopBar RAM
+
+Package: com.alsinas.topbar.sessions
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.sessions_0.1.0_iphoneos-arm64.deb
+Size: 5340
+MD5sum: 16ceda6f2828526f3149e9892e26096c
+SHA1: 208296b46841621ae2daeecb2256fbcae88f9a72
+SHA256: 42d5468258286aaca4f9f67682eb8b6fd4b9e3119794e31d7c04a25bebec3596
+Section: Tweaks
+Description: Number of running OpenCode sessions for TopBar.
+Author: alsinas
+Name: TopBar OpenCode Sessions
+
+Package: com.alsinas.topbar.sunmoon
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.sunmoon_0.1.0_iphoneos-arm64.deb
+Size: 6736
+MD5sum: ca8295abc56bc0239f2abe573bf6270b
+SHA1: 2e5bb9e16b287226f4a3971cd7f1d2b063942f49
+SHA256: 476e5fa2bd14c810f0f2fe23582209d40a13e73b38904b699b7e197636c1bca4
+Section: Tweaks
+Description: Sunrise, sunset, and moon phase item for TopBar.
+Author: alsinas
+Name: TopBar Sun & Moon
+
+Package: com.alsinas.topbar.thermal
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.thermal_0.1.0_iphoneos-arm64.deb
+Size: 4578
+MD5sum: 5205b4534e191c19f7f1f3b161c47fbf
+SHA1: da0ef65ff37b1a508d9c807b5016002986ac49f8
+SHA256: 784a8cc06730771ab7b3aad7af851b79df53c0a1f68e642a9abb0a3ee2a718b6
+Section: Tweaks
+Description: Battery temperature in Celsius item for TopBar.
+Author: alsinas
+Name: TopBar Thermal
+
+Package: com.alsinas.topbar.uptime
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.uptime_0.1.0_iphoneos-arm64.deb
+Size: 4174
+MD5sum: f08879ecbdf3e8c5e54c03c35c095de8
+SHA1: b414d6d3781abf152350afe8c6a015cbdb5aadb9
+SHA256: c2063d745305201c758701121771cc034ae7af82d045395970d5977b4af94633
+Section: Tweaks
+Description: Time since boot item for TopBar.
+Author: alsinas
+Name: TopBar Uptime
+
+Package: com.alsinas.topbar.weather
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Maintainer: alsinas
+Installed-Size: 76
+Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
+Filename: pool/main/t/topbar/com.alsinas.topbar.weather_0.1.0_iphoneos-arm64.deb
+Size: 6436
+MD5sum: 7445f9a563a1a862a44488094d8a43b0
+SHA1: 0ea3d6592dedf50cb9a4004e67eee1e4749945a5
+SHA256: 211b52da2d05b6686fa5d3431ed5111985ff1e751307ff976dadb1d5eba9d4cb
+Section: Tweaks
+Description: Current temperature and conditions item for TopBar.
+Author: alsinas
+Name: TopBar Weather
+
 Package: com.itop.monitor
 Version: 1.1.0
 Architecture: iphoneos-arm64
