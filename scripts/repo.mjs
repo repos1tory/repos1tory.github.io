@@ -149,19 +149,34 @@ function effectiveUrl(v) {
 }
 
 async function renderPackages(manifest) {
-  const ids = Object.keys(manifest.packages).sort();
-  const stanzas = [];
-  for (const id of ids) {
-    const pkg = manifest.packages[id];
-    for (const v of allReleases(pkg)) {
-      const f = { ...v.control };
-      f.Size = v.size;
-      f.MD5sum = v.md5;
-      f.SHA1 = v.sha1;
-      f.SHA256 = v.sha256;
-      f.Filename = effectiveUrl(v);
-      stanzas.push(renderStanza(f));
+  // Only what is published on the site: each listed entry at its latest
+  // version, plus the package ids declared as `members` of that entry
+  // (TopBar's plugins, CLM's sender). Nothing else goes in the index.
+  const entries = [];
+  for (const [id, pkg] of Object.entries(manifest.packages)) {
+    if (!pkg.site) continue;
+    const v = latest(pkg);
+    if (v) entries.push({ id, v });
+    for (const member of pkg.members ?? []) {
+      const mp = manifest.packages[member];
+      const mv = mp && latest(mp);
+      if (mv) entries.push({ id: member, v: mv });
     }
+  }
+  entries.sort((a, b) => a.id.localeCompare(b.id));
+
+  const seen = new Set();
+  const stanzas = [];
+  for (const { id, v } of entries) {
+    if (seen.has(id)) continue;
+    seen.add(id);
+    const f = { ...v.control };
+    f.Size = v.size;
+    f.MD5sum = v.md5;
+    f.SHA1 = v.sha1;
+    f.SHA256 = v.sha256;
+    f.Filename = effectiveUrl(v);
+    stanzas.push(renderStanza(f));
   }
   return stanzas.join("\n\n") + "\n";
 }

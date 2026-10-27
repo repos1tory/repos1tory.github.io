@@ -469,7 +469,21 @@
           "label": "downloads"
         }
       ],
-      "autoLinks": false
+      "autoLinks": false,
+      "members": [
+        "com.alsinas.topbar.battery",
+        "com.alsinas.topbar.batteryhealth",
+        "com.alsinas.topbar.cpu",
+        "com.alsinas.topbar.disk",
+        "com.alsinas.topbar.ip",
+        "com.alsinas.topbar.network",
+        "com.alsinas.topbar.ram",
+        "com.alsinas.topbar.sessions",
+        "com.alsinas.topbar.sunmoon",
+        "com.alsinas.topbar.thermal",
+        "com.alsinas.topbar.uptime",
+        "com.alsinas.topbar.weather"
+      ]
     },
     "com.alsinas.topbar.battery": {
       "name": "TopBar Battery Rate",
@@ -1082,7 +1096,10 @@
           "label": "download .deb"
         }
       ],
-      "autoLinks": true
+      "autoLinks": true,
+      "members": [
+        "com.repos1tory.clm"
+      ]
     },
     "com.repos1tory.cloudflared": {
       "name": "cloudflared",
