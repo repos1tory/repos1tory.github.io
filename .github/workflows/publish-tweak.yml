@@ -84,7 +84,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          shopt -s nullglob
+          shopt -s nullglob globstar
           debs=(${{ inputs.deb_glob }})
           if [ ${#debs[@]} -eq 0 ]; then
             echo "::error::no .deb matched '${{ inputs.deb_glob }}' — check build_command/deb_glob"
