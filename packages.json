@@ -377,29 +377,29 @@
         },
         {
           "version": "0.2.2",
-          "url": "pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
+          "url": "https://github.com/repos1tory/SoundDeck/releases/download/v0.2.2-experimental.1/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
           "size": 971504,
           "md5": "0e56e97846e4ee0618290fbe483c1a95",
           "sha1": "8100e584257a2e74bda7703e141c434a79895b81",
           "sha256": "4708259efd217f97b41c1d1a693974ebb47c20f9b307dcf8721aeafea0ce9cba",
           "control": {
             "Package": "com.alsinas.sounddeck",
+            "Name": "SoundDeck",
             "Version": "0.2.2",
             "Architecture": "iphoneos-arm64",
+            "Description": "Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer.",
             "Maintainer": "Sebastian Alsina <alsinas@me.com>",
-            "Depends": "firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport",
-            "Section": "Multimedia",
             "Author": "Sebastian Alsina",
-            "Name": "SoundDeck",
-            "Description": "Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer."
+            "Section": "Multimedia",
+            "Depends": "firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport"
           },
-          "published": null
+          "published": "2026-10-27T00:11:00.898Z"
         }
       ],
       "order": 0,
       "links": [
         {
-          "href": "pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
+          "href": "https://github.com/repos1tory/SoundDeck/releases/download/v0.2.2-experimental.1/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
           "label": "download .deb"
         },
         {
@@ -1051,6 +1051,46 @@
         }
       ],
       "autoLinks": true
+    },
+    "com.alsinas.sounddeck.tests": {
+      "name": "SoundDeck Test Signals",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Optional generated audio fixtures for RemoteIO, AudioQueue, AVFoundation, AVAudioEngine and WebKit adapter testing.",
+      "source": "https://github.com/repos1tory/SoundDeck",
+      "repo": "repos1tory/SoundDeck",
+      "versions": [
+        {
+          "version": "0.2.2",
+          "url": "https://github.com/repos1tory/SoundDeck/releases/download/v0.2.2-experimental.1/com.alsinas.sounddeck.tests_0.2.2_iphoneos-arm64.deb",
+          "size": 7310398,
+          "md5": "06dc3fd4589c6e961caaeb6cb4bc7bbb",
+          "sha1": "d97009387a9f81600ffc304d843f99f5e1fd57e7",
+          "sha256": "ec2d4e3ab4ca41fc2763f93a97eee0da9f96862fa6a0d5e05c42b24f5766015a",
+          "control": {
+            "Package": "com.alsinas.sounddeck.tests",
+            "Name": "SoundDeck Test Signals",
+            "Version": "0.2.2",
+            "Architecture": "iphoneos-arm64",
+            "Description": "Optional generated audio fixtures for RemoteIO, AudioQueue, AVFoundation, AVAudioEngine and WebKit adapter testing.",
+            "Maintainer": "Sebastian Alsina <alsinas@me.com>",
+            "Section": "Development",
+            "Depends": "com.alsinas.sounddeck (>= 0.2.2), uikittools"
+          },
+          "published": "2026-10-27T00:11:00.839Z"
+        }
+      ],
+      "autoLinks": true,
+      "links": [
+        {
+          "href": "https://github.com/repos1tory/SoundDeck/releases/download/v0.2.2-experimental.1/com.alsinas.sounddeck.tests_0.2.2_iphoneos-arm64.deb",
+          "label": "download .deb"
+        },
+        {
+          "href": "https://github.com/repos1tory/SoundDeck",
+          "label": "source"
+        }
+      ]
     }
   }
 }

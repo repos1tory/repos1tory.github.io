@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-27T00:10:10.255Z",
+  "generated": "2026-10-27T00:11:00.903Z",
   "packages": {
     "com.alsinas.homemanager": {
       "name": "HomeManager",
@@ -42,7 +42,7 @@
     "com.alsinas.sounddeck": {
       "name": "SoundDeck",
       "version": "0.2.2",
-      "url": "pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
+      "url": "https://github.com/repos1tory/SoundDeck/releases/download/v0.2.2-experimental.1/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
       "size": 971504,
       "sha256": "4708259efd217f97b41c1d1a693974ebb47c20f9b307dcf8721aeafea0ce9cba",
       "source": "https://github.com/repos1tory/SoundDeck"
@@ -180,6 +180,14 @@
       "url": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb",
       "size": 8276712,
       "sha256": "bd36c0ce092eccb6a23ee982766d19bbcb25853801841a041d43ba2c005b8ac2"
+    },
+    "com.alsinas.sounddeck.tests": {
+      "name": "SoundDeck Test Signals",
+      "version": "0.2.2",
+      "url": "https://github.com/repos1tory/SoundDeck/releases/download/v0.2.2-experimental.1/com.alsinas.sounddeck.tests_0.2.2_iphoneos-arm64.deb",
+      "size": 7310398,
+      "sha256": "ec2d4e3ab4ca41fc2763f93a97eee0da9f96862fa6a0d5e05c42b24f5766015a",
+      "source": "https://github.com/repos1tory/SoundDeck"
     }
   }
 }

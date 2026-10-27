@@ -234,7 +234,21 @@ Size: 971504
 MD5sum: 0e56e97846e4ee0618290fbe483c1a95
 SHA1: 8100e584257a2e74bda7703e141c434a79895b81
 SHA256: 4708259efd217f97b41c1d1a693974ebb47c20f9b307dcf8721aeafea0ce9cba
-Filename: pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb
+Filename: https://github.com/repos1tory/SoundDeck/releases/download/v0.2.2-experimental.1/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb
+
+Package: com.alsinas.sounddeck.tests
+Version: 0.2.2
+Architecture: iphoneos-arm64
+Maintainer: Sebastian Alsina <alsinas@me.com>
+Depends: com.alsinas.sounddeck (>= 0.2.2), uikittools
+Section: Development
+Name: SoundDeck Test Signals
+Description: Optional generated audio fixtures for RemoteIO, AudioQueue, AVFoundation, AVAudioEngine and WebKit adapter testing.
+Size: 7310398
+MD5sum: 06dc3fd4589c6e961caaeb6cb4bc7bbb
+SHA1: d97009387a9f81600ffc304d843f99f5e1fd57e7
+SHA256: ec2d4e3ab4ca41fc2763f93a97eee0da9f96862fa6a0d5e05c42b24f5766015a
+Filename: https://github.com/repos1tory/SoundDeck/releases/download/v0.2.2-experimental.1/com.alsinas.sounddeck.tests_0.2.2_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar
 Version: 0.1.0
