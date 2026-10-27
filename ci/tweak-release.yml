@@ -1,0 +1,40 @@
+name: release
+
+# Copy to <repo>/.github/workflows/release.yml
+#
+# Tag push (or Actions -> Run workflow with a tag) ->
+#   build .deb (optional) -> GitHub Release -> site ingest -> Sileo + web.
+#
+# Needs one secret in this repo: DISPATCH_TOKEN
+#   fine-grained PAT, Contents: read and write on repos1tory/repos1tory.github.io
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (e.g. v0.2.2)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    uses: repos1tory/repos1tory.github.io/.github/workflows/publish-tweak.yml@main
+    with:
+      tag: ${{ github.event.inputs.tag || github.ref_name }}
+      # Theos repos (RateBar / topbar-ios, HomeManager / homemanager-ios):
+      build_command: "rm -rf packages && make package FINALPACKAGE=1"
+      deb_glob: "packages/<package-id>_*.deb"
+      group: tweaks
+      theos: true
+
+      # On-device build repos (SoundDeck, psychosis-ios): build on the device,
+      # commit the .deb, then push a tag. Use:
+      #   build_command: "true"
+      #   deb_glob: "packages/<package-id>_*.deb"   (or "./<package-id>_*.deb")
+      #   theos: false
+
+    secrets: inherit

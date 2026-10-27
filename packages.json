@@ -1,0 +1,1056 @@
+{
+  "packages": {
+    "com.alsinas.homemanager": {
+      "name": "HomeManager",
+      "group": "tweaks",
+      "site": true,
+      "blurb": "select multiple apps in jiggle mode and delete or move them.",
+      "source": "https://github.com/repos1tory/homemanager-ios",
+      "repo": "repos1tory/homemanager-ios",
+      "versions": [
+        {
+          "version": "0.2.0-13+debug",
+          "url": "pool/main/h/homemanager/com.alsinas.homemanager_0.2.0-13+debug_iphoneos-arm64.deb",
+          "size": 34610,
+          "md5": "e8d273018645fbb58487244fe4accd5b",
+          "sha1": "c5c0ff3c8fe2e7169b8f77175741832d58eeb335",
+          "sha256": "729982419e37b9a5f7939fb62638abe5d01cceb3738e9dac88c365360394fe5e",
+          "control": {
+            "Package": "com.alsinas.homemanager",
+            "Version": "0.2.0-13+debug",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "164",
+            "Depends": "ellekit (>= 1.2), firmware (>= 15.0)",
+            "Conflicts": "com.alsinas.multidelete",
+            "Replaces": "com.alsinas.multidelete",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "HomeManager",
+            "Description": "Select and remove multiple removable Home Screen apps and web apps"
+          },
+          "published": null
+        }
+      ],
+      "order": 3,
+      "links": [
+        {
+          "href": "pool/main/h/homemanager/com.alsinas.homemanager_0.2.0-13+debug_iphoneos-arm64.deb",
+          "label": "download .deb"
+        },
+        {
+          "href": "https://github.com/repos1tory/homemanager-ios",
+          "label": "HomeManager (homemanager-ios)"
+        }
+      ],
+      "autoLinks": true
+    },
+    "com.alsinas.mdcontrol": {
+      "name": "MDControl",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)",
+      "source": null,
+      "repo": "repos1tory/psychosis-ios",
+      "versions": [
+        {
+          "version": "0.3.0",
+          "url": "pool/main/m/mdcontrol/com.alsinas.mdcontrol_0.3.0_iphoneos-arm64.deb",
+          "size": 10848,
+          "md5": "51500f9d2f66c202d635ce1cd2988a30",
+          "sha1": "2f51f2ae17c35c253aedf442d1ddd9715273a8ea",
+          "sha256": "ea592144aafc1b5775bfd805bc613d0c9a6ade616d029d37b97c88a475ce3f52",
+          "control": {
+            "Package": "com.alsinas.mdcontrol",
+            "Version": "0.3.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "60",
+            "Depends": "ellekit (>= 1.2), firmware (>= 15.0)",
+            "Priority": "optional",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "MDControl",
+            "Description": "System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)"
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.multidelete": {
+      "name": "MultiDelete",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Select and remove multiple removable Home Screen apps and web apps",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.12-1+debug",
+          "url": "pool/main/m/multidelete/com.alsinas.multidelete_0.1.12-1+debug_iphoneos-arm64.deb",
+          "size": 32124,
+          "md5": "5b4ee26d8c42d3bc5fc0c2c4d5c93d96",
+          "sha1": "8485c5aa554d62acf36b9c5861370193571638df",
+          "sha256": "d1e5ea896ed41476167c09a5806cca0d8a5090b7b220c5aa8e39742007f424e4",
+          "control": {
+            "Package": "com.alsinas.multidelete",
+            "Version": "0.1.12-1+debug",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "160",
+            "Depends": "ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "MultiDelete",
+            "Description": "Select and remove multiple removable Home Screen apps and web apps"
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.opencode-server": {
+      "name": "OpenCode Server",
+      "group": "ports",
+      "site": true,
+      "blurb": "OpenCode agent server with iOS launchd watchdog, network relay, session recovery, bundled web app, and native home-screen app.",
+      "source": "https://github.com/repos1tory/opencode-ios",
+      "repo": "repos1tory/opencode-ios",
+      "versions": [
+        {
+          "version": "2.0.28-0ios12",
+          "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios12_iphoneos-arm64.deb",
+          "size": 44527140,
+          "md5": "75d05d734ee999cef6e4fc1efa57797e",
+          "sha1": "bacae15ad3ad1bfd7115a41bbd4e1b74937fbf3b",
+          "sha256": "c3bce458350da98317f4e1031d1042a9bdb2b7e6959c5d6a470faa36496fba05",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Version": "2.0.28-0ios12",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "119580",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6)",
+            "Priority": "optional",
+            "Section": "Networking",
+            "Name": "OpenCode Server (iOS)",
+            "Description": " OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
+          },
+          "published": null
+        },
+        {
+          "version": "2.0.28-0ios35",
+          "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios35_iphoneos-arm64.deb",
+          "size": 42435444,
+          "md5": "565f75f8dd2437754938c8d24138df0a",
+          "sha1": "e5b3067b3bc3a412c6e894fb333ece6392338c02",
+          "sha256": "e122ed782d9372c4da33ef727955a502e715e4b836d3b3a3f5a1a1abaf0dc0a7",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Version": "2.0.28-0ios35",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "119516",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6)",
+            "Priority": "optional",
+            "Section": "Networking",
+            "Name": "OpenCode Server (iOS)",
+            "Description": " OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
+          },
+          "published": null
+        },
+        {
+          "version": "2.0.28-0ios36",
+          "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios36_iphoneos-arm64.deb",
+          "size": 42433960,
+          "md5": "6bd49c1b358988b337e730c8c5ede4db",
+          "sha1": "385dbc7438222919702c7263c8a62bfdf87b855b",
+          "sha256": "b84974549d045ef0aab230ba5a890f9528d15c06aaeb40f09b08cb10a6ddb336",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Version": "2.0.28-0ios36",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "119548",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6)",
+            "Priority": "optional",
+            "Section": "Networking",
+            "Name": "OpenCode Server (iOS)",
+            "Description": " OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
+          },
+          "published": null
+        },
+        {
+          "version": "2.0.28-0ios37",
+          "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios37_iphoneos-arm64.deb",
+          "size": 42434736,
+          "md5": "1d29a0945cff84dbc045e3eea78b9688",
+          "sha1": "c0dbc116998d7ec48a58c2b1a394eaeb90bb94b9",
+          "sha256": "669fbe430404bffc42142c2bfb660f10d52753f4eaee89f626fb0e26ba52de5f",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Version": "2.0.28-0ios37",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "119548",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof",
+            "Priority": "optional",
+            "Section": "Networking",
+            "Name": "OpenCode Server (iOS)",
+            "Description": " OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
+          },
+          "published": null
+        },
+        {
+          "version": "2.0.28-0ios38",
+          "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios38_iphoneos-arm64.deb",
+          "size": 42435384,
+          "md5": "fae0c6d7c02333ee77790637f7190f54",
+          "sha1": "5afa6acd6c7f17d00f75be30fbb1c01e49f4ced0",
+          "sha256": "6a28344e0fcb81311593408da045672c04a74cd9ce46a96d9be9cd7fcb5ca414",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Version": "2.0.28-0ios38",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "128732",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof",
+            "Priority": "optional",
+            "Section": "Networking",
+            "Name": "OpenCode Server (iOS)",
+            "Description": " OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
+          },
+          "published": null
+        },
+        {
+          "version": "2.0.28-0ios39",
+          "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios39_iphoneos-arm64.deb",
+          "size": 42435412,
+          "md5": "68f893548758931557216f57f45922f2",
+          "sha1": "f778166bf878f1e2d95d17a494fb95b39dfea0f0",
+          "sha256": "9364b6fad3c67a8eec919486a9183d7f719c5366ac55503b9f0c97a56ba0433a",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Version": "2.0.28-0ios39",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "128732",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof",
+            "Priority": "optional",
+            "Section": "Networking",
+            "Name": "OpenCode Server (iOS)",
+            "Description": " OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
+          },
+          "published": null
+        },
+        {
+          "version": "2.0.28-0ios40",
+          "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios40_iphoneos-arm64.deb",
+          "size": 42466624,
+          "md5": "3a17bb88d9aa01e81e78ed9405af43ff",
+          "sha1": "c94201c8e5f98009e0ec013db4eabaf9d53a6c69",
+          "sha256": "6febe1ebe429145bdd850896622397eeaeb5234f86f372a5ccc404158eccd277",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Version": "2.0.28-0ios40",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "128732",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof",
+            "Priority": "optional",
+            "Section": "Networking",
+            "Name": "OpenCode Server (iOS)",
+            "Description": " OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
+          },
+          "published": null
+        }
+      ],
+      "order": 3,
+      "links": [
+        {
+          "href": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios40_iphoneos-arm64.deb",
+          "label": "download .deb"
+        },
+        {
+          "href": "https://github.com/repos1tory/opencode-ios",
+          "label": "source"
+        }
+      ],
+      "autoLinks": true
+    },
+    "com.alsinas.psychosis": {
+      "name": "Psychosis",
+      "group": "tweaks",
+      "site": true,
+      "blurb": "system-wide touch and key injection plus accessibility automation for agent control, on device and remote.",
+      "source": "https://github.com/repos1tory/psychosis-ios",
+      "repo": "repos1tory/psychosis-ios",
+      "versions": [
+        {
+          "version": "0.4.28-1",
+          "url": "pool/main/p/psychosis/com.alsinas.psychosis_0.4.28-1_iphoneos-arm64.deb",
+          "size": 25060,
+          "md5": "96d35a9694293e4db328caa7da5fd3b8",
+          "sha1": "1e7091192474e91b70e20626dad64e0e4fd1034c",
+          "sha256": "acefb6a210cc430bc5379cdc5dbd8b9f914f99b439124f848ed3b07ce22da51d",
+          "control": {
+            "Package": "com.alsinas.psychosis",
+            "Version": "0.4.28-1",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "60",
+            "Depends": "ellekit (>= 1.2), firmware (>= 15.0)",
+            "Conflicts": "com.alsinas.mdcontrol",
+            "Replaces": "com.alsinas.mdcontrol",
+            "Priority": "optional",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "Psychosis",
+            "Description": "System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)"
+          },
+          "published": null
+        },
+        {
+          "version": "0.7.1",
+          "url": "pool/main/p/psychosis/com.alsinas.psychosis_0.7.1_iphoneos-arm64.deb",
+          "size": 49892,
+          "md5": "f8f5eec5b33384fc1094e066d294d574",
+          "sha1": "ac96749242d74606f830720485060a28a1d7b1ef",
+          "sha256": "b52d8931cd2f40bf88cf142197045f0c3832297ebef7871750391a743292da5d",
+          "control": {
+            "Package": "com.alsinas.psychosis",
+            "Version": "0.7.1",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "60",
+            "Depends": "ellekit (>= 1.2), firmware (>= 15.0)",
+            "Conflicts": "com.alsinas.mdcontrol",
+            "Replaces": "com.alsinas.mdcontrol",
+            "Priority": "optional",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "Psychosis",
+            "Description": "System-wide touch/key injection and accessibility automation server for agent control (localhost:6001), on device and remote"
+          },
+          "published": null
+        }
+      ],
+      "order": 2,
+      "links": [
+        {
+          "href": "pool/main/p/psychosis/com.alsinas.psychosis_0.7.1_iphoneos-arm64.deb",
+          "label": "download .deb"
+        },
+        {
+          "href": "https://github.com/repos1tory/psychosis-ios",
+          "label": "Psychosis (psychosis-ios)"
+        }
+      ],
+      "autoLinks": true
+    },
+    "com.alsinas.sounddeck": {
+      "name": "SoundDeck",
+      "group": "tweaks",
+      "site": true,
+      "blurb": "automatic per-app audio mixer: playing apps appear as one icon and slider, with an expandable Control Center mixer. experimental; independent Safari and Music gain verified, simultaneous playback not guaranteed.",
+      "source": "https://github.com/repos1tory/SoundDeck",
+      "repo": "repos1tory/SoundDeck",
+      "versions": [
+        {
+          "version": "0.2.1",
+          "url": "pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.1_iphoneos-arm64.deb",
+          "size": 967030,
+          "md5": "a62945df5e8109b737700fb9c080ddab",
+          "sha1": "88e02decf5b3a0bd5f3a29397a487fc3f0b4cbb9",
+          "sha256": "e05d5da247f616972601c725a5fab0c271b185f2aef5158429c96032db145ff9",
+          "control": {
+            "Package": "com.alsinas.sounddeck",
+            "Version": "0.2.1",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Sebastian Alsina <alsinas@me.com>",
+            "Depends": "firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport",
+            "Section": "Multimedia",
+            "Author": "Sebastian Alsina",
+            "Name": "SoundDeck",
+            "Description": "Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer."
+          },
+          "published": null
+        },
+        {
+          "version": "0.2.2",
+          "url": "pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
+          "size": 971504,
+          "md5": "0e56e97846e4ee0618290fbe483c1a95",
+          "sha1": "8100e584257a2e74bda7703e141c434a79895b81",
+          "sha256": "4708259efd217f97b41c1d1a693974ebb47c20f9b307dcf8721aeafea0ce9cba",
+          "control": {
+            "Package": "com.alsinas.sounddeck",
+            "Version": "0.2.2",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Sebastian Alsina <alsinas@me.com>",
+            "Depends": "firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport",
+            "Section": "Multimedia",
+            "Author": "Sebastian Alsina",
+            "Name": "SoundDeck",
+            "Description": "Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer."
+          },
+          "published": null
+        }
+      ],
+      "order": 0,
+      "links": [
+        {
+          "href": "pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
+          "label": "download .deb"
+        },
+        {
+          "href": "https://github.com/repos1tory/SoundDeck",
+          "label": "source"
+        }
+      ],
+      "autoLinks": true
+    },
+    "com.alsinas.topbar": {
+      "name": "TopBar",
+      "group": "tweaks",
+      "site": true,
+      "blurb": "a configurable iPad status-bar host with reorderable stock items and 12 installable plugins, including battery rate, IP, network, weather, CPU, memory, thermal, disk, OpenCode sessions, battery health, sun/moon, and uptime. Replaces the former RateBar package.",
+      "source": "https://github.com/repos1tory/topbar-ios",
+      "repo": "repos1tory/topbar-ios",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar_0.1.0_iphoneos-arm64.deb",
+          "size": 37674,
+          "md5": "ba4f6008db5351ac354c240c2997eb79",
+          "sha1": "4aa765935a3d6c0d7485a843bb1f1d5f23f301d7",
+          "sha256": "942fe7dea5386249a4f68089dac5dd80a7d2d6a885da4c33c22848ea3d6cab8c",
+          "control": {
+            "Package": "com.alsinas.topbar",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "228",
+            "Depends": "ellekit (>= 1.2), firmware (>= 15.0), preferenceloader",
+            "Conflicts": "com.alsinas.ratebar",
+            "Replaces": "com.alsinas.ratebar",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar",
+            "Description": "A plugin-based status bar customizer. Reorder and hide stock status bar items and install additional items as plugins."
+          },
+          "published": null
+        }
+      ],
+      "order": 1,
+      "links": [
+        {
+          "href": "pool/main/t/topbar/",
+          "label": "packages"
+        },
+        {
+          "href": "https://github.com/repos1tory/topbar-ios",
+          "label": "TopBar (topbar-ios)"
+        }
+      ],
+      "autoLinks": false
+    },
+    "com.alsinas.topbar.battery": {
+      "name": "TopBar Battery Rate",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Battery watts and time-remaining item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.battery_0.1.0_iphoneos-arm64.deb",
+          "size": 5818,
+          "md5": "e7e8130dcb68bf792cef6b05e01a4792",
+          "sha1": "af7e057e263780989e0a5c7857961bd2763bcdb1",
+          "sha256": "82a2a882e73e760949b00a82338fe8f6e2f0cabffa1ed8e0940ac15b63f5a529",
+          "control": {
+            "Package": "com.alsinas.topbar.battery",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar Battery Rate",
+            "Description": "Battery watts and time-remaining item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.batteryhealth": {
+      "name": "TopBar Battery Health",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Battery health, cycle count, and adapter wattage item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.batteryhealth_0.1.0_iphoneos-arm64.deb",
+          "size": 5346,
+          "md5": "2807c7556ae16c4356171f6ac706a7b1",
+          "sha1": "0cd8a2012f9432f66dd6df03054d4230fed397a0",
+          "sha256": "a7642b63019ffbc75be63599365e804cea5c2bfb88c8e04c14c0bc05dc740c40",
+          "control": {
+            "Package": "com.alsinas.topbar.batteryhealth",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar Battery Health",
+            "Description": "Battery health, cycle count, and adapter wattage item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.cpu": {
+      "name": "TopBar CPU",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "System CPU load item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.cpu_0.1.0_iphoneos-arm64.deb",
+          "size": 4334,
+          "md5": "ed288f3d5042e2c4524f10ab719b7924",
+          "sha1": "bf7c35737d8b8e6de5758bed59226dc3153cbe76",
+          "sha256": "73ea2527b3e26925a54e97202415ff96044342b28bc179e55dd6cd610e7d4e6d",
+          "control": {
+            "Package": "com.alsinas.topbar.cpu",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar CPU",
+            "Description": "System CPU load item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.disk": {
+      "name": "TopBar Disk Space",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Free and total storage item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.disk_0.1.0_iphoneos-arm64.deb",
+          "size": 4352,
+          "md5": "22316feb47a4cfbaa2a332f9120e5927",
+          "sha1": "958f53a4f75d0f0cce44c45f258853244cd373f5",
+          "sha256": "466515401f7798df02e6fed58d7b0281895e4d4a3d64e710b060e2186921428a",
+          "control": {
+            "Package": "com.alsinas.topbar.disk",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar Disk Space",
+            "Description": "Free and total storage item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.ip": {
+      "name": "TopBar IP Address",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Local/public IP address item for TopBar. Tap to switch.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.ip_0.1.0_iphoneos-arm64.deb",
+          "size": 6984,
+          "md5": "991f3e88dbe9e1605f4278f46617d5fe",
+          "sha1": "94a0856f185b3355009eca01dfb93101e1831bcb",
+          "sha256": "7de742f32e921c99c024050afbb387d6b2705db1c000b1e0bb90a52a5cdfa246",
+          "control": {
+            "Package": "com.alsinas.topbar.ip",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar IP Address",
+            "Description": "Local/public IP address item for TopBar. Tap to switch."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.network": {
+      "name": "TopBar Network Speed",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Live download/upload throughput item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.network_0.1.0_iphoneos-arm64.deb",
+          "size": 4730,
+          "md5": "8741e1ee72a68626d96fcce6c791cedf",
+          "sha1": "11fbcbadf001cb944ecfc7d64ba5188339aeb4e0",
+          "sha256": "43d6ea5c6816fd6c913938bd539387da577e82a6f6f4f2b47c844144888aec03",
+          "control": {
+            "Package": "com.alsinas.topbar.network",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar Network Speed",
+            "Description": "Live download/upload throughput item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.ram": {
+      "name": "TopBar RAM",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "System memory usage item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.ram_0.1.0_iphoneos-arm64.deb",
+          "size": 4176,
+          "md5": "a26ccdb2693204cee8cb720d99963923",
+          "sha1": "db0f26f24b4f7d9e8c1f6678dcee5f7382551605",
+          "sha256": "29d5679ce50f8939fb09201a1db86e25980d9797cee9da5578342c60d1d651bd",
+          "control": {
+            "Package": "com.alsinas.topbar.ram",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar RAM",
+            "Description": "System memory usage item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.sessions": {
+      "name": "TopBar OpenCode Sessions",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Number of running OpenCode sessions for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.sessions_0.1.0_iphoneos-arm64.deb",
+          "size": 5340,
+          "md5": "16ceda6f2828526f3149e9892e26096c",
+          "sha1": "208296b46841621ae2daeecb2256fbcae88f9a72",
+          "sha256": "42d5468258286aaca4f9f67682eb8b6fd4b9e3119794e31d7c04a25bebec3596",
+          "control": {
+            "Package": "com.alsinas.topbar.sessions",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar OpenCode Sessions",
+            "Description": "Number of running OpenCode sessions for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.sunmoon": {
+      "name": "TopBar Sun & Moon",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Sunrise, sunset, and moon phase item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.sunmoon_0.1.0_iphoneos-arm64.deb",
+          "size": 6736,
+          "md5": "ca8295abc56bc0239f2abe573bf6270b",
+          "sha1": "2e5bb9e16b287226f4a3971cd7f1d2b063942f49",
+          "sha256": "476e5fa2bd14c810f0f2fe23582209d40a13e73b38904b699b7e197636c1bca4",
+          "control": {
+            "Package": "com.alsinas.topbar.sunmoon",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar Sun & Moon",
+            "Description": "Sunrise, sunset, and moon phase item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.thermal": {
+      "name": "TopBar Thermal",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Battery temperature in Celsius item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.thermal_0.1.0_iphoneos-arm64.deb",
+          "size": 4578,
+          "md5": "5205b4534e191c19f7f1f3b161c47fbf",
+          "sha1": "da0ef65ff37b1a508d9c807b5016002986ac49f8",
+          "sha256": "784a8cc06730771ab7b3aad7af851b79df53c0a1f68e642a9abb0a3ee2a718b6",
+          "control": {
+            "Package": "com.alsinas.topbar.thermal",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar Thermal",
+            "Description": "Battery temperature in Celsius item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.uptime": {
+      "name": "TopBar Uptime",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Time since boot item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.uptime_0.1.0_iphoneos-arm64.deb",
+          "size": 4174,
+          "md5": "f08879ecbdf3e8c5e54c03c35c095de8",
+          "sha1": "b414d6d3781abf152350afe8c6a015cbdb5aadb9",
+          "sha256": "c2063d745305201c758701121771cc034ae7af82d045395970d5977b4af94633",
+          "control": {
+            "Package": "com.alsinas.topbar.uptime",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar Uptime",
+            "Description": "Time since boot item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.alsinas.topbar.weather": {
+      "name": "TopBar Weather",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Current temperature and conditions item for TopBar.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "url": "pool/main/t/topbar/com.alsinas.topbar.weather_0.1.0_iphoneos-arm64.deb",
+          "size": 6436,
+          "md5": "7445f9a563a1a862a44488094d8a43b0",
+          "sha1": "0ea3d6592dedf50cb9a4004e67eee1e4749945a5",
+          "sha256": "211b52da2d05b6686fa5d3431ed5111985ff1e751307ff976dadb1d5eba9d4cb",
+          "control": {
+            "Package": "com.alsinas.topbar.weather",
+            "Version": "0.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "alsinas",
+            "Installed-Size": "76",
+            "Depends": "com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Author": "alsinas",
+            "Name": "TopBar Weather",
+            "Description": "Current temperature and conditions item for TopBar."
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.itop.monitor": {
+      "name": "itop",
+      "group": "apps",
+      "site": true,
+      "blurb": "a high-refresh native system monitor drawn entirely in terminal glyphs: per-core CPU with history graphs, memory and jetsam pressure, disk, battery, and a live sortable process table with an htop-style key bar. iPhone and iPad layouts.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "1.1.0",
+          "url": "pool/main/i/itop/itop_1.1.0_iphoneos-arm64.deb",
+          "size": 53920,
+          "md5": "36222e249929ff3af986708bf6fbd38d",
+          "sha1": "b9d1bff90eedb321bda88e7d0cd62cde8737de17",
+          "sha256": "f88815f6a360929b77bbdc19bdd32dd8722a6836f917cc1a49864e76a8cb4def",
+          "control": {
+            "Package": "com.itop.monitor",
+            "Version": "1.1.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "itop",
+            "Priority": "optional",
+            "Section": "Utilities",
+            "Name": "itop",
+            "Description": "Lightweight high-refresh native iOS system monitor"
+          },
+          "published": null
+        }
+      ],
+      "order": 0,
+      "links": [
+        {
+          "href": "pool/main/i/itop/itop_1.1.0_iphoneos-arm64.deb",
+          "label": "download .deb"
+        }
+      ],
+      "autoLinks": true
+    },
+    "com.repos1tory.clm": {
+      "name": "CLM (Command Line Message)",
+      "group": "tweaks",
+      "site": false,
+      "blurb": "Send iMessage (preferred) or relayed SMS from the command line. Runs inside the Messages app, so it works on Wi-Fi-only iPads.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "url": "pool/main/c/clm/com.repos1tory.clm_1.0.0_iphoneos-arm64.deb",
+          "size": 5448,
+          "md5": "376fed9b6f8edaad5cc9a5e3f7e2bc4d",
+          "sha1": "da095b83c6ab25e5c63bab10f07c100b33b8998c",
+          "sha256": "88401b42cd6c89a76b568a64055e6a597da9a3b01a09b424db35cc47115ed217",
+          "control": {
+            "Package": "com.repos1tory.clm",
+            "Version": "1.0.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "repos1tory",
+            "Installed-Size": "72",
+            "Depends": "ellekit (>= 1.2), firmware (>= 15.0)",
+            "Section": "Tweaks",
+            "Depiction": "https://repos1tory.github.io/depictions/com.repos1tory.clm/",
+            "Author": "repos1tory",
+            "Name": "CLM (Command Line Message)",
+            "Description": "Send iMessage (preferred) or relayed SMS from the command line. Runs inside the Messages app, so it works on Wi-Fi-only iPads.",
+            "Sileodepiction": "https://repos1tory.github.io/sileo/com.repos1tory.clm.json"
+          },
+          "published": null
+        }
+      ]
+    },
+    "com.repos1tory.clm-cmd": {
+      "name": "CLM",
+      "group": "tools",
+      "site": true,
+      "blurb": "command line messaging: send iMessage (preferred) or SMS from the shell, routed through the Messages app. installs the <i>clm</i> command plus the sender. works on wi-fi-only ipads.",
+      "source": null,
+      "repo": null,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "url": "pool/main/c/clm/com.repos1tory.clm-cmd_1.0.0_iphoneos-arm64.deb",
+          "size": 3644,
+          "md5": "e793efbab7b888986d1745b8b8cc58a3",
+          "sha1": "179cb1fb19b4ec7d673963a3fb47374db0c463b2",
+          "sha256": "405998434e4ea25cb1240539d3a56e934b8a814d81ab0ddcbcfdfb2e18622a84",
+          "control": {
+            "Package": "com.repos1tory.clm-cmd",
+            "Version": "1.0.0",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "repos1tory",
+            "Installed-Size": "68",
+            "Depends": "com.repos1tory.clm",
+            "Section": "Tweaks",
+            "Author": "repos1tory",
+            "Name": "CLM (command line)",
+            "Description": "Command line front-end for CLM (clm). Sends iMessage or SMS."
+          },
+          "published": null
+        }
+      ],
+      "order": 0,
+      "links": [
+        {
+          "href": "pool/main/c/clm/com.repos1tory.clm-cmd_1.0.0_iphoneos-arm64.deb",
+          "label": "download .deb"
+        }
+      ],
+      "autoLinks": true
+    },
+    "com.repos1tory.cloudflared": {
+      "name": "cloudflared",
+      "group": "ports",
+      "site": true,
+      "blurb": "Cloudflare Tunnel client running natively on jailbroken iOS: quick tunnels and HTTPS from the device, no companion server.",
+      "source": null,
+      "repo": "repos1tory/cloudflared-ios",
+      "versions": [
+        {
+          "version": "2026.10.3-1",
+          "url": "pool/main/c/cloudflared-ios/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb",
+          "size": 16931368,
+          "md5": "9216f85f678c5a91a5271f163dcac458",
+          "sha1": "bee7449161e0041dc341bb2260891aa551617075",
+          "sha256": "43be65a40a4766904cc837de13977f04973722fa7a305ea439c90d7c017c1b42",
+          "control": {
+            "Package": "com.repos1tory.cloudflared",
+            "Version": "2026.10.3-1",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "repos1tory",
+            "Installed-Size": "38624",
+            "Depends": "firmware (>= 15.0), nodejs (>= 22.19.0)",
+            "Priority": "optional",
+            "Section": "Networking",
+            "Homepage": "https://github.com/repos1tory/cloudflared-ios",
+            "Author": "Cloudflare, Inc.; iOS port by repos1tory",
+            "Name": "cloudflared",
+            "Description": " Cloudflare Tunnel client for jailbroken iOS (arm64)\ncloudflared as a native command-line tool for rootless jailbroken iOS.\nQuick tunnels and named tunnels run directly on the device; no Mac or\ncompanion server is required. The quick-tunnel wrapper adds a loopback\ncompatibility shim for the upstream provisioning request."
+          },
+          "published": null
+        }
+      ],
+      "order": 0,
+      "links": [
+        {
+          "href": "pool/main/c/cloudflared-ios/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb",
+          "label": "download .deb"
+        }
+      ],
+      "autoLinks": true
+    },
+    "nodejs": {
+      "name": "Node.js",
+      "group": "ports",
+      "site": true,
+      "blurb": "upstream Node.js 22 with full JIT and WebAssembly, bundled npm and npx.",
+      "source": null,
+      "repo": "repos1tory/node-ios",
+      "versions": [
+        {
+          "version": "22.19.0-1",
+          "url": "pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb",
+          "size": 16238440,
+          "md5": "520f32d9c168e877ce2e6b8b75c70061",
+          "sha1": "3ac3aed2eb87306e5ce696804f08042f6c2b74c5",
+          "sha256": "b1502e99c5065c6c13f5afac00e99cf25e0009009a22b4736dcbbd763f0f4b06",
+          "control": {
+            "Package": "nodejs",
+            "Version": "22.19.0-1",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Alsinas Labs",
+            "Depends": "firmware (>= 15.0)",
+            "Priority": "optional",
+            "Section": "Development",
+            "Homepage": "https://github.com/al5ina5/node-ios",
+            "Description": " Node.js 22.19.0 runtime for jailbroken iOS arm64\nExperimental upstream Node.js port with W^X JIT support for iOS.\nShips full JIT (TurboFan) + WebAssembly. The node/npm/npx wrappers pass\n--predictable --single-threaded (safe process-wide mprotect W^X flips) and\n--disable-wasm-trap-handler (avoids V8's 10GB guarded wasm-memory reservation,\nwhich iOS's per-process VA cap rejects)."
+          },
+          "published": null
+        }
+      ],
+      "order": 1,
+      "links": [
+        {
+          "href": "pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb",
+          "label": "download .deb"
+        }
+      ],
+      "autoLinks": true
+    },
+    "wrangler-ios": {
+      "name": "Wrangler",
+      "group": "ports",
+      "site": true,
+      "blurb": "the Cloudflare Workers CLI (esbuild-wasm). deploy Workers straight from the device.",
+      "source": null,
+      "repo": "repos1tory/wrangler-ios",
+      "versions": [
+        {
+          "version": "4.151.0-1",
+          "url": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb",
+          "size": 8276712,
+          "md5": "149acbef479eb98d142f1c5ecfb5d60c",
+          "sha1": "0a927274ad463b2020d5501bf19eb9c8102e7b03",
+          "sha256": "bd36c0ce092eccb6a23ee982766d19bbcb25853801841a041d43ba2c005b8ac2",
+          "control": {
+            "Package": "wrangler-ios",
+            "Version": "4.151.0-1",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Alsinas Labs",
+            "Depends": "firmware (>= 15.0), nodejs (>= 22.19.0)",
+            "Priority": "optional",
+            "Section": "Development",
+            "Homepage": "https://github.com/al5ina5/wrangler-ios",
+            "Description": " Cloudflare Wrangler CLI for jailbroken iOS arm64\nAPI, authentication, and deployment CLI. Bundles esbuild-wasm (no native\nesbuild binary needed) and defers workerd's unsupported-platform error so\ndeploy commands run on iOS. Authenticate with \"wrangler login --device\";\nlocal \"wrangler dev\" is unavailable because Cloudflare workerd has no iOS\nruntime build."
+          },
+          "published": null
+        }
+      ],
+      "order": 2,
+      "links": [
+        {
+          "href": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb",
+          "label": "download .deb"
+        }
+      ],
+      "autoLinks": true
+    }
+  }
+}

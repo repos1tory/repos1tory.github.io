@@ -1,0 +1,185 @@
+{
+  "generated": "2026-10-27T00:10:10.255Z",
+  "packages": {
+    "com.alsinas.homemanager": {
+      "name": "HomeManager",
+      "version": "0.2.0-13+debug",
+      "url": "pool/main/h/homemanager/com.alsinas.homemanager_0.2.0-13+debug_iphoneos-arm64.deb",
+      "size": 34610,
+      "sha256": "729982419e37b9a5f7939fb62638abe5d01cceb3738e9dac88c365360394fe5e",
+      "source": "https://github.com/repos1tory/homemanager-ios"
+    },
+    "com.alsinas.mdcontrol": {
+      "name": "MDControl",
+      "version": "0.3.0",
+      "url": "pool/main/m/mdcontrol/com.alsinas.mdcontrol_0.3.0_iphoneos-arm64.deb",
+      "size": 10848,
+      "sha256": "ea592144aafc1b5775bfd805bc613d0c9a6ade616d029d37b97c88a475ce3f52"
+    },
+    "com.alsinas.multidelete": {
+      "name": "MultiDelete",
+      "version": "0.1.12-1+debug",
+      "url": "pool/main/m/multidelete/com.alsinas.multidelete_0.1.12-1+debug_iphoneos-arm64.deb",
+      "size": 32124,
+      "sha256": "d1e5ea896ed41476167c09a5806cca0d8a5090b7b220c5aa8e39742007f424e4"
+    },
+    "com.alsinas.opencode-server": {
+      "name": "OpenCode Server",
+      "version": "2.0.28-0ios40",
+      "url": "pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios40_iphoneos-arm64.deb",
+      "size": 42466624,
+      "sha256": "6febe1ebe429145bdd850896622397eeaeb5234f86f372a5ccc404158eccd277",
+      "source": "https://github.com/repos1tory/opencode-ios"
+    },
+    "com.alsinas.psychosis": {
+      "name": "Psychosis",
+      "version": "0.7.1",
+      "url": "pool/main/p/psychosis/com.alsinas.psychosis_0.7.1_iphoneos-arm64.deb",
+      "size": 49892,
+      "sha256": "b52d8931cd2f40bf88cf142197045f0c3832297ebef7871750391a743292da5d",
+      "source": "https://github.com/repos1tory/psychosis-ios"
+    },
+    "com.alsinas.sounddeck": {
+      "name": "SoundDeck",
+      "version": "0.2.2",
+      "url": "pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb",
+      "size": 971504,
+      "sha256": "4708259efd217f97b41c1d1a693974ebb47c20f9b307dcf8721aeafea0ce9cba",
+      "source": "https://github.com/repos1tory/SoundDeck"
+    },
+    "com.alsinas.topbar": {
+      "name": "TopBar",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar_0.1.0_iphoneos-arm64.deb",
+      "size": 37674,
+      "sha256": "942fe7dea5386249a4f68089dac5dd80a7d2d6a885da4c33c22848ea3d6cab8c",
+      "source": "https://github.com/repos1tory/topbar-ios"
+    },
+    "com.alsinas.topbar.battery": {
+      "name": "TopBar Battery Rate",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.battery_0.1.0_iphoneos-arm64.deb",
+      "size": 5818,
+      "sha256": "82a2a882e73e760949b00a82338fe8f6e2f0cabffa1ed8e0940ac15b63f5a529"
+    },
+    "com.alsinas.topbar.batteryhealth": {
+      "name": "TopBar Battery Health",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.batteryhealth_0.1.0_iphoneos-arm64.deb",
+      "size": 5346,
+      "sha256": "a7642b63019ffbc75be63599365e804cea5c2bfb88c8e04c14c0bc05dc740c40"
+    },
+    "com.alsinas.topbar.cpu": {
+      "name": "TopBar CPU",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.cpu_0.1.0_iphoneos-arm64.deb",
+      "size": 4334,
+      "sha256": "73ea2527b3e26925a54e97202415ff96044342b28bc179e55dd6cd610e7d4e6d"
+    },
+    "com.alsinas.topbar.disk": {
+      "name": "TopBar Disk Space",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.disk_0.1.0_iphoneos-arm64.deb",
+      "size": 4352,
+      "sha256": "466515401f7798df02e6fed58d7b0281895e4d4a3d64e710b060e2186921428a"
+    },
+    "com.alsinas.topbar.ip": {
+      "name": "TopBar IP Address",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.ip_0.1.0_iphoneos-arm64.deb",
+      "size": 6984,
+      "sha256": "7de742f32e921c99c024050afbb387d6b2705db1c000b1e0bb90a52a5cdfa246"
+    },
+    "com.alsinas.topbar.network": {
+      "name": "TopBar Network Speed",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.network_0.1.0_iphoneos-arm64.deb",
+      "size": 4730,
+      "sha256": "43d6ea5c6816fd6c913938bd539387da577e82a6f6f4f2b47c844144888aec03"
+    },
+    "com.alsinas.topbar.ram": {
+      "name": "TopBar RAM",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.ram_0.1.0_iphoneos-arm64.deb",
+      "size": 4176,
+      "sha256": "29d5679ce50f8939fb09201a1db86e25980d9797cee9da5578342c60d1d651bd"
+    },
+    "com.alsinas.topbar.sessions": {
+      "name": "TopBar OpenCode Sessions",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.sessions_0.1.0_iphoneos-arm64.deb",
+      "size": 5340,
+      "sha256": "42d5468258286aaca4f9f67682eb8b6fd4b9e3119794e31d7c04a25bebec3596"
+    },
+    "com.alsinas.topbar.sunmoon": {
+      "name": "TopBar Sun & Moon",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.sunmoon_0.1.0_iphoneos-arm64.deb",
+      "size": 6736,
+      "sha256": "476e5fa2bd14c810f0f2fe23582209d40a13e73b38904b699b7e197636c1bca4"
+    },
+    "com.alsinas.topbar.thermal": {
+      "name": "TopBar Thermal",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.thermal_0.1.0_iphoneos-arm64.deb",
+      "size": 4578,
+      "sha256": "784a8cc06730771ab7b3aad7af851b79df53c0a1f68e642a9abb0a3ee2a718b6"
+    },
+    "com.alsinas.topbar.uptime": {
+      "name": "TopBar Uptime",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.uptime_0.1.0_iphoneos-arm64.deb",
+      "size": 4174,
+      "sha256": "c2063d745305201c758701121771cc034ae7af82d045395970d5977b4af94633"
+    },
+    "com.alsinas.topbar.weather": {
+      "name": "TopBar Weather",
+      "version": "0.1.0",
+      "url": "pool/main/t/topbar/com.alsinas.topbar.weather_0.1.0_iphoneos-arm64.deb",
+      "size": 6436,
+      "sha256": "211b52da2d05b6686fa5d3431ed5111985ff1e751307ff976dadb1d5eba9d4cb"
+    },
+    "com.itop.monitor": {
+      "name": "itop",
+      "version": "1.1.0",
+      "url": "pool/main/i/itop/itop_1.1.0_iphoneos-arm64.deb",
+      "size": 53920,
+      "sha256": "f88815f6a360929b77bbdc19bdd32dd8722a6836f917cc1a49864e76a8cb4def"
+    },
+    "com.repos1tory.clm": {
+      "name": "CLM (Command Line Message)",
+      "version": "1.0.0",
+      "url": "pool/main/c/clm/com.repos1tory.clm_1.0.0_iphoneos-arm64.deb",
+      "size": 5448,
+      "sha256": "88401b42cd6c89a76b568a64055e6a597da9a3b01a09b424db35cc47115ed217"
+    },
+    "com.repos1tory.clm-cmd": {
+      "name": "CLM",
+      "version": "1.0.0",
+      "url": "pool/main/c/clm/com.repos1tory.clm-cmd_1.0.0_iphoneos-arm64.deb",
+      "size": 3644,
+      "sha256": "405998434e4ea25cb1240539d3a56e934b8a814d81ab0ddcbcfdfb2e18622a84"
+    },
+    "com.repos1tory.cloudflared": {
+      "name": "cloudflared",
+      "version": "2026.10.3-1",
+      "url": "pool/main/c/cloudflared-ios/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb",
+      "size": 16931368,
+      "sha256": "43be65a40a4766904cc837de13977f04973722fa7a305ea439c90d7c017c1b42"
+    },
+    "nodejs": {
+      "name": "Node.js",
+      "version": "22.19.0-1",
+      "url": "pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb",
+      "size": 16238440,
+      "sha256": "b1502e99c5065c6c13f5afac00e99cf25e0009009a22b4736dcbbd763f0f4b06"
+    },
+    "wrangler-ios": {
+      "name": "Wrangler",
+      "version": "4.151.0-1",
+      "url": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb",
+      "size": 8276712,
+      "sha256": "bd36c0ce092eccb6a23ee982766d19bbcb25853801841a041d43ba2c005b8ac2"
+    }
+  }
+}

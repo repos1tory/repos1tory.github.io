@@ -1,0 +1,151 @@
+name: publish tweak (reusable)
+
+# Build a .deb, attach it to a GitHub Release (that is where the public
+# download counter lives), then tell the repo site to ingest it.
+#
+# Each tweak repo has a small caller, see ci/tweak-release.yml in the site repo.
+#
+# Required secret in the calling repo: DISPATCH_TOKEN
+#   fine-grained PAT, Resource owner: repos1tory,
+#   Repository access: repos1tory/repos1tory.github.io,
+#   Permissions: Contents = Read and write
+#   (fine-grained tokens cannot be auto-scoped; use `secrets: inherit`)
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: "Release tag (defaults to the pushed tag)"
+        type: string
+        required: true
+      build_command:
+        description: "Command that produces the .deb(s)"
+        type: string
+        default: "make package FINALPACKAGE=1"
+      deb_glob:
+        description: "Glob for the built .deb files"
+        type: string
+        default: "packages/*.deb"
+      group:
+        description: "Site section: tweaks | apps | tools | ports"
+        type: string
+        default: "tweaks"
+      theos:
+        description: "Install Theos before building"
+        type: boolean
+        default: true
+      runner:
+        description: "Runner for the build job"
+        type: string
+        default: "macos-14"
+      no_site:
+        description: "Do not list on the web page"
+        type: boolean
+        default: false
+      site_repo:
+        description: "Repo that hosts the APT repo"
+        type: string
+        default: "repos1tory/repos1tory.github.io"
+    secrets:
+      DISPATCH_TOKEN:
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ${{ inputs.runner }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Theos
+        if: inputs.theos
+        run: |
+          set -euo pipefail
+          brew list ldid >/dev/null 2>&1 || brew install ldid
+          brew list xz >/dev/null 2>&1 || brew install xz
+          git clone --recursive --depth 1 https://github.com/theos/theos.git "$RUNNER_TEMP/theos"
+          echo "THEOS=$RUNNER_TEMP/theos" >> "$GITHUB_ENV"
+
+      - name: Build
+        shell: bash
+        run: |
+          set -euxo pipefail
+          ${{ inputs.build_command }}
+
+      - name: Collect .deb
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          debs=(${{ inputs.deb_glob }})
+          if [ ${#debs[@]} -eq 0 ]; then
+            echo "::error::no .deb matched '${{ inputs.deb_glob }}' — check build_command/deb_glob"
+            exit 1
+          fi
+          mkdir -p dist
+          cp "${debs[@]}" dist/
+          ls -l dist
+          for f in dist/*.deb; do
+            case "$f" in
+              *+*) echo "::warning::$f contains '+' — some clients mishandle it in URLs" ;;
+            esac
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: debs
+          path: dist/*.deb
+          if-no-files-found: error
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TAG: ${{ inputs.tag }}
+      GROUP: ${{ inputs.group }}
+      NO_SITE: ${{ inputs.no_site }}
+      SITE_REPO: ${{ inputs.site_repo }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: debs
+          path: dist
+
+      - name: Create or update the GitHub Release
+        run: |
+          set -euo pipefail
+          echo "debs:"; ls -l dist
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/*.deb --repo "$GITHUB_REPOSITORY" --clobber
+          else
+            gh release create "$TAG" dist/*.deb \
+              --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
+              --title "$TAG" \
+              --generate-notes
+          fi
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json url,assets \
+            --jq '.url, (.assets[] | "\(.name) \(.size)B")'
+
+      - name: Ask the site to ingest it
+        env:
+          TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${TOKEN:-}" ]; then
+            echo "::warning::DISPATCH_TOKEN is not set — release created, but the APT repo was not updated."
+            echo "Add a fine-grained PAT (Contents: write on $SITE_REPO) as the DISPATCH_TOKEN secret."
+            exit 0
+          fi
+          GH_TOKEN="$TOKEN" gh api "repos/$SITE_REPO/dispatches" \
+            -f event_type=package-release \
+            -f "client_payload[repo]=$GITHUB_REPOSITORY" \
+            -f "client_payload[tag]=$TAG" \
+            -f "client_payload[group]=$GROUP" \
+            -F "client_payload[no_site]=$NO_SITE"
+          echo "dispatched to $SITE_REPO"

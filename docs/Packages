@@ -6,15 +6,15 @@ Installed-Size: 164
 Depends: ellekit (>= 1.2), firmware (>= 15.0)
 Conflicts: com.alsinas.multidelete
 Replaces: com.alsinas.multidelete
-Filename: pool/main/h/homemanager/com.alsinas.homemanager_0.2.0-13+debug_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: HomeManager
+Description: Select and remove multiple removable Home Screen apps and web apps
 Size: 34610
 MD5sum: e8d273018645fbb58487244fe4accd5b
 SHA1: c5c0ff3c8fe2e7169b8f77175741832d58eeb335
 SHA256: 729982419e37b9a5f7939fb62638abe5d01cceb3738e9dac88c365360394fe5e
-Section: Tweaks
-Description: Select and remove multiple removable Home Screen apps and web apps
-Author: alsinas
-Name: HomeManager
+Filename: pool/main/h/homemanager/com.alsinas.homemanager_0.2.0-13+debug_iphoneos-arm64.deb
 
 Package: com.alsinas.mdcontrol
 Version: 0.3.0
@@ -22,16 +22,16 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 60
 Depends: ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/m/mdcontrol/com.alsinas.mdcontrol_0.3.0_iphoneos-arm64.deb
+Priority: optional
+Section: Tweaks
+Author: alsinas
+Name: MDControl
+Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)
 Size: 10848
 MD5sum: 51500f9d2f66c202d635ce1cd2988a30
 SHA1: 2f51f2ae17c35c253aedf442d1ddd9715273a8ea
 SHA256: ea592144aafc1b5775bfd805bc613d0c9a6ade616d029d37b97c88a475ce3f52
-Section: Tweaks
-Priority: optional
-Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)
-Author: alsinas
-Name: MDControl
+Filename: pool/main/m/mdcontrol/com.alsinas.mdcontrol_0.3.0_iphoneos-arm64.deb
 
 Package: com.alsinas.multidelete
 Version: 0.1.12-1+debug
@@ -39,15 +39,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 160
 Depends: ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/m/multidelete/com.alsinas.multidelete_0.1.12-1+debug_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: MultiDelete
+Description: Select and remove multiple removable Home Screen apps and web apps
 Size: 32124
 MD5sum: 5b4ee26d8c42d3bc5fc0c2c4d5c93d96
 SHA1: 8485c5aa554d62acf36b9c5861370193571638df
 SHA256: d1e5ea896ed41476167c09a5806cca0d8a5090b7b220c5aa8e39742007f424e4
-Section: Tweaks
-Description: Select and remove multiple removable Home Screen apps and web apps
-Author: alsinas
-Name: MultiDelete
+Filename: pool/main/m/multidelete/com.alsinas.multidelete_0.1.12-1+debug_iphoneos-arm64.deb
 
 Package: com.alsinas.opencode-server
 Version: 2.0.28-0ios12
@@ -55,16 +55,16 @@ Architecture: iphoneos-arm64
 Maintainer: Local OpenCode iOS build
 Installed-Size: 119580
 Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6)
-Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios12_iphoneos-arm64.deb
+Priority: optional
+Section: Networking
+Name: OpenCode Server (iOS)
+Description:   OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
 Size: 44527140
 MD5sum: 75d05d734ee999cef6e4fc1efa57797e
 SHA1: bacae15ad3ad1bfd7115a41bbd4e1b74937fbf3b
 SHA256: c3bce458350da98317f4e1031d1042a9bdb2b7e6959c5d6a470faa36496fba05
-Section: Networking
-Priority: optional
-Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
- The server starts through launchd and has an OpenCode Server settings pane.
-Name: OpenCode Server (iOS)
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios12_iphoneos-arm64.deb
 
 Package: com.alsinas.opencode-server
 Version: 2.0.28-0ios35
@@ -72,16 +72,16 @@ Architecture: iphoneos-arm64
 Maintainer: Local OpenCode iOS build
 Installed-Size: 119516
 Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6)
-Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios35_iphoneos-arm64.deb
+Priority: optional
+Section: Networking
+Name: OpenCode Server (iOS)
+Description:   OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
 Size: 42435444
 MD5sum: 565f75f8dd2437754938c8d24138df0a
 SHA1: e5b3067b3bc3a412c6e894fb333ece6392338c02
 SHA256: e122ed782d9372c4da33ef727955a502e715e4b836d3b3a3f5a1a1abaf0dc0a7
-Section: Networking
-Priority: optional
-Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
- The server starts through launchd and has an OpenCode Server settings pane.
-Name: OpenCode Server (iOS)
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios35_iphoneos-arm64.deb
 
 Package: com.alsinas.opencode-server
 Version: 2.0.28-0ios36
@@ -89,16 +89,16 @@ Architecture: iphoneos-arm64
 Maintainer: Local OpenCode iOS build
 Installed-Size: 119548
 Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6)
-Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios36_iphoneos-arm64.deb
+Priority: optional
+Section: Networking
+Name: OpenCode Server (iOS)
+Description:   OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
 Size: 42433960
 MD5sum: 6bd49c1b358988b337e730c8c5ede4db
 SHA1: 385dbc7438222919702c7263c8a62bfdf87b855b
 SHA256: b84974549d045ef0aab230ba5a890f9528d15c06aaeb40f09b08cb10a6ddb336
-Section: Networking
-Priority: optional
-Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
- The server starts through launchd and has an OpenCode Server settings pane.
-Name: OpenCode Server (iOS)
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios36_iphoneos-arm64.deb
 
 Package: com.alsinas.opencode-server
 Version: 2.0.28-0ios37
@@ -106,16 +106,16 @@ Architecture: iphoneos-arm64
 Maintainer: Local OpenCode iOS build
 Installed-Size: 119548
 Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof
-Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios37_iphoneos-arm64.deb
+Priority: optional
+Section: Networking
+Name: OpenCode Server (iOS)
+Description:   OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
 Size: 42434736
 MD5sum: 1d29a0945cff84dbc045e3eea78b9688
 SHA1: c0dbc116998d7ec48a58c2b1a394eaeb90bb94b9
 SHA256: 669fbe430404bffc42142c2bfb660f10d52753f4eaee89f626fb0e26ba52de5f
-Section: Networking
-Priority: optional
-Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
- The server starts through launchd and has an OpenCode Server settings pane.
-Name: OpenCode Server (iOS)
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios37_iphoneos-arm64.deb
 
 Package: com.alsinas.opencode-server
 Version: 2.0.28-0ios38
@@ -123,16 +123,16 @@ Architecture: iphoneos-arm64
 Maintainer: Local OpenCode iOS build
 Installed-Size: 128732
 Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof
-Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios38_iphoneos-arm64.deb
+Priority: optional
+Section: Networking
+Name: OpenCode Server (iOS)
+Description:   OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
 Size: 42435384
 MD5sum: fae0c6d7c02333ee77790637f7190f54
 SHA1: 5afa6acd6c7f17d00f75be30fbb1c01e49f4ced0
 SHA256: 6a28344e0fcb81311593408da045672c04a74cd9ce46a96d9be9cd7fcb5ca414
-Section: Networking
-Priority: optional
-Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
- The server starts through launchd and has an OpenCode Server settings pane.
-Name: OpenCode Server (iOS)
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios38_iphoneos-arm64.deb
 
 Package: com.alsinas.opencode-server
 Version: 2.0.28-0ios39
@@ -140,16 +140,16 @@ Architecture: iphoneos-arm64
 Maintainer: Local OpenCode iOS build
 Installed-Size: 128732
 Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof
-Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios39_iphoneos-arm64.deb
+Priority: optional
+Section: Networking
+Name: OpenCode Server (iOS)
+Description:   OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
 Size: 42435412
 MD5sum: 68f893548758931557216f57f45922f2
 SHA1: f778166bf878f1e2d95d17a494fb95b39dfea0f0
 SHA256: 9364b6fad3c67a8eec919486a9183d7f719c5366ac55503b9f0c97a56ba0433a
-Section: Networking
-Priority: optional
-Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
- The server starts through launchd and has an OpenCode Server settings pane.
-Name: OpenCode Server (iOS)
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios39_iphoneos-arm64.deb
 
 Package: com.alsinas.opencode-server
 Version: 2.0.28-0ios40
@@ -157,16 +157,16 @@ Architecture: iphoneos-arm64
 Maintainer: Local OpenCode iOS build
 Installed-Size: 128732
 Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof
-Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios40_iphoneos-arm64.deb
+Priority: optional
+Section: Networking
+Name: OpenCode Server (iOS)
+Description:   OpenCode agent server and home-screen app for rootless jailbroken iOS
+ The server starts through launchd and has an OpenCode Server settings pane.
 Size: 42466624
 MD5sum: 3a17bb88d9aa01e81e78ed9405af43ff
 SHA1: c94201c8e5f98009e0ec013db4eabaf9d53a6c69
 SHA256: 6febe1ebe429145bdd850896622397eeaeb5234f86f372a5ccc404158eccd277
-Section: Networking
-Priority: optional
-Description: OpenCode agent server and home-screen app for rootless jailbroken iOS
- The server starts through launchd and has an OpenCode Server settings pane.
-Name: OpenCode Server (iOS)
+Filename: pool/main/o/opencode-server/com.alsinas.opencode-server_2.0.28-0ios40_iphoneos-arm64.deb
 
 Package: com.alsinas.psychosis
 Version: 0.4.28-1
@@ -176,16 +176,16 @@ Installed-Size: 60
 Depends: ellekit (>= 1.2), firmware (>= 15.0)
 Conflicts: com.alsinas.mdcontrol
 Replaces: com.alsinas.mdcontrol
-Filename: pool/main/p/psychosis/com.alsinas.psychosis_0.4.28-1_iphoneos-arm64.deb
+Priority: optional
+Section: Tweaks
+Author: alsinas
+Name: Psychosis
+Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)
 Size: 25060
 MD5sum: 96d35a9694293e4db328caa7da5fd3b8
 SHA1: 1e7091192474e91b70e20626dad64e0e4fd1034c
 SHA256: acefb6a210cc430bc5379cdc5dbd8b9f914f99b439124f848ed3b07ce22da51d
-Section: Tweaks
-Priority: optional
-Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001)
-Author: alsinas
-Name: Psychosis
+Filename: pool/main/p/psychosis/com.alsinas.psychosis_0.4.28-1_iphoneos-arm64.deb
 
 Package: com.alsinas.psychosis
 Version: 0.7.1
@@ -195,46 +195,46 @@ Installed-Size: 60
 Depends: ellekit (>= 1.2), firmware (>= 15.0)
 Conflicts: com.alsinas.mdcontrol
 Replaces: com.alsinas.mdcontrol
-Filename: pool/main/p/psychosis/com.alsinas.psychosis_0.7.1_iphoneos-arm64.deb
+Priority: optional
+Section: Tweaks
+Author: alsinas
+Name: Psychosis
+Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001), on device and remote
 Size: 49892
 MD5sum: f8f5eec5b33384fc1094e066d294d574
 SHA1: ac96749242d74606f830720485060a28a1d7b1ef
 SHA256: b52d8931cd2f40bf88cf142197045f0c3832297ebef7871750391a743292da5d
-Section: Tweaks
-Priority: optional
-Description: System-wide touch/key injection and accessibility automation server for agent control (localhost:6001), on device and remote
-Author: alsinas
-Name: Psychosis
+Filename: pool/main/p/psychosis/com.alsinas.psychosis_0.7.1_iphoneos-arm64.deb
 
 Package: com.alsinas.sounddeck
 Version: 0.2.1
 Architecture: iphoneos-arm64
 Maintainer: Sebastian Alsina <alsinas@me.com>
 Depends: firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport
-Filename: pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.1_iphoneos-arm64.deb
+Section: Multimedia
+Author: Sebastian Alsina
+Name: SoundDeck
+Description: Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer.
 Size: 967030
 MD5sum: a62945df5e8109b737700fb9c080ddab
 SHA1: 88e02decf5b3a0bd5f3a29397a487fc3f0b4cbb9
 SHA256: e05d5da247f616972601c725a5fab0c271b185f2aef5158429c96032db145ff9
-Section: Multimedia
-Description: Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer.
-Author: Sebastian Alsina
-Name: SoundDeck
+Filename: pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.1_iphoneos-arm64.deb
 
 Package: com.alsinas.sounddeck
 Version: 0.2.2
 Architecture: iphoneos-arm64
 Maintainer: Sebastian Alsina <alsinas@me.com>
 Depends: firmware (>= 15.0), ellekit, uikittools, com.opa334.ccsupport
-Filename: pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb
+Section: Multimedia
+Author: Sebastian Alsina
+Name: SoundDeck
+Description: Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer.
 Size: 971504
 MD5sum: 0e56e97846e4ee0618290fbe483c1a95
 SHA1: 8100e584257a2e74bda7703e141c434a79895b81
 SHA256: 4708259efd217f97b41c1d1a693974ebb47c20f9b307dcf8721aeafea0ce9cba
-Section: Multimedia
-Description: Automatic native per-app audio mixer with multi-framework gain and an expandable Control Center mixer.
-Author: Sebastian Alsina
-Name: SoundDeck
+Filename: pool/main/s/sounddeck/com.alsinas.sounddeck_0.2.2_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar
 Version: 0.1.0
@@ -244,15 +244,15 @@ Installed-Size: 228
 Depends: ellekit (>= 1.2), firmware (>= 15.0), preferenceloader
 Conflicts: com.alsinas.ratebar
 Replaces: com.alsinas.ratebar
-Filename: pool/main/t/topbar/com.alsinas.topbar_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar
+Description: A plugin-based status bar customizer. Reorder and hide stock status bar items and install additional items as plugins.
 Size: 37674
 MD5sum: ba4f6008db5351ac354c240c2997eb79
 SHA1: 4aa765935a3d6c0d7485a843bb1f1d5f23f301d7
 SHA256: 942fe7dea5386249a4f68089dac5dd80a7d2d6a885da4c33c22848ea3d6cab8c
-Section: Tweaks
-Description: A plugin-based status bar customizer. Reorder and hide stock status bar items and install additional items as plugins.
-Author: alsinas
-Name: TopBar
+Filename: pool/main/t/topbar/com.alsinas.topbar_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.battery
 Version: 0.1.0
@@ -260,15 +260,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.battery_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar Battery Rate
+Description: Battery watts and time-remaining item for TopBar.
 Size: 5818
 MD5sum: e7e8130dcb68bf792cef6b05e01a4792
 SHA1: af7e057e263780989e0a5c7857961bd2763bcdb1
 SHA256: 82a2a882e73e760949b00a82338fe8f6e2f0cabffa1ed8e0940ac15b63f5a529
-Section: Tweaks
-Description: Battery watts and time-remaining item for TopBar.
-Author: alsinas
-Name: TopBar Battery Rate
+Filename: pool/main/t/topbar/com.alsinas.topbar.battery_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.batteryhealth
 Version: 0.1.0
@@ -276,15 +276,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.batteryhealth_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar Battery Health
+Description: Battery health, cycle count, and adapter wattage item for TopBar.
 Size: 5346
 MD5sum: 2807c7556ae16c4356171f6ac706a7b1
 SHA1: 0cd8a2012f9432f66dd6df03054d4230fed397a0
 SHA256: a7642b63019ffbc75be63599365e804cea5c2bfb88c8e04c14c0bc05dc740c40
-Section: Tweaks
-Description: Battery health, cycle count, and adapter wattage item for TopBar.
-Author: alsinas
-Name: TopBar Battery Health
+Filename: pool/main/t/topbar/com.alsinas.topbar.batteryhealth_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.cpu
 Version: 0.1.0
@@ -292,15 +292,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.cpu_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar CPU
+Description: System CPU load item for TopBar.
 Size: 4334
 MD5sum: ed288f3d5042e2c4524f10ab719b7924
 SHA1: bf7c35737d8b8e6de5758bed59226dc3153cbe76
 SHA256: 73ea2527b3e26925a54e97202415ff96044342b28bc179e55dd6cd610e7d4e6d
-Section: Tweaks
-Description: System CPU load item for TopBar.
-Author: alsinas
-Name: TopBar CPU
+Filename: pool/main/t/topbar/com.alsinas.topbar.cpu_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.disk
 Version: 0.1.0
@@ -308,15 +308,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.disk_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar Disk Space
+Description: Free and total storage item for TopBar.
 Size: 4352
 MD5sum: 22316feb47a4cfbaa2a332f9120e5927
 SHA1: 958f53a4f75d0f0cce44c45f258853244cd373f5
 SHA256: 466515401f7798df02e6fed58d7b0281895e4d4a3d64e710b060e2186921428a
-Section: Tweaks
-Description: Free and total storage item for TopBar.
-Author: alsinas
-Name: TopBar Disk Space
+Filename: pool/main/t/topbar/com.alsinas.topbar.disk_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.ip
 Version: 0.1.0
@@ -324,15 +324,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.ip_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar IP Address
+Description: Local/public IP address item for TopBar. Tap to switch.
 Size: 6984
 MD5sum: 991f3e88dbe9e1605f4278f46617d5fe
 SHA1: 94a0856f185b3355009eca01dfb93101e1831bcb
 SHA256: 7de742f32e921c99c024050afbb387d6b2705db1c000b1e0bb90a52a5cdfa246
-Section: Tweaks
-Description: Local/public IP address item for TopBar. Tap to switch.
-Author: alsinas
-Name: TopBar IP Address
+Filename: pool/main/t/topbar/com.alsinas.topbar.ip_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.network
 Version: 0.1.0
@@ -340,15 +340,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.network_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar Network Speed
+Description: Live download/upload throughput item for TopBar.
 Size: 4730
 MD5sum: 8741e1ee72a68626d96fcce6c791cedf
 SHA1: 11fbcbadf001cb944ecfc7d64ba5188339aeb4e0
 SHA256: 43d6ea5c6816fd6c913938bd539387da577e82a6f6f4f2b47c844144888aec03
-Section: Tweaks
-Description: Live download/upload throughput item for TopBar.
-Author: alsinas
-Name: TopBar Network Speed
+Filename: pool/main/t/topbar/com.alsinas.topbar.network_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.ram
 Version: 0.1.0
@@ -356,15 +356,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.ram_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar RAM
+Description: System memory usage item for TopBar.
 Size: 4176
 MD5sum: a26ccdb2693204cee8cb720d99963923
 SHA1: db0f26f24b4f7d9e8c1f6678dcee5f7382551605
 SHA256: 29d5679ce50f8939fb09201a1db86e25980d9797cee9da5578342c60d1d651bd
-Section: Tweaks
-Description: System memory usage item for TopBar.
-Author: alsinas
-Name: TopBar RAM
+Filename: pool/main/t/topbar/com.alsinas.topbar.ram_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.sessions
 Version: 0.1.0
@@ -372,15 +372,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.sessions_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar OpenCode Sessions
+Description: Number of running OpenCode sessions for TopBar.
 Size: 5340
 MD5sum: 16ceda6f2828526f3149e9892e26096c
 SHA1: 208296b46841621ae2daeecb2256fbcae88f9a72
 SHA256: 42d5468258286aaca4f9f67682eb8b6fd4b9e3119794e31d7c04a25bebec3596
-Section: Tweaks
-Description: Number of running OpenCode sessions for TopBar.
-Author: alsinas
-Name: TopBar OpenCode Sessions
+Filename: pool/main/t/topbar/com.alsinas.topbar.sessions_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.sunmoon
 Version: 0.1.0
@@ -388,15 +388,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.sunmoon_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar Sun & Moon
+Description: Sunrise, sunset, and moon phase item for TopBar.
 Size: 6736
 MD5sum: ca8295abc56bc0239f2abe573bf6270b
 SHA1: 2e5bb9e16b287226f4a3971cd7f1d2b063942f49
 SHA256: 476e5fa2bd14c810f0f2fe23582209d40a13e73b38904b699b7e197636c1bca4
-Section: Tweaks
-Description: Sunrise, sunset, and moon phase item for TopBar.
-Author: alsinas
-Name: TopBar Sun & Moon
+Filename: pool/main/t/topbar/com.alsinas.topbar.sunmoon_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.thermal
 Version: 0.1.0
@@ -404,15 +404,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.thermal_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar Thermal
+Description: Battery temperature in Celsius item for TopBar.
 Size: 4578
 MD5sum: 5205b4534e191c19f7f1f3b161c47fbf
 SHA1: da0ef65ff37b1a508d9c807b5016002986ac49f8
 SHA256: 784a8cc06730771ab7b3aad7af851b79df53c0a1f68e642a9abb0a3ee2a718b6
-Section: Tweaks
-Description: Battery temperature in Celsius item for TopBar.
-Author: alsinas
-Name: TopBar Thermal
+Filename: pool/main/t/topbar/com.alsinas.topbar.thermal_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.uptime
 Version: 0.1.0
@@ -420,15 +420,15 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.uptime_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar Uptime
+Description: Time since boot item for TopBar.
 Size: 4174
 MD5sum: f08879ecbdf3e8c5e54c03c35c095de8
 SHA1: b414d6d3781abf152350afe8c6a015cbdb5aadb9
 SHA256: c2063d745305201c758701121771cc034ae7af82d045395970d5977b4af94633
-Section: Tweaks
-Description: Time since boot item for TopBar.
-Author: alsinas
-Name: TopBar Uptime
+Filename: pool/main/t/topbar/com.alsinas.topbar.uptime_0.1.0_iphoneos-arm64.deb
 
 Package: com.alsinas.topbar.weather
 Version: 0.1.0
@@ -436,29 +436,29 @@ Architecture: iphoneos-arm64
 Maintainer: alsinas
 Installed-Size: 76
 Depends: com.alsinas.topbar (>= 0.1.0), ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/t/topbar/com.alsinas.topbar.weather_0.1.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: alsinas
+Name: TopBar Weather
+Description: Current temperature and conditions item for TopBar.
 Size: 6436
 MD5sum: 7445f9a563a1a862a44488094d8a43b0
 SHA1: 0ea3d6592dedf50cb9a4004e67eee1e4749945a5
 SHA256: 211b52da2d05b6686fa5d3431ed5111985ff1e751307ff976dadb1d5eba9d4cb
-Section: Tweaks
-Description: Current temperature and conditions item for TopBar.
-Author: alsinas
-Name: TopBar Weather
+Filename: pool/main/t/topbar/com.alsinas.topbar.weather_0.1.0_iphoneos-arm64.deb
 
 Package: com.itop.monitor
 Version: 1.1.0
 Architecture: iphoneos-arm64
 Maintainer: itop
-Filename: pool/main/i/itop/itop_1.1.0_iphoneos-arm64.deb
+Priority: optional
+Section: Utilities
+Name: itop
+Description: Lightweight high-refresh native iOS system monitor
 Size: 53920
 MD5sum: 36222e249929ff3af986708bf6fbd38d
 SHA1: b9d1bff90eedb321bda88e7d0cd62cde8737de17
 SHA256: f88815f6a360929b77bbdc19bdd32dd8722a6836f917cc1a49864e76a8cb4def
-Section: Utilities
-Priority: optional
-Description: Lightweight high-refresh native iOS system monitor
-Name: itop
+Filename: pool/main/i/itop/itop_1.1.0_iphoneos-arm64.deb
 
 Package: com.repos1tory.clm
 Version: 1.0.0
@@ -466,17 +466,17 @@ Architecture: iphoneos-arm64
 Maintainer: repos1tory
 Installed-Size: 72
 Depends: ellekit (>= 1.2), firmware (>= 15.0)
-Filename: pool/main/c/clm/com.repos1tory.clm_1.0.0_iphoneos-arm64.deb
+Section: Tweaks
+Depiction: https://repos1tory.github.io/depictions/com.repos1tory.clm/
+Author: repos1tory
+Name: CLM (Command Line Message)
+Description: Send iMessage (preferred) or relayed SMS from the command line. Runs inside the Messages app, so it works on Wi-Fi-only iPads.
+Sileodepiction: https://repos1tory.github.io/sileo/com.repos1tory.clm.json
 Size: 5448
 MD5sum: 376fed9b6f8edaad5cc9a5e3f7e2bc4d
 SHA1: da095b83c6ab25e5c63bab10f07c100b33b8998c
 SHA256: 88401b42cd6c89a76b568a64055e6a597da9a3b01a09b424db35cc47115ed217
-Section: Tweaks
-Description: Send iMessage (preferred) or relayed SMS from the command line. Runs inside the Messages app, so it works on Wi-Fi-only iPads.
-Author: repos1tory
-Depiction: https://repos1tory.github.io/depictions/com.repos1tory.clm/
-Name: CLM (Command Line Message)
-Sileodepiction: https://repos1tory.github.io/sileo/com.repos1tory.clm.json
+Filename: pool/main/c/clm/com.repos1tory.clm_1.0.0_iphoneos-arm64.deb
 
 Package: com.repos1tory.clm-cmd
 Version: 1.0.0
@@ -484,15 +484,15 @@ Architecture: iphoneos-arm64
 Maintainer: repos1tory
 Installed-Size: 68
 Depends: com.repos1tory.clm
-Filename: pool/main/c/clm/com.repos1tory.clm-cmd_1.0.0_iphoneos-arm64.deb
+Section: Tweaks
+Author: repos1tory
+Name: CLM (command line)
+Description: Command line front-end for CLM (clm). Sends iMessage or SMS.
 Size: 3644
 MD5sum: e793efbab7b888986d1745b8b8cc58a3
 SHA1: 179cb1fb19b4ec7d673963a3fb47374db0c463b2
 SHA256: 405998434e4ea25cb1240539d3a56e934b8a814d81ab0ddcbcfdfb2e18622a84
-Section: Tweaks
-Description: Command line front-end for CLM (clm). Sends iMessage or SMS.
-Author: repos1tory
-Name: CLM (command line)
+Filename: pool/main/c/clm/com.repos1tory.clm-cmd_1.0.0_iphoneos-arm64.deb
 
 Package: com.repos1tory.cloudflared
 Version: 2026.10.3-1
@@ -500,59 +500,58 @@ Architecture: iphoneos-arm64
 Maintainer: repos1tory
 Installed-Size: 38624
 Depends: firmware (>= 15.0), nodejs (>= 22.19.0)
-Filename: pool/main/c/cloudflared-ios/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb
-Size: 16931368
-MD5sum: 9216f85f678c5a91a5271f163dcac458
-SHA1: bee7449161e0041dc341bb2260891aa551617075
-SHA256: 43be65a40a4766904cc837de13977f04973722fa7a305ea439c90d7c017c1b42
-Section: Networking
 Priority: optional
+Section: Networking
 Homepage: https://github.com/repos1tory/cloudflared-ios
-Description: Cloudflare Tunnel client for jailbroken iOS (arm64)
+Author: Cloudflare, Inc.; iOS port by repos1tory
+Name: cloudflared
+Description:   Cloudflare Tunnel client for jailbroken iOS (arm64)
  cloudflared as a native command-line tool for rootless jailbroken iOS.
  Quick tunnels and named tunnels run directly on the device; no Mac or
  companion server is required. The quick-tunnel wrapper adds a loopback
  compatibility shim for the upstream provisioning request.
-Author: Cloudflare, Inc.; iOS port by repos1tory
-Name: cloudflared
+Size: 16931368
+MD5sum: 9216f85f678c5a91a5271f163dcac458
+SHA1: bee7449161e0041dc341bb2260891aa551617075
+SHA256: 43be65a40a4766904cc837de13977f04973722fa7a305ea439c90d7c017c1b42
+Filename: pool/main/c/cloudflared-ios/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb
 
 Package: nodejs
 Version: 22.19.0-1
 Architecture: iphoneos-arm64
 Maintainer: Alsinas Labs
 Depends: firmware (>= 15.0)
-Filename: pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb
-Size: 16238440
-MD5sum: 520f32d9c168e877ce2e6b8b75c70061
-SHA1: 3ac3aed2eb87306e5ce696804f08042f6c2b74c5
-SHA256: b1502e99c5065c6c13f5afac00e99cf25e0009009a22b4736dcbbd763f0f4b06
-Section: Development
 Priority: optional
+Section: Development
 Homepage: https://github.com/al5ina5/node-ios
-Description: Node.js 22.19.0 runtime for jailbroken iOS arm64
+Description:   Node.js 22.19.0 runtime for jailbroken iOS arm64
  Experimental upstream Node.js port with W^X JIT support for iOS.
  Ships full JIT (TurboFan) + WebAssembly. The node/npm/npx wrappers pass
  --predictable --single-threaded (safe process-wide mprotect W^X flips) and
  --disable-wasm-trap-handler (avoids V8's 10GB guarded wasm-memory reservation,
  which iOS's per-process VA cap rejects).
+Size: 16238440
+MD5sum: 520f32d9c168e877ce2e6b8b75c70061
+SHA1: 3ac3aed2eb87306e5ce696804f08042f6c2b74c5
+SHA256: b1502e99c5065c6c13f5afac00e99cf25e0009009a22b4736dcbbd763f0f4b06
+Filename: pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb
 
 Package: wrangler-ios
 Version: 4.151.0-1
 Architecture: iphoneos-arm64
 Maintainer: Alsinas Labs
 Depends: firmware (>= 15.0), nodejs (>= 22.19.0)
-Filename: pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb
-Size: 8276712
-MD5sum: 149acbef479eb98d142f1c5ecfb5d60c
-SHA1: 0a927274ad463b2020d5501bf19eb9c8102e7b03
-SHA256: bd36c0ce092eccb6a23ee982766d19bbcb25853801841a041d43ba2c005b8ac2
-Section: Development
 Priority: optional
+Section: Development
 Homepage: https://github.com/al5ina5/wrangler-ios
-Description: Cloudflare Wrangler CLI for jailbroken iOS arm64
+Description:   Cloudflare Wrangler CLI for jailbroken iOS arm64
  API, authentication, and deployment CLI. Bundles esbuild-wasm (no native
  esbuild binary needed) and defers workerd's unsupported-platform error so
  deploy commands run on iOS. Authenticate with "wrangler login --device";
  local "wrangler dev" is unavailable because Cloudflare workerd has no iOS
  runtime build.
-
+Size: 8276712
+MD5sum: 149acbef479eb98d142f1c5ecfb5d60c
+SHA1: 0a927274ad463b2020d5501bf19eb9c8102e7b03
+SHA256: bd36c0ce092eccb6a23ee982766d19bbcb25853801841a041d43ba2c005b8ac2
+Filename: pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb

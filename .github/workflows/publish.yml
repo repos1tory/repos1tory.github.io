@@ -1,0 +1,108 @@
+name: publish package
+
+# Called by a tweak repo after it creates a GitHub Release:
+#
+#   gh api repos/repos1tory/repos1tory.github.io/dispatches \
+#     -f event_type=package-release \
+#     -f client_payload[repo]=repos1tory/topbar-ios \
+#     -f client_payload[tag]=v0.2.2 \
+#     -f client_payload[group]=tweaks
+#
+# Also runnable by hand: Actions -> publish package -> Run workflow.
+
+on:
+  repository_dispatch:
+    types: [package-release]
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "Source repo (owner/name)"
+        required: true
+      tag:
+        description: "Release tag (e.g. v0.2.2)"
+        required: true
+      group:
+        description: "Site section: tweaks | apps | tools | ports (blank keeps current)"
+        required: false
+      no_site:
+        description: "List in Sileo only, hide from the web page"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-package
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    env:
+      REPO: ${{ github.event.client_payload.repo || github.event.inputs.repo }}
+      TAG: ${{ github.event.client_payload.tag || github.event.inputs.tag }}
+      GROUP: ${{ github.event.client_payload.group || github.event.inputs.group }}
+      NO_SITE: ${{ github.event.client_payload.no_site || github.event.inputs.no_site || 'false' }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate request
+        run: |
+          set -euo pipefail
+          [ -n "${REPO:-}" ] || { echo "::error::missing repo"; exit 1; }
+          [ -n "${TAG:-}" ] || { echo "::error::missing tag"; exit 1; }
+          echo "ingesting $REPO $TAG (group=${GROUP:-keep}, site=$([ "$NO_SITE" = true ] && echo no || echo yes))"
+
+      - name: Download release assets
+        run: |
+          set -euo pipefail
+          mkdir -p incoming
+          gh release download "$TAG" --repo "$REPO" --pattern '*.deb' --dir incoming --clobber
+          ls -l incoming
+
+      - name: Ingest into the repo
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          flags=(--repo "$REPO" --tag "$TAG")
+          [ -n "${GROUP:-}" ] && flags+=(--group "$GROUP")
+          [ "${NO_SITE}" = "true" ] && flags+=(--no-site)
+          debs=(incoming/*.deb)
+          [ ${#debs[@]} -gt 0 ] || { echo "::error::release has no .deb assets"; exit 1; }
+          for deb in "${debs[@]}"; do
+            url="https://github.com/$REPO/releases/download/$TAG/$(basename "$deb")"
+            node scripts/repo.mjs add --deb "$deb" "${flags[@]}" --url "$url"
+          done
+          node scripts/repo.mjs check
+
+      - name: Commit
+        run: |
+          set -euo pipefail
+          git config user.name "repos1tory bot"
+          git config user.email "bot@repos1tory.github.io"
+          git add packages.json docs
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+            exit 0
+          fi
+          git commit -m "publish $REPO $TAG"
+          git push origin HEAD:main
+
+      - name: Summary
+        run: |
+          {
+            echo "### published $REPO $TAG"
+            echo
+            echo '```'
+            node -e '
+              const d = require("./docs/downloads.json").packages;
+              for (const [id, p] of Object.entries(d)) console.log(`${id} ${p.version}  ${p.url}`);
+            ' | head -40
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
