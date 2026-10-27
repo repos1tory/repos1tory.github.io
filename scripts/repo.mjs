@@ -413,17 +413,22 @@ async function add() {
   }
 
   const manifest = await loadManifest();
+  const isNew = !manifest.packages[id];
   const pkg = (manifest.packages[id] ??= {
     name: control.Name || id,
     group: group || "tweaks",
-    site: !has("no-site"),
+    // A package nobody has curated yet is installable but stays off the web
+    // page until it is added to packages.json (or published with --site).
+    site: has("site"),
     blurb: control.Description || "",
     source: repo ? `https://github.com/${repo}` : null,
     repo: repo || null,
     versions: [],
   });
   if (group) pkg.group = group;
+  if (has("site")) pkg.site = true;
   if (has("no-site")) pkg.site = false;
+  if (isNew) console.log(`new package ${id} — listed on the site: ${pkg.site}`);
   if (repo) {
     pkg.repo = repo;
     pkg.source ||= `https://github.com/${repo}`;
