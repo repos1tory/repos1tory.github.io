@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T18:00:08.037Z",
+  "generated": "2026-10-29T18:14:56.520Z",
   "packages": {
     "com.alsinas.homemanager": {
       "name": "HomeManager",
@@ -25,10 +25,10 @@
     },
     "com.alsinas.opencode-server": {
       "name": "OpenCode Server",
-      "version": "2.2.0-ios8",
-      "url": "https://github.com/repos1tory/opencode-ios/releases/download/opencode-ios-2.2.0-ios8/opencode-server-2.2.0-ios8_iphoneos-arm64.deb",
-      "size": 30167276,
-      "sha256": "ae8bc1db84522dd76edefd0ddaebf35dd904f42b5e1bf254a6525dd259d0cd67",
+      "version": "2.2.0-ios9",
+      "url": "https://github.com/repos1tory/opencode-ios/releases/download/opencode-ios-2.2.0-ios9/opencode-server-2.2.0-ios9_iphoneos-arm64.deb",
+      "size": 30175628,
+      "sha256": "895e66167e63023d414dff935c0428bcb21ad7ea7eb0506038119e609020248e",
       "source": "https://github.com/repos1tory/opencode-ios"
     },
     "com.alsinas.psychosis": {
