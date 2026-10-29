@@ -17,10 +17,9 @@ publishing the packages to the Sileo repository.
 
 `nodejs 22.19.0-2` carries the iOS-safe V8 target-feature fix and is being
 built from the maintained [`repos1tory/node-ios`](https://github.com/repos1tory/node-ios)
-source. The iOS source patch is mirrored here for the combined Wrangler build;
-keep it in sync with `node-ios/scripts/ios-source-fixups.sh`. The combined CI
-workflow builds Node.js and Wrangler packages; its default Node source is
-`v24.22.0`.
+source. For Node 22.19, the combined CI workflow checks out that repo and uses
+its source patch, entitlements, and README. Other Node versions use the port
+patch kept here. The combined workflow's default Node source is `v24.22.0`.
 
 Runtime flags baked into the `node`/`npm`/`npx` wrappers:
 
