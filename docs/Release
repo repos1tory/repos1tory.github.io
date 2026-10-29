@@ -2,16 +2,16 @@ Origin: repos1tory
 Label: repos1tory
 Suite: ./
 Codename: repos1tory
-Date: Thu, 29 Oct 2026 17:36:20 +0000
+Date: Thu, 29 Oct 2026 18:00:08 +0000
 Architectures: iphoneos-arm64
 Components: main
 Description: a minimal repository for jailbroken iOS
 MD5Sum:
- 87aca0ed375af499ffcb57cd6134bda5 14209 Packages
- 32842eeda8d989cc8bc8012845cb1368 4587 Packages.gz
+ fcf6de8d2d438a19a634f66b32307f2d 14209 Packages
+ 1b355fc9104d4a3baafe44491d6c0dd0 4585 Packages.gz
 SHA1:
- 5b14c4e8000ea4eb08722f9703118dc7bf10f461 14209 Packages
- 17377da371df073ac8604eee6230c1fb7eb2817a 4587 Packages.gz
+ 67897bf435ac0264c487964def32db043dce6cb5 14209 Packages
+ 72b7b3b8fdd0bee6afe58aded31e4998182c2f25 4585 Packages.gz
 SHA256:
- 913a13308a89cb1589072e447994c07380156528cd1433ac499d5dac48cbe057 14209 Packages
- a81cc16244fbb6f9858b718aaf4afe9f210f882b5af5384293b919a38d94e264 4587 Packages.gz
+ 9026da5f7a873f84890ceb37639956139b1e01ad26934877b2245434905d88a4 14209 Packages
+ f7df434c761f26e6976cf7f8a7ef11c3f8dae8ac0205cd4f68d5a44ff62cc5d1 4585 Packages.gz
