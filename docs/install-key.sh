@@ -28,7 +28,19 @@ trap - EXIT HUP INT TERM
 
 echo "installed $KEYRING"
 if command -v apt-get >/dev/null 2>&1; then
-  apt-get update
+  # Update only repos1tory. A full `apt-get update` can fail because an
+  # unrelated repo on the device is missing its own key (ElleKit/BigBoss on
+  # this bootstrap), which should not make installing *this* key look failed.
+  LIST="$(mktemp "${TMPDIR:-/tmp}/repos1tory-key.XXXXXX")"
+  printf 'deb https://repos1tory.github.io/ ./\n' > "$LIST"
+  trap 'rm -f "$LIST"' EXIT HUP INT TERM
+  apt-get \
+    -o "Dir::Etc::sourcelist=$LIST" \
+    -o "Dir::Etc::sourceparts=-" \
+    -o "Acquire::AllowInsecureRepositories=false" \
+    update
+  rm -f "$LIST"
+  trap - EXIT HUP INT TERM
 fi
 
 echo ""
