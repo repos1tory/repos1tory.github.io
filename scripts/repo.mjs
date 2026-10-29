@@ -239,6 +239,7 @@ async function renderAll(manifest) {
     "Codename: repos1tory",
     `Date: ${new Date().toUTCString().replace("GMT", "+0000")}`,
     "Architectures: iphoneos-arm64",
+    "Components: main",
     "Description: a minimal repository for jailbroken iOS",
     sections,
     "",

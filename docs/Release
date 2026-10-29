@@ -4,6 +4,7 @@ Suite: ./
 Codename: repos1tory
 Date: Wed, 28 Oct 2026 23:14:48 +0000
 Architectures: iphoneos-arm64
+Components: main
 Description: a minimal repository for jailbroken iOS
 MD5Sum:
  c00fff794aab3bf92c3c41a84dbb6543 15211 Packages
