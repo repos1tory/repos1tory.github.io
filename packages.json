@@ -369,12 +369,34 @@
             "Description": "OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
           },
           "published": "2026-10-29T16:48:28.372Z"
+        },
+        {
+          "version": "2.2.0-ios6",
+          "url": "https://github.com/repos1tory/opencode-ios/releases/download/opencode-ios-2.2.0-ios6/opencode-server-2.2.0-ios6_iphoneos-arm64.deb",
+          "filename": "pool/main/a/opencode-server/opencode-server-2.2.0-ios6_iphoneos-arm64.deb",
+          "size": 30143936,
+          "md5": "d0c4b4ad12768b5a43337ff53669f31b",
+          "sha1": "d525474116c239e6f278d86636b3304e53ec272d",
+          "sha256": "3374b8920fe452bc6f28649cf3fea14e2bf994fac182b4be1d08df6e8a1033d2",
+          "control": {
+            "Package": "com.alsinas.opencode-server",
+            "Name": "OpenCode Server (iOS)",
+            "Version": "2.2.0-ios6",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Local OpenCode iOS build",
+            "Installed-Size": "54992",
+            "Depends": "firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof, nodejs (>= 22.19.0-3)",
+            "Section": "Networking",
+            "Priority": "optional",
+            "Description": "OpenCode agent server and home-screen app for rootless jailbroken iOS\nThe server starts through launchd and has an OpenCode Server settings pane."
+          },
+          "published": "2026-10-29T17:02:06.999Z"
         }
       ],
       "order": 3,
       "links": [
         {
-          "href": "https://github.com/repos1tory/opencode-ios/releases/download/opencode-ios-2.2.0-ios5/opencode-server-2.2.0-ios5_iphoneos-arm64.deb",
+          "href": "https://github.com/repos1tory/opencode-ios/releases/download/opencode-ios-2.2.0-ios6/opencode-server-2.2.0-ios6_iphoneos-arm64.deb",
           "label": "download .deb"
         },
         {
