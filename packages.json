@@ -1189,7 +1189,7 @@
       "group": "ports",
       "site": true,
       "blurb": "upstream Node.js 22 with full JIT and WebAssembly, bundled npm and npx.",
-      "source": null,
+      "source": "https://github.com/repos1tory/node-ios",
       "repo": "repos1tory/node-ios",
       "versions": [
         {
@@ -1211,12 +1211,31 @@
             "Description": " Node.js 22.19.0 runtime for jailbroken iOS arm64\nExperimental upstream Node.js port with W^X JIT support for iOS.\nShips full JIT (TurboFan) + WebAssembly. The node/npm/npx wrappers pass\n--predictable --single-threaded (safe process-wide mprotect W^X flips) and\n--disable-wasm-trap-handler (avoids V8's 10GB guarded wasm-memory reservation,\nwhich iOS's per-process VA cap rejects)."
           },
           "published": null
+        },
+        {
+          "version": "22.19.0-2",
+          "url": "https://github.com/repos1tory/node-ios/releases/download/v22.19.0-ios1/nodejs_22.19.0-2_iphoneos-arm64.deb",
+          "size": 16545964,
+          "md5": "a985dff2b9934a85e229fee11e560c90",
+          "sha1": "373663e70a9343b0a9a3c55afa2c341056b6460f",
+          "sha256": "a139c18ade9ab3a615f5f7fc8acacd200b7545cc81867ff0df7c06a13f2cf458",
+          "control": {
+            "Package": "nodejs",
+            "Version": "22.19.0-2",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Alsinas Labs",
+            "Section": "Development",
+            "Priority": "optional",
+            "Depends": "firmware (>= 15.0)",
+            "Description": "Node.js 22.19.0 runtime for jailbroken iOS arm64\nExperimental upstream Node.js port with W^X JIT support for iOS.\nShips JavaScript JIT and WebAssembly with iOS-safe target features."
+          },
+          "published": "2026-10-29T14:38:15.841Z"
         }
       ],
       "order": 1,
       "links": [
         {
-          "href": "pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb",
+          "href": "https://github.com/repos1tory/node-ios/releases/download/v22.19.0-ios1/nodejs_22.19.0-2_iphoneos-arm64.deb",
           "label": "download .deb"
         }
       ],

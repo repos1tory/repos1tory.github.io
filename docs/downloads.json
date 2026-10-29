@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T11:41:32.436Z",
+  "generated": "2026-10-29T14:38:15.863Z",
   "packages": {
     "com.alsinas.homemanager": {
       "name": "HomeManager",
@@ -183,10 +183,11 @@
     },
     "nodejs": {
       "name": "Node.js",
-      "version": "22.19.0-1",
-      "url": "pool/main/n/nodejs/nodejs_22.19.0-1_iphoneos-arm64.deb",
-      "size": 16238440,
-      "sha256": "b1502e99c5065c6c13f5afac00e99cf25e0009009a22b4736dcbbd763f0f4b06"
+      "version": "22.19.0-2",
+      "url": "https://github.com/repos1tory/node-ios/releases/download/v22.19.0-ios1/nodejs_22.19.0-2_iphoneos-arm64.deb",
+      "size": 16545964,
+      "sha256": "a139c18ade9ab3a615f5f7fc8acacd200b7545cc81867ff0df7c06a13f2cf458",
+      "source": "https://github.com/repos1tory/node-ios"
     },
     "wrangler-ios": {
       "name": "Wrangler",
