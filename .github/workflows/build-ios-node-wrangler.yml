@@ -14,6 +14,10 @@ on:
       package_revision:
         description: "Debian revision for nodejs (bump when iOS port patches change)"
         required: true
+        default: "3"
+      wrangler_revision:
+        description: "Debian revision for wrangler-ios packaging changes"
+        required: true
         default: "2"
       wrangler_version:
         description: "Cloudflare Wrangler npm version"
@@ -175,31 +179,31 @@ jobs:
           version="${NODE_REF#v}"
           package_version="${version}-${{ inputs.package_revision }}"
           root="$RUNNER_TEMP/nodejs-pkg"
-          mkdir -p "$root/DEBIAN" "$root/usr/bin" "$root/usr/lib/nodejs" "$root/usr/lib/node_modules" "$root/usr/share/doc/nodejs"
-          cp node-src/out/Release/node "$root/usr/lib/nodejs/node"
-          cp -R node-src/deps/npm "$root/usr/lib/node_modules/npm"
-          cp node-src/LICENSE "$root/usr/share/doc/nodejs/copyright"
+          mkdir -p "$root/DEBIAN" "$root/var/jb/usr/bin" "$root/var/jb/usr/lib/nodejs" "$root/var/jb/usr/lib/node_modules" "$root/var/jb/usr/share/doc/nodejs"
+          cp node-src/out/Release/node "$root/var/jb/usr/lib/nodejs/node"
+          cp -R node-src/deps/npm "$root/var/jb/usr/lib/node_modules/npm"
+          cp node-src/LICENSE "$root/var/jb/usr/share/doc/nodejs/copyright"
           if [ "$NODE_REF" = "v22.19.0" ]; then
-            cp node-ios-port/README.md "$root/usr/share/doc/nodejs/README.port"
+            cp node-ios-port/README.md "$root/var/jb/usr/share/doc/nodejs/README.port"
             cp node-ios-port/entitlements.plist "$RUNNER_TEMP/entitlements.plist"
           else
-            cp ports/nodejs-ios/README.md "$root/usr/share/doc/nodejs/README.port"
+            cp ports/nodejs-ios/README.md "$root/var/jb/usr/share/doc/nodejs/README.port"
             cp ports/nodejs-ios/entitlements.plist "$RUNNER_TEMP/entitlements.plist"
           fi
           cp node-src/out/Release/node "$RUNNER_TEMP/node-${version}-iphoneos-arm64"
-          cat > "$root/usr/bin/node" <<'EOF'
+          cat > "$root/var/jb/usr/bin/node" <<'EOF'
           #!/var/jb/bin/sh
           exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler "$@"
           EOF
-          cat > "$root/usr/bin/npm" <<'EOF'
+          cat > "$root/var/jb/usr/bin/npm" <<'EOF'
           #!/var/jb/bin/sh
           exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler /var/jb/usr/lib/node_modules/npm/bin/npm-cli.js "$@"
           EOF
-          cat > "$root/usr/bin/npx" <<'EOF'
+          cat > "$root/var/jb/usr/bin/npx" <<'EOF'
           #!/var/jb/bin/sh
           exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler /var/jb/usr/lib/node_modules/npm/bin/npx-cli.js "$@"
           EOF
-          chmod 755 "$root/usr/bin/node" "$root/usr/bin/npm" "$root/usr/bin/npx" "$root/usr/lib/nodejs/node"
+          chmod 755 "$root/var/jb/usr/bin/node" "$root/var/jb/usr/bin/npm" "$root/var/jb/usr/bin/npx" "$root/var/jb/usr/lib/nodejs/node"
           cat > "$root/DEBIAN/control" <<EOF
           Package: nodejs
           Version: ${package_version}
@@ -211,7 +215,13 @@ jobs:
           Description: Node.js ${version} runtime for jailbroken iOS arm64
            Experimental upstream Node.js port with W^X JIT support for iOS.
           EOF
-          dpkg-deb --build --root-owner-group "$root" "$RUNNER_TEMP/nodejs_${package_version}_iphoneos-arm64.deb"
+          deb="$RUNNER_TEMP/nodejs_${package_version}_iphoneos-arm64.deb"
+          dpkg-deb --build --root-owner-group "$root" "$deb"
+          dpkg-deb -c "$deb" | grep -F './var/jb/usr/bin/node'
+          if dpkg-deb -c "$deb" | grep -F './usr/bin/node'; then
+            echo 'rootless node package unexpectedly contains /usr/bin/node' >&2
+            exit 1
+          fi
 
       - name: Upload Node.js artifacts
         uses: actions/upload-artifact@v4
@@ -228,22 +238,23 @@ jobs:
         run: |
           set -euxo pipefail
           node_version="${NODE_REF#v}"
+          wrangler_package_version="${WRANGLER_VERSION}-${{ inputs.wrangler_revision }}"
           install_root="$RUNNER_TEMP/wrangler-install"
           root="$RUNNER_TEMP/wrangler-pkg"
-          mkdir -p "$install_root" "$root/DEBIAN" "$root/usr/bin" "$root/usr/lib"
+          mkdir -p "$install_root" "$root/DEBIAN" "$root/var/jb/usr/bin" "$root/var/jb/usr/lib"
           cp ports/wrangler/package.json ports/wrangler/package-lock.json "$install_root/"
           (cd "$install_root" && npm ci --omit=optional --ignore-scripts --no-audit --no-fund)
           node ports/wrangler/patch-ios-workerd.mjs "$install_root/node_modules"
-          cp -R "$install_root/node_modules" "$root/usr/lib/node_modules"
-          cp ports/wrangler/workerd-ios-unavailable "$root/usr/bin/workerd-ios-unavailable"
-          cat > "$root/usr/bin/wrangler" <<'EOF'
+          cp -R "$install_root/node_modules" "$root/var/jb/usr/lib/node_modules"
+          cp ports/wrangler/workerd-ios-unavailable "$root/var/jb/usr/bin/workerd-ios-unavailable"
+          cat > "$root/var/jb/usr/bin/wrangler" <<'EOF'
           #!/var/jb/bin/sh
           exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler /var/jb/usr/lib/node_modules/wrangler/bin/wrangler.js "$@"
           EOF
-          chmod 755 "$root/usr/bin/wrangler" "$root/usr/bin/workerd-ios-unavailable"
+          chmod 755 "$root/var/jb/usr/bin/wrangler" "$root/var/jb/usr/bin/workerd-ios-unavailable"
           cat > "$root/DEBIAN/control" <<EOF
           Package: wrangler-ios
-          Version: ${WRANGLER_VERSION}-1
+          Version: ${wrangler_package_version}
           Architecture: iphoneos-arm64
           Maintainer: Alsinas Labs
           Section: Development
@@ -253,12 +264,18 @@ jobs:
            API, authentication, and deployment CLI. Local wrangler dev is unavailable
            because Cloudflare workerd has no iOS runtime build.
           EOF
-          dpkg-deb --build --root-owner-group "$root" "$RUNNER_TEMP/wrangler-ios_${WRANGLER_VERSION}-1_iphoneos-arm64.deb"
+          deb="$RUNNER_TEMP/wrangler-ios_${wrangler_package_version}_iphoneos-arm64.deb"
+          dpkg-deb --build --root-owner-group "$root" "$deb"
+          dpkg-deb -c "$deb" | grep -F './var/jb/usr/bin/wrangler'
+          if dpkg-deb -c "$deb" | grep -F './usr/bin/wrangler'; then
+            echo 'rootless Wrangler package unexpectedly contains /usr/bin/wrangler' >&2
+            exit 1
+          fi
 
       - name: Smoke-test Wrangler package on build host
         run: |
           set -euxo pipefail
-          modules="$RUNNER_TEMP/wrangler-pkg/usr/lib/node_modules"
+          modules="$RUNNER_TEMP/wrangler-pkg/var/jb/usr/lib/node_modules"
           node --check "$modules/wrangler/bin/wrangler.js"
           node -e 'const p=require("./ports/wrangler/package.json"); console.log("wrangler",p.dependencies.wrangler,"esbuild wasm",p.dependencies.esbuild)'
           node -e 'const e=require(process.argv[1]); e.transform("const x: number = 42", {loader:"ts"}).then(r=>{if(!r.code.includes("42"))process.exit(1); console.log("ESBUILD_WASM_OK")})' "$modules/esbuild/lib/main.js"
