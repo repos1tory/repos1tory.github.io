@@ -15,11 +15,11 @@ publishing the packages to the Sileo repository.
 
 ## Published package
 
-`nodejs 22.19.0-1` is published: built from the validated
-[`j0shua-SYSON/node-ios`](https://github.com/j0shua-SYSON/node-ios) v22.19.0
-build (maintained fork with fixes: [`repos1tory/node-ios`](https://github.com/repos1tory/node-ios)),
-packaged and verified on-device. The CI pipeline here builds the next version
-(the default is `v24.22.0`) from `ios-source-fixups.sh`.
+`nodejs 22.19.0-2` carries the iOS-safe V8 target-feature fix and is being
+built from the maintained [`repos1tory/node-ios`](https://github.com/repos1tory/node-ios)
+source. For Node 22.19, the combined CI workflow checks out that repo and uses
+its source patch, entitlements, and README. Other Node versions use the port
+patch kept here. The combined workflow's default Node source is `v24.22.0`.
 
 Runtime flags baked into the `node`/`npm`/`npx` wrappers:
 
