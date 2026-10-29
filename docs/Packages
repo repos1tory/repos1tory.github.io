@@ -348,7 +348,7 @@ SHA256: 43be65a40a4766904cc837de13977f04973722fa7a305ea439c90d7c017c1b42
 Filename: pool/main/r/cloudflared/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb
 
 Package: nodejs
-Version: 22.19.0-2
+Version: 22.19.0-3
 Architecture: iphoneos-arm64
 Maintainer: Alsinas Labs
 Depends: firmware (>= 15.0)
@@ -357,11 +357,11 @@ Section: Development
 Description:  Node.js 22.19.0 runtime for jailbroken iOS arm64
  Experimental upstream Node.js port with W^X JIT support for iOS.
  Ships JavaScript JIT and WebAssembly with iOS-safe target features.
-Size: 16545964
-MD5sum: a985dff2b9934a85e229fee11e560c90
-SHA1: 373663e70a9343b0a9a3c55afa2c341056b6460f
-SHA256: a139c18ade9ab3a615f5f7fc8acacd200b7545cc81867ff0df7c06a13f2cf458
-Filename: pool/main/n/nodejs/nodejs_22.19.0-2_iphoneos-arm64.deb
+Size: 16556252
+MD5sum: 059036909e78c5252e62f45af21dbb46
+SHA1: 895d0b0f4236b58c38bd3992f779d2de5ab967ee
+SHA256: 1cc64abd02e5a0d19e420091dafed037d182c8d00527fe307a6be73bda3b4cae
+Filename: pool/main/n/nodejs/nodejs_22.19.0-3_iphoneos-arm64.deb
 
 Package: wrangler-ios
 Version: 4.151.0-1

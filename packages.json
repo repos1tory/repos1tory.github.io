@@ -1268,12 +1268,32 @@
           },
           "published": "2026-10-29T14:38:15.841Z",
           "filename": "pool/main/n/nodejs/nodejs_22.19.0-2_iphoneos-arm64.deb"
+        },
+        {
+          "version": "22.19.0-3",
+          "url": "https://github.com/repos1tory/node-ios/releases/download/v22.19.0-ios2/nodejs_22.19.0-3_iphoneos-arm64.deb",
+          "filename": "pool/main/n/nodejs/nodejs_22.19.0-3_iphoneos-arm64.deb",
+          "size": 16556252,
+          "md5": "059036909e78c5252e62f45af21dbb46",
+          "sha1": "895d0b0f4236b58c38bd3992f779d2de5ab967ee",
+          "sha256": "1cc64abd02e5a0d19e420091dafed037d182c8d00527fe307a6be73bda3b4cae",
+          "control": {
+            "Package": "nodejs",
+            "Version": "22.19.0-3",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Alsinas Labs",
+            "Section": "Development",
+            "Priority": "optional",
+            "Depends": "firmware (>= 15.0)",
+            "Description": "Node.js 22.19.0 runtime for jailbroken iOS arm64\nExperimental upstream Node.js port with W^X JIT support for iOS.\nShips JavaScript JIT and WebAssembly with iOS-safe target features."
+          },
+          "published": "2026-10-29T16:35:57.496Z"
         }
       ],
       "order": 1,
       "links": [
         {
-          "href": "https://github.com/repos1tory/node-ios/releases/download/v22.19.0-ios1/nodejs_22.19.0-2_iphoneos-arm64.deb",
+          "href": "https://github.com/repos1tory/node-ios/releases/download/v22.19.0-ios2/nodejs_22.19.0-3_iphoneos-arm64.deb",
           "label": "download .deb"
         }
       ],
