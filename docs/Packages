@@ -17,21 +17,21 @@ SHA256: 729982419e37b9a5f7939fb62638abe5d01cceb3738e9dac88c365360394fe5e
 Filename: pool/main/h/homemanager/com.alsinas.homemanager_0.2.0-13+debug_iphoneos-arm64.deb
 
 Package: com.alsinas.opencode-server
-Version: 2.2.0-ios3
+Version: 2.2.0-ios4
 Architecture: iphoneos-arm64
 Maintainer: Local OpenCode iOS build
-Installed-Size: 127740
-Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof
+Installed-Size: 54992
+Depends: firmware (>= 15.0), preferenceloader (>= 2.2.6), curl, lsof, nodejs (>= 22.19.0-2)
 Priority: optional
 Section: Networking
 Name: OpenCode Server (iOS)
 Description:  OpenCode agent server and home-screen app for rootless jailbroken iOS
  The server starts through launchd and has an OpenCode Server settings pane.
-Size: 44705264
-MD5sum: e9928135705ee332d23f0a548aa656da
-SHA1: d487428c1832fe94bb30227d0a74894cc6a1da80
-SHA256: b649f7731907449079585402ef837bb251f08b7453a3893d2f5055347e0fa1f4
-Filename: https://github.com/repos1tory/opencode-ios/releases/download/opencode-ios-2.2.0-ios3/opencode-server-2.2.0-ios3_iphoneos-arm64.deb
+Size: 30162976
+MD5sum: 78475e7a66653fda6e59edd49c03c3be
+SHA1: fe5fce1e3bbb7e58c758cef76ba9b5f0197e9680
+SHA256: ace52da894db6179169c2523cf37a171b2af9e9c2884893ae6dba369da107477
+Filename: https://github.com/repos1tory/opencode-ios/releases/download/opencode-ios-2.2.0-ios4/opencode-server-2.2.0-ios4_iphoneos-arm64.deb
 
 Package: com.alsinas.psychosis
 Version: 0.7.1
