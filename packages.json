@@ -1291,7 +1291,7 @@
     },
     "com.repos1tory.cloudflared": {
       "name": "cloudflared",
-      "group": "ports",
+      "group": "tweaks",
       "site": true,
       "blurb": "Cloudflare Tunnel client running natively on jailbroken iOS: quick tunnels and HTTPS from the device, no companion server.",
       "source": "https://github.com/repos1tory/cloudflared-ios",
@@ -1323,7 +1323,7 @@
         },
         {
           "version": "2026.10.3-2",
-          "url": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
+          "url": "https://github.com/repos1tory/cloudflared-ios/releases/download/v2026.10.3-2/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
           "filename": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
           "size": 16929988,
           "md5": "13c499f19aa0a4b321e9979e1ed9f58a",
@@ -1344,13 +1344,13 @@
             "Homepage": "https://github.com/repos1tory/cloudflared-ios",
             "Description": "Cloudflare Tunnel client for jailbroken iOS (arm64)\ncloudflared as a native command-line tool for rootless jailbroken iOS\n(palera1n rootless and Dopamine). Quick tunnels and named tunnels run\ndirectly on the device; no Mac or companion server is required. Node.js is\noptional and is only used by the quick-tunnel compatibility shim; the\nnative binary itself does not depend on npm or Node."
           },
-          "published": "2026-10-29T18:36:01.824Z"
+          "published": "2026-10-29T18:51:10.745Z"
         }
       ],
       "order": 0,
       "links": [
         {
-          "href": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
+          "href": "https://github.com/repos1tory/cloudflared-ios/releases/download/v2026.10.3-2/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
           "label": "download .deb"
         }
       ],

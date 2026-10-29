@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T18:47:34.771Z",
+  "generated": "2026-10-29T18:51:10.758Z",
   "packages": {
     "com.alsinas.homemanager": {
       "name": "HomeManager",
@@ -176,7 +176,7 @@
     "com.repos1tory.cloudflared": {
       "name": "cloudflared",
       "version": "2026.10.3-2",
-      "url": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
+      "url": "https://github.com/repos1tory/cloudflared-ios/releases/download/v2026.10.3-2/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
       "size": 16929988,
       "sha256": "8521ca597b699869b83518cd62554a29666c0be1c5dece0fb6f3984d5bf4431b",
       "source": "https://github.com/repos1tory/cloudflared-ios"
