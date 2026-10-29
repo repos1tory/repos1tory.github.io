@@ -13,7 +13,7 @@ docs/            published by GitHub Pages (main /docs)
   Packages, Packages.gz, Release   generated — do not edit
   downloads.json                   generated — latest version per package
   index.html                       generated between <!-- BEGIN/END --> markers
-  pool/                            legacy .deb host (frozen)
+  pool/                            .deb files served to APT/Sileo
 ci/tweak-release.yml               caller to copy into a tweak repo
 .github/workflows/publish.yml      ingest a release -> Packages + site
 .github/workflows/publish-tweak.yml  reusable: build -> release -> dispatch
@@ -24,12 +24,14 @@ ci/tweak-release.yml               caller to copy into a tweak repo
 1. A tweak repo builds its `.deb` and attaches it to a GitHub Release.
    Download counts come from GitHub's release asset counter.
 2. It dispatches `package-release` at this repo with `repo`, `tag`, `group`.
-3. `publish.yml` downloads the asset, hashes it, records it in `packages.json`,
-   regenerates `Packages`/`Release`/`downloads.json`/`index.html`, commits.
+3. `publish.yml` downloads and hashes the asset, mirrors it into `docs/pool/`,
+   records both URLs in `packages.json`, regenerates the indexes, and commits.
 4. Pages redeploys; Sileo sees the new version on its next refresh (≤ 5 min).
 
-`Filename:` for new versions is the absolute release URL; legacy versions keep
-their relative `pool/…` path.
+`Filename:` is always a relative path into `pool/`. APT resolves it against the
+repo host, so absolute GitHub Release URLs there would be incorrectly appended
+to the repo URL. The web page still links to the GitHub Release asset for its
+download counter.
 
 ## onboarding a tweak repo
 
@@ -53,5 +55,6 @@ step warns and skips.
   push.
 - Private source repos (`opencode-ios`) cannot serve public release assets;
   they keep using the `pool/` flow until the repo (or the assets) is public.
-- `scripts/repo.mjs add --deb <file>` without `--url` puts the file in `pool/`
-  and keeps the relative filename, i.e. the old manual flow.
+- `scripts/repo.mjs add --deb <file>` mirrors the file into `pool/`; `--url`
+  keeps the GitHub Release as the visible download link while APT uses the
+  relative pool path.

@@ -11,16 +11,16 @@
 //   node scripts/repo.mjs add --deb F ... add/refresh one built package
 //   node scripts/repo.mjs check           validate the manifest
 //
-// Hosting: .deb files live on GitHub Releases (that is where download counts
-// come from). Their URLs are absolute and go straight into `Filename:`.
-// Legacy versions still point at pool/ on GitHub Pages.
+// Hosting: release assets remain the public download links (for download
+// counts), and are mirrored into docs/pool because APT treats Filename as a
+// path relative to the configured repository, not as an absolute URL.
 
 import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { gzipSync } from "node:zlib";
-import { dirname, join, basename, resolve } from "node:path";
+import { dirname, join, basename, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -148,6 +148,22 @@ function effectiveUrl(v) {
   return /^https?:/.test(v.url) ? v.url : v.url.replace(/^\/+/, "");
 }
 
+function aptFilename(v) {
+  const filename = v.filename || v.url;
+  if (!filename || /^https?:/i.test(filename) || filename.startsWith("/")) {
+    throw new Error(`${v.control?.Package || "package"} ${v.version}: APT Filename must be a relative pool path`);
+  }
+  if (filename.split("/").includes("..")) {
+    throw new Error(`${v.control?.Package || "package"} ${v.version}: unsafe APT Filename ${filename}`);
+  }
+  return filename;
+}
+
+function poolFilename(id, deb) {
+  const initial = id.replace(/^com\./, "").replace(/^org\./, "")[0] || "_";
+  return `pool/main/${initial}/${id.split(".").pop()}/${basename(deb)}`;
+}
+
 async function renderPackages(manifest) {
   // Only what is published on the site: each listed entry at its latest
   // version, plus the package ids declared as `members` of that entry
@@ -175,7 +191,7 @@ async function renderPackages(manifest) {
     f.MD5sum = v.md5;
     f.SHA1 = v.sha1;
     f.SHA256 = v.sha256;
-    f.Filename = effectiveUrl(v);
+    f.Filename = aptFilename(v);
     stanzas.push(renderStanza(f));
   }
   return stanzas.join("\n\n") + "\n";
@@ -392,7 +408,6 @@ async function add() {
   const tag = flag("tag");
   const url = flag("url");
   const group = flag("group");
-  const copy = has("copy");
 
   const control = controlFromDeb(deb);
   const id = control.Package;
@@ -411,20 +426,11 @@ async function add() {
   }
 
   const hashes = await hashFile(deb);
-  let debUrl = url;
-
-  if (/^https?:/.test(url || "")) {
-    debUrl = url;
-  } else {
-    // Legacy mode: keep the file in pool/ and reference it relatively.
-    const initial = id.replace(/^com\./, "").replace(/^org\./, "")[0] || "_";
-    const dir = join(DOCS, "pool", "main", initial, id.split(".").pop());
-    await mkdir(dir, { recursive: true });
-    const dest = join(dir, basename(deb));
-    if (resolve(deb) !== resolve(dest)) await copyFile(deb, dest);
-    debUrl = `pool/main/${initial}/${id.split(".").pop()}/${basename(deb)}`;
-    void copy;
-  }
+  const filename = poolFilename(id, deb);
+  const dest = join(DOCS, filename);
+  await mkdir(dirname(dest), { recursive: true });
+  if (resolve(deb) !== resolve(dest)) await copyFile(deb, dest);
+  const debUrl = /^https?:/.test(url || "") ? url : filename;
 
   const manifest = await loadManifest();
   const isNew = !manifest.packages[id];
@@ -453,6 +459,7 @@ async function add() {
   const entry = {
     version,
     url: debUrl,
+    filename,
     ...hashes,
     control: stripHashes(control),
     published: new Date().toISOString(),
@@ -493,6 +500,43 @@ async function check() {
       }
       if (!v.sha256 || !v.size) problems.push(`${id} ${v.version}: missing hashes/size`);
     }
+  }
+
+  // Validate exactly what renderPackages will publish (latest site packages
+  // and their explicitly listed members). A remote URL in Filename is not
+  // valid for a flat APT repository; all artifacts must exist in the site pool.
+  const published = new Map();
+  for (const pkg of Object.values(manifest.packages)) {
+    if (!pkg.site) continue;
+    const current = latest(pkg);
+    if (current) published.set(current.control.Package, current);
+    for (const member of pkg.members ?? []) {
+      const memberPackage = manifest.packages[member];
+      const memberVersion = memberPackage && latest(memberPackage);
+      if (memberVersion) published.set(memberVersion.control.Package, memberVersion);
+    }
+  }
+  for (const [id, v] of published) {
+    let filename;
+    try {
+      filename = aptFilename(v);
+    } catch (error) {
+      problems.push(error.message);
+      continue;
+    }
+    const path = resolve(DOCS, filename);
+    const rel = relative(DOCS, path);
+    if (!rel || rel === ".." || rel.startsWith(`..${process.platform === "win32" ? "\\" : "/"}`)) {
+      problems.push(`${id} ${v.version}: Filename escapes docs: ${filename}`);
+      continue;
+    }
+    if (!existsSync(path)) {
+      problems.push(`${id} ${v.version}: missing pool artifact docs/${filename}`);
+      continue;
+    }
+    const actual = await hashFile(path);
+    if (actual.size !== v.size) problems.push(`${id} ${v.version}: pool artifact size mismatch`);
+    if (actual.sha256 !== v.sha256) problems.push(`${id} ${v.version}: pool artifact SHA256 mismatch`);
   }
   if (problems.length) {
     console.error(problems.map((p) => "  " + p).join("\n"));
