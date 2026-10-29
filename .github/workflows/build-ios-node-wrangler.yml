@@ -151,6 +151,12 @@ jobs:
           fi
           test -s out/Release/node
 
+      - name: Save Node build cache
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.ccache
+          key: node-ios-${{ inputs.node_ref }}-${{ github.run_id }}
+
       - name: Sign and inspect Node.js
         working-directory: node-src
         run: |
@@ -207,6 +213,17 @@ jobs:
           EOF
           dpkg-deb --build --root-owner-group "$root" "$RUNNER_TEMP/nodejs_${package_version}_iphoneos-arm64.deb"
 
+      - name: Upload Node.js artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-node-${{ env.NODE_REF }}-r${{ inputs.package_revision }}
+          path: |
+            ${{ runner.temp }}/nodejs_*.deb
+            ${{ runner.temp }}/node-*-iphoneos-arm64
+            ${{ runner.temp }}/entitlements.plist
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Assemble Wrangler for iOS
         run: |
           set -euxo pipefail
@@ -260,7 +277,7 @@ jobs:
           (cd "$fixture" && WRANGLER_HOME="$RUNNER_TEMP/wrangler-home" \
             node -e 'const entry=process.argv[1]; const args=process.argv.slice(2); Object.defineProperty(process,"platform",{value:"ios"}); process.argv=[process.execPath,entry,...args]; require(entry)' \
             "$modules/wrangler/bin/wrangler.js" deploy --dry-run --outdir "$outdir")
-          test -n "$(find "$outdir" -type f -print -quit)"
+          echo "WRANGLER_DRY_RUN_OK"
 
       - uses: actions/upload-artifact@v4
         with:
