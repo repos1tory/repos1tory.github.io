@@ -15,11 +15,12 @@ publishing the packages to the Sileo repository.
 
 ## Published package
 
-`nodejs 22.19.0-1` is published: built from the validated
-[`j0shua-SYSON/node-ios`](https://github.com/j0shua-SYSON/node-ios) v22.19.0
-build (maintained fork with fixes: [`repos1tory/node-ios`](https://github.com/repos1tory/node-ios)),
-packaged and verified on-device. The CI pipeline here builds the next version
-(the default is `v24.22.0`) from `ios-source-fixups.sh`.
+`nodejs 22.19.0-2` carries the iOS-safe V8 target-feature fix and is being
+built from the maintained [`repos1tory/node-ios`](https://github.com/repos1tory/node-ios)
+source. The iOS source patch is mirrored here for the combined Wrangler build;
+keep it in sync with `node-ios/scripts/ios-source-fixups.sh`. The combined CI
+workflow builds Node.js and Wrangler packages; its default Node source is
+`v24.22.0`.
 
 Runtime flags baked into the `node`/`npm`/`npx` wrappers:
 

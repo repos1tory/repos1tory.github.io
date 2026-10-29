@@ -7,6 +7,10 @@ on:
         description: "Upstream Node.js tag"
         required: true
         default: "v24.22.0"
+      package_revision:
+        description: "Debian revision for nodejs (bump when iOS port patches change)"
+        required: true
+        default: "2"
       wrangler_version:
         description: "Cloudflare Wrangler npm version"
         required: true
@@ -129,12 +133,15 @@ jobs:
         run: |
           set -euxo pipefail
           version="${NODE_REF#v}"
+          package_version="${version}-${{ inputs.package_revision }}"
           root="$RUNNER_TEMP/nodejs-pkg"
           mkdir -p "$root/DEBIAN" "$root/usr/bin" "$root/usr/lib/nodejs" "$root/usr/lib/node_modules" "$root/usr/share/doc/nodejs"
           cp node-src/out/Release/node "$root/usr/lib/nodejs/node"
           cp -R node-src/deps/npm "$root/usr/lib/node_modules/npm"
           cp node-src/LICENSE "$root/usr/share/doc/nodejs/copyright"
           cp ports/nodejs-ios/README.md "$root/usr/share/doc/nodejs/README.port"
+          cp node-src/out/Release/node "$RUNNER_TEMP/node-${version}-iphoneos-arm64"
+          cp ports/nodejs-ios/entitlements.plist "$RUNNER_TEMP/entitlements.plist"
           cat > "$root/usr/bin/node" <<'EOF'
           #!/var/jb/bin/sh
           exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler "$@"
@@ -150,7 +157,7 @@ jobs:
           chmod 755 "$root/usr/bin/node" "$root/usr/bin/npm" "$root/usr/bin/npx" "$root/usr/lib/nodejs/node"
           cat > "$root/DEBIAN/control" <<EOF
           Package: nodejs
-          Version: ${version}-1
+          Version: ${package_version}
           Architecture: iphoneos-arm64
           Maintainer: Alsinas Labs
           Section: Development
@@ -159,7 +166,7 @@ jobs:
           Description: Node.js ${version} runtime for jailbroken iOS arm64
            Experimental upstream Node.js port with W^X JIT support for iOS.
           EOF
-          dpkg-deb --build --root-owner-group "$root" "$RUNNER_TEMP/nodejs_${version}-1_iphoneos-arm64.deb"
+          dpkg-deb --build --root-owner-group "$root" "$RUNNER_TEMP/nodejs_${package_version}_iphoneos-arm64.deb"
 
       - name: Assemble Wrangler for iOS
         run: |
@@ -222,5 +229,7 @@ jobs:
           path: |
             ${{ runner.temp }}/nodejs_*-iphoneos-arm64.deb
             ${{ runner.temp }}/wrangler-ios_*-iphoneos-arm64.deb
+            ${{ runner.temp }}/node-*-iphoneos-arm64
+            ${{ runner.temp }}/entitlements.plist
           if-no-files-found: error
           retention-days: 14
