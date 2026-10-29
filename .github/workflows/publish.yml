@@ -45,12 +45,17 @@ jobs:
       GROUP: ${{ github.event.client_payload.group || github.event.inputs.group }}
       NO_SITE: ${{ github.event.client_payload.no_site || github.event.inputs.no_site || 'false' }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      - name: Install signing/verification dependencies
+        run: npm ci
 
       - name: Validate request
         run: |
@@ -89,6 +94,8 @@ jobs:
               node scripts/repo.mjs add --deb "$deb" "${flags[@]}" --url "$url"
             done
             node scripts/repo.mjs check
+            node scripts/sign-release.mjs
+            sh scripts/verify-repo.sh
             git add packages.json docs
             if git diff --cached --quiet; then
               echo "nothing changed"

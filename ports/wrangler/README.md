@@ -16,3 +16,8 @@ package must pass on-device authentication/API tests before it is published.
 esbuild-wasm). Authenticate on iOS with `wrangler login --device` — the browser
 callback flow (`http://localhost:8976`) is unreliable on iOS. The `nodejs`
 package is required (the wrapper reuses it with the same required flags).
+
+> **Moved:** the maintained packaging source and iOS runtime patches now live in
+> [`repos1tory/wrangler-ios`](https://github.com/repos1tory/wrangler-ios)
+> (`scripts/build-deb.sh`, `scripts/patch-ios.mjs`, `scripts/test-package.sh`).
+> This directory is kept for history; the site workflow no longer builds from it.

@@ -1,0 +1,5 @@
+Types: deb
+URIs: https://repos1tory.github.io/
+Suites: ./
+Components: main
+Signed-By: /var/jb/etc/apt/trusted.gpg.d/repos1tory.gpg

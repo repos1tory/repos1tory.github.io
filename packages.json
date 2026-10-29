@@ -1320,12 +1320,37 @@
           },
           "published": "2026-10-27T00:21:24.906Z",
           "filename": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb"
+        },
+        {
+          "version": "2026.10.3-2",
+          "url": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
+          "filename": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
+          "size": 16929988,
+          "md5": "13c499f19aa0a4b321e9979e1ed9f58a",
+          "sha1": "373b16ad908569b672797e1e88a50a0400ed60ef",
+          "sha256": "8521ca597b699869b83518cd62554a29666c0be1c5dece0fb6f3984d5bf4431b",
+          "control": {
+            "Package": "com.repos1tory.cloudflared",
+            "Name": "cloudflared",
+            "Version": "2026.10.3-2",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "repos1tory",
+            "Author": "Cloudflare, Inc.; iOS port by repos1tory",
+            "Section": "Networking",
+            "Priority": "optional",
+            "Depends": "firmware (>= 15.0)",
+            "Suggests": "nodejs (>= 22.19.0)",
+            "Installed-Size": "38624",
+            "Homepage": "https://github.com/repos1tory/cloudflared-ios",
+            "Description": "Cloudflare Tunnel client for jailbroken iOS (arm64)\ncloudflared as a native command-line tool for rootless jailbroken iOS\n(palera1n rootless and Dopamine). Quick tunnels and named tunnels run\ndirectly on the device; no Mac or companion server is required. Node.js is\noptional and is only used by the quick-tunnel compatibility shim; the\nnative binary itself does not depend on npm or Node."
+          },
+          "published": "2026-10-29T18:36:01.824Z"
         }
       ],
       "order": 0,
       "links": [
         {
-          "href": "https://github.com/repos1tory/cloudflared-ios/releases/download/v2026.10.3/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb",
+          "href": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
           "label": "download .deb"
         }
       ],
@@ -1414,7 +1439,7 @@
       "group": "ports",
       "site": true,
       "blurb": "the Cloudflare Workers CLI (esbuild-wasm). deploy Workers straight from the device.",
-      "source": null,
+      "source": "https://github.com/repos1tory/wrangler-ios",
       "repo": "repos1tory/wrangler-ios",
       "versions": [
         {
@@ -1436,12 +1461,33 @@
             "Description": " Cloudflare Wrangler CLI for jailbroken iOS arm64\nAPI, authentication, and deployment CLI. Bundles esbuild-wasm (no native\nesbuild binary needed) and defers workerd's unsupported-platform error so\ndeploy commands run on iOS. Authenticate with \"wrangler login --device\";\nlocal \"wrangler dev\" is unavailable because Cloudflare workerd has no iOS\nruntime build."
           },
           "published": null
+        },
+        {
+          "version": "4.151.0-2",
+          "url": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-2_iphoneos-arm64.deb",
+          "filename": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-2_iphoneos-arm64.deb",
+          "size": 11051576,
+          "md5": "95d660710faa3098ac88a2dbdfed46db",
+          "sha1": "b1396d0228faf4f9cd8c9c41470e0e335887375b",
+          "sha256": "6f27fb0ed0ca4bf4c7d25934a72fbdb18d015b320e97d2dadbaa812eb09bf25b",
+          "control": {
+            "Package": "wrangler-ios",
+            "Version": "4.151.0-2",
+            "Architecture": "iphoneos-arm64",
+            "Maintainer": "Alsinas Labs",
+            "Section": "Development",
+            "Priority": "optional",
+            "Depends": "firmware (>= 15.0), nodejs (>= 22.19.0)",
+            "Homepage": "https://github.com/repos1tory/wrangler-ios",
+            "Description": "Cloudflare Wrangler CLI for jailbroken iOS arm64\nAPI, authentication, and deployment CLI. Bundles esbuild-wasm (no native\nesbuild binary needed) and defers workerd's unsupported-platform error so\ndeploy commands run on iOS. The esbuild-wasm child is launched through the\nreal Node executable with iOS-safe wasm flags, so it works on both palera1n\nand Dopamine rootless jailbreaks. Authenticate with \"wrangler login --device\";\nlocal \"wrangler dev\" is unavailable because Cloudflare workerd has no iOS\nruntime build."
+          },
+          "published": "2026-10-29T18:36:01.227Z"
         }
       ],
       "order": 2,
       "links": [
         {
-          "href": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb",
+          "href": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-2_iphoneos-arm64.deb",
           "label": "download .deb"
         }
       ],

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T18:14:56.520Z",
+  "generated": "2026-10-29T18:47:34.771Z",
   "packages": {
     "com.alsinas.homemanager": {
       "name": "HomeManager",
@@ -175,10 +175,10 @@
     },
     "com.repos1tory.cloudflared": {
       "name": "cloudflared",
-      "version": "2026.10.3-1",
-      "url": "https://github.com/repos1tory/cloudflared-ios/releases/download/v2026.10.3/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb",
-      "size": 16931368,
-      "sha256": "43be65a40a4766904cc837de13977f04973722fa7a305ea439c90d7c017c1b42",
+      "version": "2026.10.3-2",
+      "url": "pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb",
+      "size": 16929988,
+      "sha256": "8521ca597b699869b83518cd62554a29666c0be1c5dece0fb6f3984d5bf4431b",
       "source": "https://github.com/repos1tory/cloudflared-ios"
     },
     "nodejs": {
@@ -191,10 +191,11 @@
     },
     "wrangler-ios": {
       "name": "Wrangler",
-      "version": "4.151.0-1",
-      "url": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb",
-      "size": 8276712,
-      "sha256": "bd36c0ce092eccb6a23ee982766d19bbcb25853801841a041d43ba2c005b8ac2"
+      "version": "4.151.0-2",
+      "url": "pool/main/w/wrangler-ios/wrangler-ios_4.151.0-2_iphoneos-arm64.deb",
+      "size": 11051576,
+      "sha256": "6f27fb0ed0ca4bf4c7d25934a72fbdb18d015b320e97d2dadbaa812eb09bf25b",
+      "source": "https://github.com/repos1tory/wrangler-ios"
     },
     "com.alsinas.sounddeck.tests": {
       "name": "SoundDeck Test Signals",

@@ -113,7 +113,7 @@ async function hashFile(path) {
 // Field order used in Packages (cosmetic; dpkg doesn't care).
 const FIELD_ORDER = [
   "Package", "Version", "Architecture", "Maintainer", "Installed-Size",
-  "Depends", "Pre-Depends", "Conflicts", "Replaces", "Provides", "Breaks",
+  "Depends", "Pre-Depends", "Recommends", "Suggests", "Conflicts", "Replaces", "Provides", "Breaks",
   "Priority", "Section", "Homepage", "Depiction", "SileoDepiction",
   "Author", "Name", "Description",
 ];

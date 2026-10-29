@@ -9,8 +9,14 @@
 ```
 packages.json    source of truth: every package, every version, group + blurb
 scripts/repo.mjs seed | render | add | check
+scripts/sign-release.mjs      sign docs/Release -> InRelease + Release.gpg
+scripts/verify-repo.mjs       verify signatures and every pool hash
+scripts/generate-signing-key.mjs  create the signing key (private key stays outside the repo)
 docs/            published by GitHub Pages (main /docs)
   Packages, Packages.gz, Release   generated — do not edit
+  InRelease, Release.gpg           generated signatures — do not edit
+  repos1tory.gpg, repos1tory.asc   public APT key
+  install-key.sh, repos1tory.sources  client key/source helpers
   downloads.json                   generated — latest version per package
   index.html                       generated between <!-- BEGIN/END --> markers
   pool/                            .deb files served to APT/Sileo
@@ -25,7 +31,8 @@ ci/tweak-release.yml               caller to copy into a tweak repo
    Download counts come from GitHub's release asset counter.
 2. It dispatches `package-release` at this repo with `repo`, `tag`, `group`.
 3. `publish.yml` downloads and hashes the asset, mirrors it into `docs/pool/`,
-   records both URLs in `packages.json`, regenerates the indexes, and commits.
+   records both URLs in `packages.json`, regenerates the indexes, signs
+   `Release`, and commits.
 4. Pages redeploys; Sileo sees the new version on its next refresh (≤ 5 min).
 
 `Filename:` is always a relative path into `pool/`. APT resolves it against the
@@ -46,6 +53,33 @@ gh secret set DISPATCH_TOKEN -R repos1tory/<repo>
 Release with `git tag v0.2.3 && git push --tags`, or run the workflow manually
 with a tag. Without `DISPATCH_TOKEN` the release is still created; the site
 step warns and skips.
+
+## signing
+
+APT verifies `InRelease` (preferred) or `Release.gpg` against
+`docs/repos1tory.gpg`. Do not commit a private key, and do not publish an
+unsigned index.
+
+```sh
+npm ci
+node scripts/generate-signing-key.mjs   # once; private key -> ~/.config/repos1tory/
+node scripts/repo.mjs render
+node scripts/sign-release.mjs
+sh scripts/verify-repo.sh
+```
+
+The private key path can be overridden with `APT_SIGNING_KEY_FILE`, or the
+armored key can be supplied inline as `APT_SIGNING_KEY` (how CI does it):
+
+```sh
+gh secret set APT_SIGNING_KEY -R repos1tory/repos1tory.github.io \
+  < ~/.config/repos1tory/apt-signing-key.asc
+```
+
+`publish.yml` runs `sign-release.mjs` after every ingest and fails the job if
+the key secret is missing or the signature does not verify. Clients install the
+public key once with `docs/install-key.sh`; existing sources then authenticate
+without disabling signature checks.
 
 ## notes
 

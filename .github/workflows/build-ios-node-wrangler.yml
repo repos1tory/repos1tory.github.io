@@ -77,6 +77,13 @@ jobs:
           ref: ${{ env.NODE_PORT_REF }}
           path: node-ios-port
 
+      - name: Checkout Wrangler packaging source
+        uses: actions/checkout@v4
+        with:
+          repository: repos1tory/wrangler-ios
+          ref: main
+          path: wrangler-ios-src
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -179,7 +186,9 @@ jobs:
           version="${NODE_REF#v}"
           package_version="${version}-${{ inputs.package_revision }}"
           root="$RUNNER_TEMP/nodejs-pkg"
-          mkdir -p "$root/DEBIAN" "$root/var/jb/usr/bin" "$root/var/jb/usr/lib/nodejs" "$root/var/jb/usr/lib/node_modules" "$root/var/jb/usr/share/doc/nodejs"
+          mkdir -p "$root/DEBIAN" "$root/var/jb/usr/bin" "$root/var/jb/usr/lib/nodejs" "$root/var/jb/usr/lib/node_modules" "$root/var/jb/usr/share/doc/nodejs" "$root/var/jb/etc"
+          printf 'prefix=/var/jb/usr\n' > "$root/var/jb/etc/npmrc"
+          chmod 644 "$root/var/jb/etc/npmrc"
           cp node-src/out/Release/node "$root/var/jb/usr/lib/nodejs/node"
           cp -R node-src/deps/npm "$root/var/jb/usr/lib/node_modules/npm"
           cp node-src/LICENSE "$root/var/jb/usr/share/doc/nodejs/copyright"
@@ -234,67 +243,21 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-      - name: Assemble Wrangler for iOS
+      - name: Build Wrangler package from wrangler-ios
         run: |
           set -euxo pipefail
-          node_version="${NODE_REF#v}"
-          wrangler_package_version="${WRANGLER_VERSION}-${{ inputs.wrangler_revision }}"
-          install_root="$RUNNER_TEMP/wrangler-install"
-          root="$RUNNER_TEMP/wrangler-pkg"
-          mkdir -p "$install_root" "$root/DEBIAN" "$root/var/jb/usr/bin" "$root/var/jb/usr/lib"
-          cp ports/wrangler/package.json ports/wrangler/package-lock.json "$install_root/"
-          (cd "$install_root" && npm ci --omit=optional --ignore-scripts --no-audit --no-fund)
-          node ports/wrangler/patch-ios-workerd.mjs "$install_root/node_modules"
-          cp -R "$install_root/node_modules" "$root/var/jb/usr/lib/node_modules"
-          cp ports/wrangler/workerd-ios-unavailable "$root/var/jb/usr/bin/workerd-ios-unavailable"
-          cat > "$root/var/jb/usr/bin/wrangler" <<'EOF'
-          #!/var/jb/bin/sh
-          exec /var/jb/usr/lib/nodejs/node --predictable --single-threaded --disable-wasm-trap-handler /var/jb/usr/lib/node_modules/wrangler/bin/wrangler.js "$@"
-          EOF
-          chmod 755 "$root/var/jb/usr/bin/wrangler" "$root/var/jb/usr/bin/workerd-ios-unavailable"
-          cat > "$root/DEBIAN/control" <<EOF
-          Package: wrangler-ios
-          Version: ${wrangler_package_version}
-          Architecture: iphoneos-arm64
-          Maintainer: Alsinas Labs
-          Section: Development
-          Priority: optional
-          Depends: firmware (>= 15.0), nodejs (>= ${node_version})
-          Description: Cloudflare Wrangler CLI for jailbroken iOS arm64
-           API, authentication, and deployment CLI. Local wrangler dev is unavailable
-           because Cloudflare workerd has no iOS runtime build.
-          EOF
-          deb="$RUNNER_TEMP/wrangler-ios_${wrangler_package_version}_iphoneos-arm64.deb"
-          dpkg-deb --build --root-owner-group "$root" "$deb"
-          dpkg-deb -c "$deb" | grep -F './var/jb/usr/bin/wrangler'
-          if dpkg-deb -c "$deb" | grep -F './usr/bin/wrangler'; then
-            echo 'rootless Wrangler package unexpectedly contains /usr/bin/wrangler' >&2
-            exit 1
-          fi
+          cd "$GITHUB_WORKSPACE/wrangler-ios-src"
+          PACKAGE_REVISION="${{ inputs.wrangler_revision }}" \
+            sh scripts/build-deb.sh "$WRANGLER_VERSION"
+          cp dist/wrangler-ios_*.deb "$RUNNER_TEMP/"
+          dpkg-deb -f "$RUNNER_TEMP"/wrangler-ios_*.deb | head -20
 
-      - name: Smoke-test Wrangler package on build host
+      - name: Smoke-test Wrangler package
         run: |
           set -euxo pipefail
-          modules="$RUNNER_TEMP/wrangler-pkg/var/jb/usr/lib/node_modules"
-          node --check "$modules/wrangler/bin/wrangler.js"
-          node -e 'const p=require("./ports/wrangler/package.json"); console.log("wrangler",p.dependencies.wrangler,"esbuild wasm",p.dependencies.esbuild)'
-          node -e 'const e=require(process.argv[1]); e.transform("const x: number = 42", {loader:"ts"}).then(r=>{if(!r.code.includes("42"))process.exit(1); console.log("ESBUILD_WASM_OK")})' "$modules/esbuild/lib/main.js"
-          node -e 'const entry=process.argv[1]; Object.defineProperty(process,"platform",{value:"ios"}); process.argv=[process.execPath,entry,"--version"]; require(entry)' "$modules/wrangler/bin/wrangler.js"
-          fixture="$RUNNER_TEMP/wrangler-smoke"
-          outdir="$RUNNER_TEMP/wrangler-smoke-output"
-          mkdir -p "$fixture"
-          cat > "$fixture/wrangler.toml" <<'EOF'
-          name = "ios-port-smoke"
-          main = "index.js"
-          compatibility_date = "2026-10-12"
-          EOF
-          cat > "$fixture/index.js" <<'EOF'
-          export default { fetch() { return new Response("ok"); } };
-          EOF
-          (cd "$fixture" && WRANGLER_HOME="$RUNNER_TEMP/wrangler-home" \
-            node -e 'const entry=process.argv[1]; const args=process.argv.slice(2); Object.defineProperty(process,"platform",{value:"ios"}); process.argv=[process.execPath,entry,...args]; require(entry)' \
-            "$modules/wrangler/bin/wrangler.js" deploy --dry-run --outdir "$outdir")
-          echo "WRANGLER_DRY_RUN_OK"
+          cd "$GITHUB_WORKSPACE/wrangler-ios-src"
+          sh scripts/test-package.sh "$RUNNER_TEMP"/wrangler-ios_*.deb
+          echo "WRANGLER_SMOKE_OK"
 
       - uses: actions/upload-artifact@v4
         with:

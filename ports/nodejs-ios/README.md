@@ -33,3 +33,22 @@ Runtime flags baked into the `node`/`npm`/`npx` wrappers:
 
 The `entitlements.plist` also requests
 `com.apple.developer.kernel.extended-virtual-addressing` for larger reservations.
+
+## npm global prefix
+
+The Node binary lives at `/var/jb/usr/lib/nodejs/node`, so npm's
+`process.execPath`-derived default prefix becomes `/var/jb/usr/lib`, and
+`npm -g` looks for the nonexistent `/var/jb/usr/lib/lib`. The package therefore
+ships `/var/jb/etc/npmrc` with:
+
+```
+prefix=/var/jb/usr
+```
+
+That makes system-wide installs land in `/var/jb/usr/lib/node_modules` and
+`/var/jb/usr/bin` (root required). Unprivileged users should set a user prefix
+in `~/.npmrc`, for example:
+
+```
+prefix=/var/jb/var/mobile/.local/npm-global
+```

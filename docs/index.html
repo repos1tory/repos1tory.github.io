@@ -76,12 +76,27 @@
 <h2>ports</h2>
 <ul>
   <!-- BEGIN:ports -->
-  <li><b><a href="https://github.com/repos1tory/cloudflared-ios">cloudflared</a></b> <span class="ver">2026.10.3-1</span> — Cloudflare Tunnel client running natively on jailbroken iOS: quick tunnels and HTTPS from the device, no companion server. <a href="https://github.com/repos1tory/cloudflared-ios/releases/download/v2026.10.3/cloudflared-ios_2026.10.3-1_iphoneos-arm64.deb">download .deb</a></li>
+  <li><b><a href="https://github.com/repos1tory/cloudflared-ios">cloudflared</a></b> <span class="ver">2026.10.3-2</span> — Cloudflare Tunnel client running natively on jailbroken iOS: quick tunnels and HTTPS from the device, no companion server. <a href="pool/main/r/cloudflared/cloudflared-ios_2026.10.3-2_iphoneos-arm64.deb">download .deb</a></li>
   <li><b><a href="https://github.com/repos1tory/node-ios">Node.js</a></b> <span class="ver">22.19.0-3</span> — upstream Node.js 22 with full JIT and WebAssembly, bundled npm and npx. <a href="https://github.com/repos1tory/node-ios/releases/download/v22.19.0-ios2/nodejs_22.19.0-3_iphoneos-arm64.deb">download .deb</a></li>
-  <li><b><a href="https://github.com/repos1tory/wrangler-ios">Wrangler</a></b> <span class="ver">4.151.0-1</span> — the Cloudflare Workers CLI (esbuild-wasm). deploy Workers straight from the device. <a href="pool/main/w/wrangler-ios/wrangler-ios_4.151.0-1_iphoneos-arm64.deb">download .deb</a></li>
+  <li><b><a href="https://github.com/repos1tory/wrangler-ios">Wrangler</a></b> <span class="ver">4.151.0-2</span> — the Cloudflare Workers CLI (esbuild-wasm). deploy Workers straight from the device. <a href="pool/main/w/wrangler-ios/wrangler-ios_4.151.0-2_iphoneos-arm64.deb">download .deb</a></li>
   <li><b><a href="https://github.com/repos1tory/opencode-ios">OpenCode Server</a></b> <span class="ver">2.2.0-ios9</span> — OpenCode agent server with iOS launchd watchdog, network relay, session recovery, bundled web app, and native home-screen app. <a href="https://github.com/repos1tory/opencode-ios/releases/download/opencode-ios-2.2.0-ios9/opencode-server-2.2.0-ios9_iphoneos-arm64.deb">download .deb</a></li>
   <!-- END:ports -->
 </ul>
+
+<h2 id="repository-key">repository key</h2>
+<p>This repository is signed. APT and Sileo verify <code>InRelease</code> against
+the public key below; packages are then checked against the SHA256 hashes in
+<code>Packages</code>.</p>
+<p>Fingerprint: <code>8EDD 153E 3C96 D30E FFC0 9F54 995A 38BA F1F4 DC37</code><br>
+Key: <a href="repos1tory.gpg">repos1tory.gpg</a> · <a href="repos1tory.asc">repos1tory.asc</a> ·
+<a href="repos1tory.fingerprint">fingerprint file</a></p>
+<p>Install the public key once on a rootless device:</p>
+<pre><code>curl -fsSL https://repos1tory.github.io/install-key.sh -o /tmp/repos1tory-key.sh
+sudo /var/jb/bin/sh /tmp/repos1tory-key.sh</code></pre>
+<p>Or use the pinned source file:
+<a href="repos1tory.sources">repos1tory.sources</a> (installs to
+<code>/var/jb/etc/apt/sources.list.d/</code> and uses
+<code>Signed-By: /var/jb/etc/apt/trusted.gpg.d/repos1tory.gpg</code>).</p>
 
 <script>
 // "r1" — spinning extruded logotype, rainbow, comic-sans stack, pixelated.

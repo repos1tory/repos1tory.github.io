@@ -1,0 +1,12 @@
+{
+  "name": "repos1tory-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sign": "node scripts/sign-release.mjs",
+    "verify": "node scripts/verify-repo.mjs"
+  },
+  "devDependencies": {
+    "openpgp": "^6.3.2"
+  }
+}
